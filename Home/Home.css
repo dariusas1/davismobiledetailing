@@ -56,6 +56,7 @@ html {
     left: 0;
     -webkit-transition: var(--transition);
     transition: var(--transition);
+    z-index: 100;
 }
 
 .navbar.scrolled {
@@ -394,5 +395,109 @@ html {
 
     .about-card {
         margin-top: 0;
+    }
+}
+
+/* PROJECTS */
+.projects {
+    width: 100%;
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projects-heading {
+    text-align: center;
+}
+
+.projects-heading p:nth-child(1) {
+    color: var(--clr-dark-theme);
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-700);
+    font-size: 1rem;
+}
+
+.projects-heading p:nth-child(2) {
+    color: var(--clr-light-theme);
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-500);
+    font-size: 1.75rem;
+}
+
+.projects-content {
+    margin-top: 2rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+}
+
+.project-card {
+    width: 15rem;
+    overflow: hidden;
+    border-radius: 1rem;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.project-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-card-overlay {
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: var(--transition);
+    -webkit-transition: var(--transition);
+}
+
+.project-card:hover .project-card-overlay {
+    opacity: 1;
+}
+
+
+.project-card-overlay button {
+    background-color: transparent;
+    border: 0.1rem solid var(--clr-white);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    color: var(--clr-white);
+    font-family: var(--ff-poppins);
+    border-radius: 0.5rem;
+    font-weight: var(--fw-700);
+    transition: var(--transition);
+}
+
+.project-card-overlay button:hover {
+    background-color: var(--clr-white);
+    color: var(--clr-black);
+}
+
+@media(min-width: 650px) {
+    .projects-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(min-width: 900px) {
+    .projects-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(min-width: 1000px) {
+    .projects-content {
+        max-width: 57rem;
     }
 }
