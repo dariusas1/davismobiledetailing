@@ -1,0 +1,111 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+*::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --clr-light-theme: #0466c8;
+    --clr-dark-theme: #0353a4;
+    --clr-white: #ffffff;
+    --clr-light-gray: #f2f2f2;
+    --clr-dark-gray: #cccccc;
+    --clr-black: #000000;
+
+    /* Font Families */
+    --ff-roboto: 'Roboto', sans-serif;
+    --ff-poppins: 'Poppins', sans-serif;
+
+    /* Font Weight */
+    --fw-700: 700;
+    --fw-500: 500;
+    --fw-400: 400;
+    --fw-300: 300;
+
+    /* Transition */
+    --transition: 0.25s ease-in-out;
+}
+
+html {
+    background-color: var(--clr-light-gray);
+}
+
+/* REVIEWS */
+.reviews {
+    width: 100%;
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* make review 200 char max bc of set height */
+.owl-carousel {
+    margin-top: 2rem;
+    max-width: 70rem;
+    padding: 1rem;
+}
+
+.owl-stage-outer {
+    padding-top: 1rem;
+}
+
+.review-card {
+    background-color: var(--clr-white);
+    padding: 2rem;
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin: 0 1rem 2rem;
+    box-shadow: 0 0 1rem rgb(0 0 0 / 0.2);
+    height: 20rem;
+}
+
+.review-card-name {
+    color: var(--clr-black);
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-700);
+    font-size: 1.1rem;
+}
+
+.review-card-stars {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.review-card-stars span {
+    color: #ffc081;
+}
+
+.review-card-review {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 0.1rem solid var(--clr-light-gray);
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-500);
+    font-size: 0.9rem;
+    color: #7a7a7a;
+}
+
+@media(min-width: 650px) {
+    .reviews-content {
+        max-width: 50rem;
+    }
+
+    .review-card {
+        margin: 1rem;
+    }
+
+    .owl-stage-outer {
+        padding-top: 0;
+    }
+}

@@ -141,7 +141,8 @@ html {
 }
 
 .navbar-dropdown-link:hover {
-    background-color: #7a7a7a;
+    background-color: var(--clr-dark-theme);
+    color: var(--clr-white);
 }
 
 .navbar-content {
@@ -217,7 +218,8 @@ html {
 
 .hero-content {
     text-align: center;
-    margin-top: 1.25rem;
+    margin-top: 2rem;
+    max-width: 70rem;
 }
 
 .hero-title {
@@ -559,12 +561,15 @@ html {
     font-size: 1.75rem;
 }
 
-.reviews-content {
+/* make review 200 char max bc of set height */
+.owl-carousel {
     margin-top: 2rem;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    justify-items: center;
+    max-width: 70rem;
+    padding: 1rem;
+}
+
+.owl-stage-outer {
+    padding-top: 1rem;
 }
 
 .review-card {
@@ -573,9 +578,11 @@ html {
     border-radius: 0.25rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    margin-bottom: 2rem;
+    margin: 0 1rem 2rem;
+    box-shadow: 0 0 1rem rgb(0 0 0 / 0.2);
+    height: 20rem;
 }
 
 .review-card-name {
@@ -607,12 +614,15 @@ html {
 
 @media(min-width: 650px) {
     .reviews-content {
-        grid-template-columns: repeat(2, 1fr);
         max-width: 50rem;
     }
 
     .review-card {
         margin: 1rem;
+    }
+
+    .owl-stage-outer {
+        padding-top: 0;
     }
 }
 
