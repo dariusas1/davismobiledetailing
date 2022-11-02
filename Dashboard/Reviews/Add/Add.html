@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="./View.css">
+    <link rel="stylesheet" type="text/css" href="./Add.css">
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/jpg" href="../../../zimg/logo.png" />
-    <title>Dashboard | Reviews</title>
+    <title>Dashboard | Reviews - Add</title>
 </head>
 
 <body>
@@ -59,45 +59,28 @@
 
             <div class="dashboard-card">
 
-                <div class="reviews-view">
-                    <div class="add-review-card">
-                        <span class="material-symbols-rounded">
-                            add
-                        </span>
-                    </div>
-
-                    <div class="review-card">
-                        <p>Logan</p>
-                        <p>4 stars</p>
-                        <p>So like this is a totes cool guy and i reccommend him to errbodyke this is a totes cool guy
-                            and i reccommend him to errbodyke this is a totes cool guy and i reccommend him to errbodyke
-                            this is a totes cool guy and i reccommend him to errbody ke this is a totes cool guy and i
-                            reccommend him to errbodyke this is a totes cool guy and i reccommend him to errbody</p>
-                        <div class="review-card-options">
-                            <span class="material-symbols-rounded">
-                                edit
-                            </span>
-                            <span class="material-symbols-rounded">
-                                delete
+                <form class="reviews-add">
+                    <p class="review-add-heading">Add a new review</p>
+                    <input class="review-add-name-input" type="text" placeholder="Name">
+                    <textarea class="review-add-review-input" rows="4" placeholder="Review"></textarea>
+                    <div class="review-add-stars-dropdown">
+                        <div class="add-stars-dropdown-btn">Select Star Amount <span class="material-symbols-rounded">
+                                arrow_drop_down
                             </span>
                         </div>
+                        <ul class="stars-dropdown-items">
+                            <li class="stars-dropdown-item" data-star-num="1">1</li>
+                            <li class="stars-dropdown-item" data-star-num="2">2</li>
+                            <li class="stars-dropdown-item" data-star-num="3">3</li>
+                            <li class="stars-dropdown-item" data-star-num="4">4</li>
+                            <li class="stars-dropdown-item" data-star-num="5">5</li>
+                        </ul>
                     </div>
-
-                    <div class="review-card">
-                        <p>Jasper</p>
-                        <p>1 stars</p>
-                        <p>Yo what da fuq is dos shite mate</p>
-                        <div class="review-card-options">
-                            <span class="material-symbols-rounded">
-                                edit
-                            </span>
-                            <span class="material-symbols-rounded">
-                                delete
-                            </span>
-                        </div>
+                    <div class="review-add-btns">
+                        <button class="review-add-submit-btn" type="submit">Add</button>
+                        <button class="review-add-cancel-btn" type="button">Cancel</button>
                     </div>
-
-                </div>
+                </form>
 
             </div>
 
