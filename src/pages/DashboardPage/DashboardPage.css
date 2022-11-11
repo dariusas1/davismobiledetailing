@@ -1,0 +1,22 @@
+.dashboard-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard {
+    margin-left: 5rem;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.dashboard-card {
+    background-color: var(--clr-white);
+    width: 80%;
+    height: 80vh;
+    border-radius: 1rem;
+    padding: 2rem;
+}

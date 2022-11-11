@@ -1,0 +1,109 @@
+.reviews-add {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.review-add-heading {
+    color: var(--clr-black);
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-700);
+    font-size: 1.5rem;
+}
+
+.review-add-name-input,
+.review-add-review-input {
+    padding: 0.5rem;
+    outline: none;
+    border: 0.1rem solid var(--clr-black);
+    border-radius: 0.5rem;
+    font-family: var(--ff-poppins);
+    margin: 0.75rem;
+}
+
+.review-add-review-input {
+    resize: none;
+}
+
+.review-add-stars-dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.review-add-stars-dropdown:hover>.stars-dropdown-items {
+    display: block;
+}
+
+.add-stars-dropdown-btn {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: var(--clr-light-gray);
+    padding: 1rem;
+    border: 1px solid #000000;
+}
+
+.stars-dropdown-items {
+    position: absolute;
+    display: none;
+    background-color: var(--clr-dark-gray);
+    width: 100%;
+}
+
+.stars-dropdown-item {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    display: block;
+    cursor: pointer;
+}
+
+.stars-dropdown-item:hover {
+    background-color: var(--clr-light-theme);
+    color: var(--clr-white);
+}
+
+.review-add-star-tag {
+    background-color: #ffc081;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-700);
+    font-size: 1rem;
+}
+
+.review-add-btns {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.review-add-submit-btn,
+.review-add-cancel-btn {
+    outline: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-family: var(--ff-poppins);
+    margin: 0 1rem;
+}
+
+.review-add-submit-btn {
+    border: none;
+    background-color: var(--clr-dark-theme);
+    color: var(--clr-white);
+}
+
+.review-add-cancel-btn {
+    border: 0.1rem solid var(--clr-black);
+    background-color: var(--clr-light-gray);
+    color: var(--clr-black);
+}
+
+.review-add-warning {
+    margin-top: 1rem;
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-500);
+    font-size: 1rem;
+}

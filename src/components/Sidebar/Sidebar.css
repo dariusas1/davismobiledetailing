@@ -1,0 +1,38 @@
+.sidenav {
+    background-color: var(--clr-dark-theme);
+    height: 100vh;
+    width: 5rem;
+    position: fixed;
+    padding: 1rem 0;
+}
+
+.sidenav-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidenav-icon {
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.sidenav-icon:last-child {
+    margin-top: auto;
+}
+
+.sidenav-icon:hover {
+    background-color: var(--clr-light-theme);
+}
+
+.sidenav-icon span {
+    color: var(--clr-light-gray);
+    font-size: 2rem;
+}
+
+.sidenav-icon:hover span {
+    color: var(--clr-white);
+}
