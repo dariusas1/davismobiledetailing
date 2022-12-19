@@ -1,0 +1,67 @@
+/* WHY CHOOSE US/EXTRA INFO */
+.why-choose-us {
+    width: 100%;
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.why-choose-us-heading {
+    text-align: center;
+}
+
+.why-choose-us-heading p:nth-child(1) {
+    color: var(--clr-dark-theme);
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-700);
+    font-size: 1rem;
+}
+
+.why-choose-us-heading p:nth-child(2) {
+    color: var(--clr-light-theme);
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-500);
+    font-size: 1.75rem;
+}
+
+.why-choose-us-content {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.why-choose-us-card {
+    background-color: var(--clr-white);
+    box-shadow: 0 0 1rem rgb(0 0 0 / 0.3);
+    border-radius: 1rem;
+    max-width: 50rem;
+    display: flex;
+    overflow: hidden;
+}
+
+.why-choose-us-card-img {
+    display: none;
+}
+.why-choose-us-card-text {
+    padding: 2rem;
+}
+.why-choose-us-card-text p {
+    font-family: var(--ff-poppins);
+    font-size: 1rem;
+    text-align: center;
+}
+
+@media(min-width: 1000px) {
+    .why-choose-us-card-img {
+        display: flex;
+    }
+
+    .why-choose-us-card-img img {
+        width: 100%;
+        object-fit: cover;
+        display: block;
+    }
+}

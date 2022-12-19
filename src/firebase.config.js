@@ -1,17 +1,19 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCLGsl4hsJcfX3zx3Vw1CU_BHZL7PlbGJ0",
-    authDomain: "davis-8626f.firebaseapp.com",
-    projectId: "davis-8626f",
-    storageBucket: "davis-8626f.appspot.com",
-    messagingSenderId: "255584166515",
-    appId: "1:255584166515:web:dbad640faa8909e3c84006"
-};
+    apiKey: "AIzaSyCrgkDMEAkEwzdRpt42slEQVPMO3mFqysY",
+    authDomain: "davis-e2ce9.firebaseapp.com",
+    projectId: "davis-e2ce9",
+    storageBucket: "davis-e2ce9.appspot.com",
+    messagingSenderId: "521729027677",
+    appId: "1:521729027677:web:790d672ee39a58ca15e7b4"
+  };
 
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
+const storage = getStorage(app);
 
-export { db };
+export { db, storage };

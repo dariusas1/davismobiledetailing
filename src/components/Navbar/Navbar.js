@@ -27,8 +27,8 @@ const Navbar = ({ Link }) => {
                 </div>
                 <div className={"navbar-dropdown" + (isActive ? " active" : "")}>
                     <Link className="navbar-dropdown-link" to="/">HOME</Link>
-                    {/* <Link className="navbar-dropdown-link" to="/packages">PACKAGES</Link> */}
-                    <Link className="navbar-dropdown-link" to="/dashboard">DASHBOARD</Link>
+                    <Link className="navbar-dropdown-link" to="/packages">PACKAGES</Link>
+                    {/* <Link className="navbar-dropdown-link" to="/dashboard">DASHBOARD</Link> */}
                     <Link className="navbar-dropdown-link" to="/contact">CONTACT</Link>
                 </div>
             </div>
@@ -36,8 +36,8 @@ const Navbar = ({ Link }) => {
                 <img src={logo} alt="Logo" />
                 <div className="navbar-links">
                     <Link className="navbar-link" to="/">HOME</Link>
-                    {/* <Link className="navbar-link" to="/packages">PACKAGES</Link> */}
-                    <Link className="navbar-link" to="/dashboard">DASHBOARD</Link>
+                    <Link className="navbar-link" to="/packages">PACKAGES</Link>
+                    {/* <Link className="navbar-link" to="/dashboard">DASHBOARD</Link> */}
                     <Link className="navbar-link" to="/contact">CONTACT</Link>
                 </div>
             </div>
