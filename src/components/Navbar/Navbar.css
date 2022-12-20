@@ -1,16 +1,17 @@
 .navbar {
-    background-color: transparent;
+    /* background-color: transparent; */
+    background-color: var(--clr-light-gray);
     width: 100%;
     padding: 1rem 2rem;
-    position: fixed;
+    /* position: fixed;
     top: 0;
     left: 0;
     -webkit-transition: var(--transition);
     transition: var(--transition);
-    z-index: 100;
+    z-index: 100; */
 }
 
-.navbar.scrolled {
+/* .navbar.scrolled {
     background-color: var(--clr-light-gray);
 }
 
@@ -20,7 +21,7 @@
 
 .navbar.scrolled .navbar-link {
     color: var(--clr-black);
-}
+} */
 
 .navbar-content-mobile {
     width: 100%;
@@ -49,7 +50,8 @@
     transition: var(--transition);
     -webkit-transition: var(--transition);
     margin: 0.25rem 0;
-    background-color: var(--clr-white);
+    /* background-color: var(--clr-white); */
+    background-color: var(--clr-black);
 }
 
 #mobile-bars.active span:nth-child(2) {
@@ -130,7 +132,8 @@
 
     .navbar-link {
         cursor: pointer;
-        color: var(--clr-white);
+        /* color: var(--clr-white); */
+        color: var(--clr-black);
         font-size: 1rem;
         font-family: var(--ff-poppins);
         position: relative;

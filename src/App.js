@@ -110,11 +110,71 @@ function App() {
       });
   };
 
-
+  // FAQS(state & firebase logic)
+  const [faq, setFaq] = useState({ question: "", answer: "" });
+  const [updatedFaq, setUpdatedFaq] = useState({ id: "", question: "", answer: "" });
+  const [faqsList, setFaqsList] = useState([]);
+  const [faqsIsAdding, setFaqsIsAdding] = useState(false);
+  const [faqsIsUpdating, setFaqsIsUpdating] = useState(false);
+  const [faqWarning, setFaqWarning] = useState("");
+  const faqsCollectionRef = collection(db, "faqs");
+  const faqQ = query(faqsCollectionRef, orderBy("createdAt"));
+  const getFaqsList = () => {
+    onSnapshot(faqQ, snapshot => {
+      setFaqsList(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+    });
+  };
+  const handleFaqSubmit = (e) => {
+    e.preventDefault();
+    const enteredQuestion = faq.question;
+    const enteredAnswer = faq.answer;
+    if (enteredQuestion === "") {
+      setFaqWarning("You must enter a question");
+    } else if (enteredAnswer === "") {
+      setFaqWarning("You must enter your answer");
+    } else {
+      addDoc(faqsCollectionRef, {
+        question: enteredQuestion,
+        answer: enteredAnswer,
+        createdAt: serverTimestamp()
+      })
+        .then(() => {
+          setFaq({ question: "", answer: "" });
+          setFaqsIsAdding(false);
+          setFaqWarning("");
+        });
+    };
+  };
+  const deleteFaq = id => {
+    const docRef = doc(db, "faqs", id);
+    deleteDoc(docRef);
+  };
+  const submitUpdatedFaq = (e) => {
+    e.preventDefault();
+    const enteredQuestion = updatedFaq.question;
+    const enteredAnswer = updatedFaq.answer;
+    const docRef = doc(db, "faqs", updatedFaq.id);
+    if (enteredQuestion === "") {
+      setFaqWarning("You must enter a question");
+    } else if (enteredAnswer === "") {
+      setFaqWarning("You must enter your answer");
+    } else {
+      updateDoc(docRef, {
+        question: enteredQuestion,
+        answer: enteredAnswer
+      })
+        .then(() => {
+          setUpdatedFaq({ id: "", question: "", answer: "" });
+          setFaqsIsUpdating(false);
+          setFaqWarning("");
+        });
+    };
+  };
 
   return (
     <div className="container">
       <AppContext.Provider value={{
+        // reviews
         review,
         setReview,
         reviewsList,
@@ -130,6 +190,7 @@ function App() {
         submitUpdatedReview,
         reviewWarning,
         setReviewWarning,
+        // projects
         project,
         setProject,
         handleProjectSubmit,
@@ -138,7 +199,23 @@ function App() {
         projectsIsUpdating,
         setProjectsIsUpdating,
         getProjectsList,
-        projectsList
+        projectsList,
+        // faqs
+        faq,
+        setFaq,
+        updatedFaq,
+        setUpdatedFaq,
+        faqsList,
+        getFaqsList,
+        faqsIsAdding,
+        setFaqsIsAdding,
+        faqsIsUpdating,
+        setFaqsIsUpdating,
+        faqWarning,
+        setFaqWarning,
+        handleFaqSubmit,
+        deleteFaq,
+        submitUpdatedFaq
       }}>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
