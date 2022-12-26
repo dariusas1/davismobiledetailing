@@ -1,4 +1,5 @@
 import './Contact.css';
+import Icon from '../../components/Icon/Icon';
 
 const Contact = () => {
     return (
@@ -13,15 +14,11 @@ const Contact = () => {
                         <p className="contact-card-msg">We would love to hear from you! Please fill out this form and one of our mobile detailing
                             representatives will be in touch with you ASAP.</p>
                         <div className="contact-card-phone">
-                            <span className="material-symbols-rounded">
-                                phone
-                            </span>
+                            <Icon className={""} name={"phone"} />
                             <p>(480)-285-9857</p>
                         </div>
                         <div className="contact-card-email">
-                            <span className="material-symbols-rounded">
-                                mail
-                            </span>
+                            <Icon className={""} name={"mail"} />
                             <a href="mailto:davismobiledetailing@gmail.com">davismobiledetailing@gmail.com</a>
                         </div>
                     </div>

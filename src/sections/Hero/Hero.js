@@ -1,5 +1,5 @@
 import './Hero.css';
-import React from 'react';
+import Icon from '../../components/Icon/Icon';
 
 const Hero = () => {
     return (
@@ -8,21 +8,15 @@ const Hero = () => {
                 <p className="hero-title">Getting a Detail From Us</p>
                 <div className="hero-items">
                     <div className="hero-item">
-                        <span className="material-symbols-rounded hero-item-icon">
-                            calendar_month
-                        </span>
+                        <Icon className={" hero-item-icon"} name={"calendar_month"} />
                         <p className="hero-item-bio">Choose a Detailing Plan and Fill Out Scheduling Request</p>
                     </div>
                     <div className="hero-item">
-                        <span className="material-symbols-rounded hero-item-icon">
-                            mark_chat_read
-                        </span>
+                        <Icon className={" hero-item-icon"} name={"mark_chat_read"} />
                         <p className="hero-item-bio">We Reach Out and Complete Scheduling</p>
                     </div>
                     <div className="hero-item">
-                        <span className="material-symbols-rounded hero-item-icon">
-                            directions_car
-                        </span>
+                        <Icon className={" hero-item-icon"} name={"directions_car"} />
                         <p className="hero-item-bio">A Detailer Will Come to You and Professionally Detail Your Vehicle</p>
                     </div>
                 </div>

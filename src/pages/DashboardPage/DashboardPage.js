@@ -3,6 +3,7 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import Reviews from '../../sections/Dashboard/Reviews';
 import Projects from '../../sections/Dashboard/Projects';
 import Faqs from '../../sections/Dashboard/Faqs';
+import Packages from '../../sections/Dashboard/Packages';
 
 const DashboardPage = () => {
     return (
@@ -12,7 +13,8 @@ const DashboardPage = () => {
                 <div className="dashboard-card">
                     {/* <Reviews /> */}
                     {/* <Projects /> */}
-                    <Faqs />
+                    {/* <Faqs /> */}
+                    <Packages />
                 </div>
             </section>
         </div>

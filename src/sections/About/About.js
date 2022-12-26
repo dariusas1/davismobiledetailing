@@ -1,6 +1,7 @@
 import './About.css';
 import React from 'react';
 import sideCarImg from '../../assets/images/aboutside.jpg';
+import Icon from '../../components/Icon/Icon';
 
 const About = () => {
     return (
@@ -20,27 +21,19 @@ const About = () => {
                         stopping by and considering our services.</p>
                     <div className="about-card-list">
                         <div className="about-card-list-item">
-                            <span className="material-symbols-rounded about-list-icon">
-                                task_alt
-                            </span>
+                            <Icon className={" about-list-icon"} name={"task_alt"} />
                             <p className="about-list-title">Service Hours (7am-7pm)</p>
                         </div>
                         <div className="about-card-list-item">
-                            <span className="material-symbols-rounded about-list-icon">
-                                task_alt
-                            </span>
+                            <Icon className={" about-list-icon"} name={"task_alt"} />
                             <p className="about-list-title">Discount on Cash Payments</p>
                         </div>
                         <div className="about-card-list-item">
-                            <span className="material-symbols-rounded about-list-icon">
-                                task_alt
-                            </span>
+                            <Icon className={" about-list-icon"} name={"task_alt"} />
                             <p className="about-list-title">Flexible Scheduling</p>
                         </div>
                         <div className="about-card-list-item">
-                            <span className="material-symbols-rounded about-list-icon">
-                                task_alt
-                            </span>
+                            <Icon className={" about-list-icon"} name={"task_alt"} />
                             <p className="about-list-title">Competitive Pricing</p>
                         </div>
                     </div>

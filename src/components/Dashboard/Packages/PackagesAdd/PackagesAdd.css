@@ -1,0 +1,107 @@
+.packages-add {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: auto;
+    /* if needed, fix overflow. Or maybe put selected-features div below form so that feature tags dont push input fields up */
+}
+
+.package-add-heading {
+    color: var(--clr-black);
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-700);
+    font-size: 1.5rem;
+}
+
+.package-add-name-input,
+.package-add-type-input,
+.package-add-price-input,
+.package-add-feature-input {
+    padding: 0.5rem;
+    outline: none;
+    border: 0.1rem solid var(--clr-black);
+    border-radius: 0.5rem;
+    font-family: var(--ff-poppins);
+    margin: 0.75rem;
+}
+
+.package-add-prices {
+    display: flex;
+}
+
+.package-add-prices-input-btn,
+.package-add-features-input-btn {
+    outline: none;
+    border: none;
+    background-color: var(--clr-dark-theme);
+    padding: 1rem;
+    clip-path: circle();
+    cursor: pointer;
+    color: var(--clr-white);
+    font-family: var(--ff-poppins);
+    font-size: 1rem;
+}
+
+.package-add-btns {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.package-add-submit-btn,
+.package-add-cancel-btn {
+    outline: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-family: var(--ff-poppins);
+    margin: 0 1rem;
+}
+
+.package-add-submit-btn {
+    border: none;
+    background-color: var(--clr-dark-theme);
+    color: var(--clr-white);
+}
+
+.package-add-cancel-btn {
+    border: 0.1rem solid var(--clr-black);
+    background-color: var(--clr-light-gray);
+    color: var(--clr-black);
+}
+
+@media(max-width: 600px) {
+    .package-add-prices {
+        flex-direction: column;
+    }
+}
+
+.feature-test {
+    background-color: #aaf683;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature-test p {
+    color: var(--clr-black);
+    font-family: var(--ff-poppins);
+    font-size: 1rem;
+}
+
+.feature-test span {
+    color: var(--clr-black);
+    font-size: 1.25rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.package-add-warning {
+    margin-top: 1rem;
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-500);
+    font-size: 1rem;
+}

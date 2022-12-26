@@ -56,9 +56,13 @@
     margin-top: 0.5rem;
 }
 
-.package-card-features li span {
+.package-card-features-icon-green {
     color: #aaf683;
-    /* color: #70d6ff; */
+    font-size: 1.5rem;
+}
+
+.package-card-features-icon-blue {
+    color: #70d6ff;
     font-size: 1.5rem;
 }
 

@@ -1,64 +1,30 @@
 import "./PackageCard.css";
+import Icon from "../Icon/Icon";
 
-const PackageCard = () => {
+const PackageCard = ({ name, carType, price, features }) => {
     return (
         <div className="package-card">
-            <p className="package-card-heading">Basic Exterior</p>
+            <p className="package-card-heading">{name}</p>
             <div className="package-card-price-list">
                 <div className="package-card-price">
-                    <p>Sedans</p>
-                    <p>$150</p>
-                </div>
-                <div className="package-card-price">
-                    <p>Midsize</p>
-                    <p>$160</p>
-                </div>
-                <div className="package-card-price">
-                    <p>Truck</p>
-                    <p>$175</p>
-                </div>
-                <div className="package-card-price">
-                    <p>Van/3row</p>
-                    <p>$190</p>
+                    <p>{carType}</p>
+                    <p>${price}</p>
                 </div>
             </div>
             <ul className="package-card-features">
-                <li>
-                    <span className="material-symbols-rounded">
-                        check_circle
-                            </span>
-                    <p>2 bucket method exterior wash</p>
-                </li>
-                <li>
-                    <span className="material-symbols-rounded">
-                        check_circle
-                            </span>
-                    <p>Clean rims and tires</p>
-                </li>
-                <li>
-                    <span className="material-symbols-rounded">
-                        check_circle
-                            </span>
-                    <p>Tire shine</p>
-                </li>
-                <li>
-                    <span className="material-symbols-rounded">
-                        check_circle
-                            </span>
-                    <p>Spray wax</p>
-                </li>
-                <li>
-                    <span className="material-symbols-rounded">
-                        check_circle
-                            </span>
-                    <p>Full wipe down</p>
-                </li>
-                <li>
-                    <span className="material-symbols-rounded">
-                        check_circle
-                            </span>
+                {
+                    features.map((item, index) => (
+                        <li key={index}>
+                            <Icon className={" package-card-features-icon-green"} name={"check_circle"} />
+                            <p>{item}</p>
+                        </li>
+                    ))
+                }
+                {/* <li>
+                    <Icon className={" package-card-features-icon-blue"} name={"verified_user"} />
                     <p>Interior wipedown</p>
-                </li>
+                </li> */}
+                {/* make carType & price arrays, then just say index[0,1,2,3,etc.] for both and render that. bc array1[2] will always === array2[2]*/}
             </ul>
             <button type="button">Choose Plan</button>
         </div>

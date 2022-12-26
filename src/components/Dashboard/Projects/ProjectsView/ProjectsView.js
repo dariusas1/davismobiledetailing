@@ -2,6 +2,7 @@ import './ProjectsView.css';
 import { useEffect, useContext } from 'react';
 // import carImg from '../../../../assets/images/car.jpg';
 import { AppContext } from '../../../../App';
+import Icon from '../../../Icon/Icon';
 
 const ProjectsView = ({ addProjectBtnClicked, updateProjectBtnClicked }) => {
     const {
@@ -16,7 +17,7 @@ const ProjectsView = ({ addProjectBtnClicked, updateProjectBtnClicked }) => {
     return (
         <div className="projects-view">
             <div className="add-project-card" onClick={addProjectBtnClicked}>
-                <span className="material-symbols-rounded">add</span>
+                <Icon className={""} name={"add"} />
             </div>
             {
                 projectsList.map(item => (

@@ -1,6 +1,7 @@
 import './ReviewsView.css';
 import { AppContext } from '../../../../App';
 import { useContext, useEffect } from 'react';
+import Icon from '../../../Icon/Icon';
 
 const ReviewsView = ({ addReviewBtnClicked, updateReviewBtnClicked }) => {
     const {
@@ -12,11 +13,11 @@ const ReviewsView = ({ addReviewBtnClicked, updateReviewBtnClicked }) => {
     useEffect(() => {
         getReviewsList();
     }, []);
-    
+
     return (
         <div className="reviews-view">
             <div className="add-review-card" onClick={addReviewBtnClicked}>
-                <span className="material-symbols-rounded">add</span>
+                <Icon className={""} name={"add"} />
             </div>
             {
                 reviewsList.map(item => (

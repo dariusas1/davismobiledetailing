@@ -1,0 +1,76 @@
+.packages-update {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.package-update-heading {
+    color: var(--clr-black);
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-700);
+    font-size: 1.5rem;
+}
+
+.package-update-name-input,
+.package-update-type-input,
+.package-update-price-input,
+.package-update-feature-input {
+    padding: 0.5rem;
+    outline: none;
+    border: 0.1rem solid var(--clr-black);
+    border-radius: 0.5rem;
+    font-family: var(--ff-poppins);
+    margin: 0.75rem;
+}
+
+.package-update-prices {
+    display: flex;
+}
+
+.package-update-prices-input-btn,
+.package-update-features-input-btn {
+    outline: none;
+    border: none;
+    background-color: var(--clr-dark-theme);
+    padding: 1rem;
+    clip-path: circle();
+    cursor: pointer;
+    color: var(--clr-white);
+    font-family: var(--ff-poppins);
+    font-size: 1rem;
+}
+
+.package-update-btns {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.package-update-submit-btn,
+.package-update-cancel-btn {
+    outline: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-family: var(--ff-poppins);
+    margin: 0 1rem;
+}
+
+.package-update-submit-btn {
+    border: none;
+    background-color: var(--clr-dark-theme);
+    color: var(--clr-white);
+}
+
+.package-update-cancel-btn {
+    border: 0.1rem solid var(--clr-black);
+    background-color: var(--clr-light-gray);
+    color: var(--clr-black);
+}
+
+@media(max-width: 600px) {
+    .package-update-prices {
+        flex-direction: column;
+    }
+}

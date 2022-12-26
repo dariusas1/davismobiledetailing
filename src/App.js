@@ -171,6 +171,83 @@ function App() {
     };
   };
 
+  // PACKAGES(state & firebase logic)
+  const [packagePlan, setPackagePlan] = useState({ name: "", carType: "", price: "", features: [] });
+  // const [updatedPackage, setUpdatedPackage] = useState({ id: "", question: "", answer: "" });
+  const [packagesList, setPackagesList] = useState([]);
+  const [packagesIsAdding, setPackagesIsAdding] = useState(false);
+  const [enteredFeature, setEnteredFeature] = useState({ feature: "" })
+  // const [packagesIsUpdating, setPackagesIsUpdating] = useState(false);
+  const [packageWarning, setPackageWarning] = useState("");
+  const packagesCollectionRef = collection(db, "packages");
+  const packageQ = query(packagesCollectionRef, orderBy("createdAt"));
+  const getPackagesList = () => {
+    onSnapshot(packageQ, snapshot => {
+      setPackagesList(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+    });
+  };
+  const handlePackageSubmit = (e) => {
+    e.preventDefault();
+    const enteredName = packagePlan.name;
+    const enteredCarType = packagePlan.carType;
+    const enteredPrice = packagePlan.price;
+    const featureArr = packagePlan.features;
+    if (enteredName === "") {
+      setPackageWarning("You must name your package");
+    } else if (enteredCarType === "") {
+      setPackageWarning("You must enter a car type");
+    } else if (enteredPrice === "") {
+      setPackageWarning("You must enter a price");
+    } else if (featureArr.length === 0) {
+      setPackageWarning("You must enter at least 1 feature");
+    } else {
+      addDoc(packagesCollectionRef, {
+        name: enteredName,
+        carType: enteredCarType,
+        price: enteredPrice,
+        features: featureArr,
+        createdAt: serverTimestamp()
+      })
+        .then(() => {
+          setPackagePlan({ name: "", carType: "", price: "", features: [] });
+          setPackagesIsAdding(false);
+          setPackageWarning("");
+        });
+    };
+  };
+  const deletePackage = id => {
+    const docRef = doc(db, "packages", id);
+    deleteDoc(docRef);
+  };
+
+  const handleFeature = () => {
+    const newFeature = enteredFeature.feature;
+    const featuresArr = packagePlan.features;
+    const newFeaturesArr = [...featuresArr, newFeature];
+    if (newFeature === "") {
+      setPackageWarning("You cant enter an empty feature");
+    } else {
+      setPackagePlan({
+        ...packagePlan,
+        features: newFeaturesArr
+      });
+      setEnteredFeature({
+        feature: ""
+      });
+      setPackageWarning("");
+    }
+  };
+
+  const removeSelectedFeature = (e) => {
+    const selectedFeature = e.target.dataset.feature
+    const featuresArr = packagePlan.features;
+    const filteredItems = featuresArr.filter(item => item !== selectedFeature);
+    setPackagePlan({
+      ...packagePlan,
+      features: filteredItems
+    });
+  };
+
   return (
     <div className="container">
       <AppContext.Provider value={{
@@ -215,7 +292,22 @@ function App() {
         setFaqWarning,
         handleFaqSubmit,
         deleteFaq,
-        submitUpdatedFaq
+        submitUpdatedFaq,
+        // packages
+        packagePlan,
+        setPackagePlan,
+        packagesList,
+        packagesIsAdding,
+        setPackagesIsAdding,
+        getPackagesList,
+        handlePackageSubmit,
+        deletePackage,
+        handleFeature,
+        enteredFeature,
+        setEnteredFeature,
+        removeSelectedFeature,
+        packageWarning,
+        setPackageWarning
       }}>
         <Routes>
           <Route exact path="/" element={<HomePage />} />

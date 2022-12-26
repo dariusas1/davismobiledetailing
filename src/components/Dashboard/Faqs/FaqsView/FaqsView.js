@@ -1,6 +1,7 @@
 import './FaqsView.css';
 import { AppContext } from '../../../../App';
 import { useContext, useEffect } from 'react';
+import Icon from '../../../Icon/Icon';
 
 const FaqsView = ({ addFaqBtnClicked, updateFaqBtnClicked }) => {
     const {
@@ -14,9 +15,7 @@ const FaqsView = ({ addFaqBtnClicked, updateFaqBtnClicked }) => {
     return (
         <div className="faqs-view">
             <div className="add-faq-card" onClick={addFaqBtnClicked}>
-                <span className="material-symbols-rounded">
-                    add
-                        </span>
+                <Icon className={""} name={"add"} />
             </div>
             {
                 faqsList.map(item => (

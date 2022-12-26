@@ -1,4 +1,5 @@
 import './ReviewCard.css';
+import Icon from '../Icon/Icon';
 
 const ReviewCard = ({ name, review, number }) => {
     return (
@@ -7,7 +8,7 @@ const ReviewCard = ({ name, review, number }) => {
             <div className="review-card-stars">
                 {
                     [...Array(number)].map((a, i) => (
-                        <span key={i} className="material-symbols-rounded">star</span>
+                        <Icon key={i} className={""} name={"star"} />
                     ))
                 }
             </div>

@@ -1,0 +1,96 @@
+.packages-view {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    overflow: auto;
+}
+
+.add-package-card {
+    background-color: var(--clr-light-gray);
+    width: 100%;
+    height: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.75rem;
+    cursor: pointer;
+}
+
+.add-package-card span {
+    font-size: 3rem;
+}
+
+.dashboard-package-card {
+    width: 100%;
+    height: 15rem;
+    position: relative;
+    overflow: auto;
+    border-radius: 0.75rem;
+    background-color: var(--clr-dark-gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.dashboard-package-card p {
+    text-align: center;
+    color: var(--clr-dark-theme);
+    font-family: var(--ff-poppins);
+    font-size: 1.25rem;
+    font-weight: var(--fw-700);
+}
+
+.dashboard-package-card-prices {
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--clr-dark-theme);
+}
+
+.dashboard-package-card-prices li {
+    font-size: 1rem;
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-500);
+}
+
+.dashboard-package-card-features {
+    margin-top: 0.5rem;
+}
+
+.dashboard-package-card-features li {
+    font-size: 1rem;
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-300);
+}
+
+.dashboard-package-card-options {
+    background-color: var(--clr-light-theme);
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    border-radius: 1.5rem;
+    padding: 0.5rem;
+    display: flex;
+}
+
+.dashboard-package-card-options span {
+    margin: 0 0.5rem;
+    color: var(--clr-light-gray);
+    cursor: pointer;
+}
+
+@media(min-width: 800px) {
+    .packages-view {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-package-card {
+        max-width: 25rem;
+    }
+
+    .add-package-card {
+        max-width: 25rem;
+    }
+}
