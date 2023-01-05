@@ -11,7 +11,6 @@ const PackagesAdd = ({ cancelAddPackageBtnClicked }) => {
         handleFeature,
         enteredFeature,
         setEnteredFeature,
-        // grab
         removeSelectedFeature
     } = useContext(AppContext);
     return (
@@ -54,7 +53,7 @@ const PackagesAdd = ({ cancelAddPackageBtnClicked }) => {
             <div className="selected-features">
                 {
                     packagePlan.features.map((item, i) => (
-                        <div className="feature-test" key={i}>
+                        <div className="add-feature-tag" key={i}>
                             <p>{item}</p>
                             <span className="material-symbols-rounded" data-feature={item} onClick={removeSelectedFeature}>close</span>
                         </div>

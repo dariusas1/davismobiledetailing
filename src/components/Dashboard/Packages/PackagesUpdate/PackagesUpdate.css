@@ -74,3 +74,32 @@
         flex-direction: column;
     }
 }
+
+.updated-feature-tag {
+    background-color: #aaf683;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.updated-feature-tag p {
+    color: var(--clr-black);
+    font-family: var(--ff-poppins);
+    font-size: 1rem;
+}
+
+.updated-feature-tag span {
+    color: var(--clr-black);
+    font-size: 1.25rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.package-update-warning {
+    margin-top: 1rem;
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-500);
+    font-size: 1rem;
+}

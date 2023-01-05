@@ -173,11 +173,13 @@ function App() {
 
   // PACKAGES(state & firebase logic)
   const [packagePlan, setPackagePlan] = useState({ name: "", carType: "", price: "", features: [] });
-  // const [updatedPackage, setUpdatedPackage] = useState({ id: "", question: "", answer: "" });
+  // const [packagePlan, setPackagePlan] = useState({ name: "", features: [{ carType: "", price: "" }] });
+  const [updatedPackagePlan, setUpdatedPackagePlan] = useState({ id: "", name: "", carType: "", price: "", features: [] });
   const [packagesList, setPackagesList] = useState([]);
   const [packagesIsAdding, setPackagesIsAdding] = useState(false);
-  const [enteredFeature, setEnteredFeature] = useState({ feature: "" })
-  // const [packagesIsUpdating, setPackagesIsUpdating] = useState(false);
+  const [enteredFeature, setEnteredFeature] = useState({ feature: "" });
+  const [enteredUpdatedFeature, setEnteredUpdatedFeature] = useState({ feature: "" });
+  const [packagesIsUpdating, setPackagesIsUpdating] = useState(false);
   const [packageWarning, setPackageWarning] = useState("");
   const packagesCollectionRef = collection(db, "packages");
   const packageQ = query(packagesCollectionRef, orderBy("createdAt"));
@@ -248,6 +250,64 @@ function App() {
     });
   };
 
+  const removeSelectedUpdatedFeature = (e) => {
+    const selectedFeature = e.target.dataset.feature
+    const featuresArr = updatedPackagePlan.features;
+    const filteredItems = featuresArr.filter(item => item !== selectedFeature);
+    setUpdatedPackagePlan({
+      ...updatedPackagePlan,
+      features: filteredItems
+    });
+  };
+
+  const submitUpdatedPackage = (e) => {
+    e.preventDefault();
+    const enteredName = updatedPackagePlan.name;
+    const enteredCarType = updatedPackagePlan.carType;
+    const enteredPrice = updatedPackagePlan.price;
+    const featureArr = updatedPackagePlan.features;
+    const docRef = doc(db, "packages", updatedPackagePlan.id);
+    if (enteredName === "") {
+      setPackageWarning("You must name your package");
+    } else if (enteredCarType === "") {
+      setPackageWarning("You must enter a car type");
+    } else if (enteredPrice === "") {
+      setPackageWarning("You must enter a price");
+    } else if (featureArr.length === 0) {
+      setPackageWarning("You must enter at least 1 feature");
+    } else {
+      updateDoc(docRef, {
+        name: enteredName,
+        carType: enteredCarType,
+        price: enteredPrice,
+        features: featureArr
+      })
+        .then(() => {
+          setUpdatedPackagePlan({ id: "", name: "", carType: "", price: "", features: [] });
+          setPackagesIsUpdating(false);
+          setPackageWarning("");
+        });
+    };
+  };
+
+  const handleUpdatedFeature = () => {
+    const newFeature = enteredUpdatedFeature.feature;
+    const featuresArr = updatedPackagePlan.features;
+    const newFeaturesArr = [...featuresArr, newFeature];
+    if (newFeature === "") {
+      setPackageWarning("You cant enter an empty feature");
+    } else {
+      setUpdatedPackagePlan({
+        ...updatedPackagePlan,
+        features: newFeaturesArr
+      });
+      setEnteredUpdatedFeature({
+        feature: ""
+      });
+      setPackageWarning("");
+    }
+  };
+
   return (
     <div className="container">
       <AppContext.Provider value={{
@@ -307,7 +367,16 @@ function App() {
         setEnteredFeature,
         removeSelectedFeature,
         packageWarning,
-        setPackageWarning
+        setPackageWarning,
+        submitUpdatedPackage,
+        handleUpdatedFeature,
+        updatedPackagePlan,
+        setUpdatedPackagePlan,
+        setEnteredUpdatedFeature,
+        enteredUpdatedFeature,
+        setPackagesIsUpdating,
+        packagesIsUpdating,
+        removeSelectedUpdatedFeature
       }}>
         <Routes>
           <Route exact path="/" element={<HomePage />} />

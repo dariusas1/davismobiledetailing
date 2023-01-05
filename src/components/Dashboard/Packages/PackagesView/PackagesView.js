@@ -3,7 +3,7 @@ import { AppContext } from '../../../../App';
 import { useContext, useEffect } from 'react';
 import Icon from '../../../Icon/Icon';
 
-const PackagesView = ({ addPackageBtnClicked }) => {
+const PackagesView = ({ addPackageBtnClicked, updatePackageBtnClicked }) => {
     const {
         packagesList,
         getPackagesList,
@@ -32,7 +32,7 @@ const PackagesView = ({ addPackageBtnClicked }) => {
                             }
                         </ul>
                         <div className="dashboard-package-card-options">
-                            <span className="material-symbols-rounded">edit</span>
+                            <span className="material-symbols-rounded" onClick={() => updatePackageBtnClicked(item.id, item.name, item.carType, item.price, item.features)}>edit</span>
                             <span className="material-symbols-rounded" onClick={() => deletePackage(item.id)}>delete</span>
                         </div>
                     </div>

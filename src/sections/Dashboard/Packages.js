@@ -7,13 +7,14 @@ import { AppContext } from '../../App';
 const Packages = () => {
     const {
         setPackagePlan,
-        // setUpdatedPackage,
+        setUpdatedPackagePlan,
         packagesIsAdding,
         setPackagesIsAdding,
         setEnteredFeature,
-        // packagesIsUpdating,
-        // setPackagesIsUpdating,
-        setPackageWarning
+        packagesIsUpdating,
+        setPackagesIsUpdating,
+        setPackageWarning,
+        setEnteredUpdatedFeature
     } = useContext(AppContext);
 
     const addPackageBtnClicked = () => {
@@ -25,38 +26,39 @@ const Packages = () => {
         setPackagePlan({ name: "", carType: "", price: "", features: [] });
         setEnteredFeature({ feature: "" });
     }
-    // const updatePackageBtnClicked = (id, question, answer) => {
-    //     setPackagesIsUpdating(true);
-    //     setUpdatedPackage({
-    //         id: id,
-    //         question: question,
-    //         answer: answer
-    //     });
-    // }
-    // const cancelUpdatePackageBtnClicked = () => {
-    //     setPackagesIsUpdating(false);
-    //     setPackageWarning("");
-    //     setUpdatedPackage({ id: "", question: "", answer: "" });
-    // }
+    const updatePackageBtnClicked = (id, name, carType, price, features) => {
+        setPackagesIsUpdating(true);
+        setUpdatedPackagePlan({
+            id: id,
+            name: name,
+            carType: carType,
+            price: price,
+            features: features
+        });
+    }
+    const cancelUpdatePackageBtnClicked = () => {
+        setPackagesIsUpdating(false);
+        setPackageWarning("");
+        setUpdatedPackagePlan({ id: "", name: "", carType: "", price: "", features: [] });
+        setEnteredUpdatedFeature({ feature: "" });
+    }
     return (
         <>
             {
-                // !packagesIsAdding && !packagesIsUpdating
-                !packagesIsAdding
+                !packagesIsAdding && !packagesIsUpdating
                 &&
-                // <PackagesView addPackageBtnClicked={addPackageBtnClicked} updatePackageBtnClicked={updatePackageBtnClicked} />
-                <PackagesView addPackageBtnClicked={addPackageBtnClicked} />
+                <PackagesView addPackageBtnClicked={addPackageBtnClicked} updatePackageBtnClicked={updatePackageBtnClicked} />
             }
             {
                 packagesIsAdding
                 &&
                 <PackagesAdd cancelAddPackageBtnClicked={cancelAddPackageBtnClicked} />
             }
-            {/* {
+            {
                 packagesIsUpdating
                 &&
                 <PackagesUpdate cancelUpdatePackageBtnClicked={cancelUpdatePackageBtnClicked} />
-            } */}
+            }
         </>
     )
 };
