@@ -173,11 +173,10 @@ function App() {
 
   // PACKAGES(state & firebase logic)
   const [packagePlan, setPackagePlan] = useState({ name: "", carType: "", price: "", features: [] });
-  // const [packagePlan, setPackagePlan] = useState({ name: "", features: [{ carType: "", price: "" }] });
   const [updatedPackagePlan, setUpdatedPackagePlan] = useState({ id: "", name: "", carType: "", price: "", features: [] });
   const [packagesList, setPackagesList] = useState([]);
   const [packagesIsAdding, setPackagesIsAdding] = useState(false);
-  const [enteredFeature, setEnteredFeature] = useState({ feature: "" });
+  const [enteredFeature, setEnteredFeature] = useState({ feature: "", color: "" });
   const [enteredUpdatedFeature, setEnteredUpdatedFeature] = useState({ feature: "" });
   const [packagesIsUpdating, setPackagesIsUpdating] = useState(false);
   const [packageWarning, setPackageWarning] = useState("");
@@ -217,48 +216,6 @@ function App() {
         });
     };
   };
-  const deletePackage = id => {
-    const docRef = doc(db, "packages", id);
-    deleteDoc(docRef);
-  };
-
-  const handleFeature = () => {
-    const newFeature = enteredFeature.feature;
-    const featuresArr = packagePlan.features;
-    const newFeaturesArr = [...featuresArr, newFeature];
-    if (newFeature === "") {
-      setPackageWarning("You cant enter an empty feature");
-    } else {
-      setPackagePlan({
-        ...packagePlan,
-        features: newFeaturesArr
-      });
-      setEnteredFeature({
-        feature: ""
-      });
-      setPackageWarning("");
-    }
-  };
-
-  const removeSelectedFeature = (e) => {
-    const selectedFeature = e.target.dataset.feature
-    const featuresArr = packagePlan.features;
-    const filteredItems = featuresArr.filter(item => item !== selectedFeature);
-    setPackagePlan({
-      ...packagePlan,
-      features: filteredItems
-    });
-  };
-
-  const removeSelectedUpdatedFeature = (e) => {
-    const selectedFeature = e.target.dataset.feature
-    const featuresArr = updatedPackagePlan.features;
-    const filteredItems = featuresArr.filter(item => item !== selectedFeature);
-    setUpdatedPackagePlan({
-      ...updatedPackagePlan,
-      features: filteredItems
-    });
-  };
 
   const submitUpdatedPackage = (e) => {
     e.preventDefault();
@@ -290,22 +247,72 @@ function App() {
     };
   };
 
+  const deletePackage = id => {
+    const docRef = doc(db, "packages", id);
+    deleteDoc(docRef);
+  };
+
+  const handleFeature = () => {
+    const newFeature = enteredFeature.feature;
+    const newFeatureColor = enteredFeature.color;
+    const featuresArr = packagePlan.features;
+    const newFeaturesArr = [...featuresArr, { feature: newFeature, color: newFeatureColor }];
+    if (newFeature === "") {
+      setPackageWarning("You cant enter an empty feature");
+    } else if (newFeatureColor === "") {
+      setPackageWarning("You must choose either a blue or green icon for your feature");
+    } else {
+      setPackagePlan({
+        ...packagePlan,
+        features: newFeaturesArr
+      });
+      setEnteredFeature({
+        feature: "",
+        color: ""
+      });
+      setPackageWarning("");
+    }
+  };
+
   const handleUpdatedFeature = () => {
     const newFeature = enteredUpdatedFeature.feature;
     const featuresArr = updatedPackagePlan.features;
     const newFeaturesArr = [...featuresArr, newFeature];
     if (newFeature === "") {
       setPackageWarning("You cant enter an empty feature");
+    } else if (newFeatureColor === "") {
+      setPackageWarning("You must choose either a blue or green icon for your feature");
     } else {
       setUpdatedPackagePlan({
         ...updatedPackagePlan,
         features: newFeaturesArr
       });
       setEnteredUpdatedFeature({
-        feature: ""
+        feature: "",
+        color: ""
       });
       setPackageWarning("");
     }
+  };
+
+  const removeSelectedFeature = (e) => {
+    const selectedFeature = e.target.dataset.feature
+    const featuresArr = packagePlan.features;
+    const filteredItems = featuresArr.filter(item => item[0] !== selectedFeature);
+    setPackagePlan({
+      ...packagePlan,
+      features: filteredItems
+    });
+  };
+
+  const removeSelectedUpdatedFeature = (e) => {
+    const selectedFeature = e.target.dataset.feature
+    const featuresArr = updatedPackagePlan.features;
+    const filteredItems = featuresArr.filter(item => item !== selectedFeature);
+    setUpdatedPackagePlan({
+      ...updatedPackagePlan,
+      features: filteredItems
+    });
   };
 
   return (

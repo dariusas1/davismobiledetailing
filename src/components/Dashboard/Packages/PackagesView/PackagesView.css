@@ -57,12 +57,29 @@
 
 .dashboard-package-card-features {
     margin-top: 0.5rem;
+    list-style: none;
 }
 
 .dashboard-package-card-features li {
     font-size: 1rem;
     font-family: var(--ff-poppins);
     font-weight: var(--fw-300);
+}
+
+.dashboard-package-card-features li::before {
+    content: "\2022";
+    font-weight: bold;
+    display: inline-block;
+    width: 1rem;
+    font-size: 1.6rem;
+}
+
+.bullet-green::before {
+    color: #aaf683;
+}
+
+.bullet-blue::before {
+    color: #70d6ff;
 }
 
 .dashboard-package-card-options {

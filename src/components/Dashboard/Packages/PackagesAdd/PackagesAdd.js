@@ -45,17 +45,25 @@ const PackagesAdd = ({ cancelAddPackageBtnClicked }) => {
                     className="package-add-feature-input"
                     type="text"
                     placeholder="Feature(ex. clay bar)"
-                    onChange={(e) => setEnteredFeature({ feature: e.target.value })}
+                    onChange={(e) => setEnteredFeature({ ...enteredFeature, feature: e.target.value })}
                     value={enteredFeature.feature}
                 />
+                <div className="package-add-feature-dropdown">
+                    <div className="add-feature-dropdown-btn">Select Color <span className="material-symbols-rounded">arrow_drop_down</span>
+                    </div>
+                    <ul className="feature-dropdown-items">
+                        <li className="feature-dropdown-item" onClick={() => setEnteredFeature({ ...enteredFeature, color: "green" })}>Green</li>
+                        <li className="feature-dropdown-item" onClick={() => setEnteredFeature({ ...enteredFeature, color: "blue" })}>Blue</li>
+                    </ul>
+                </div>
                 <button className="package-add-features-input-btn" type="button" onClick={handleFeature}>+</button>
             </div>
             <div className="selected-features">
                 {
                     packagePlan.features.map((item, i) => (
-                        <div className="add-feature-tag" key={i}>
-                            <p>{item}</p>
-                            <span className="material-symbols-rounded" data-feature={item} onClick={removeSelectedFeature}>close</span>
+                        <div className={"add-feature-tag " + item.color} key={i}>
+                            <p>{item.feature}</p>
+                            <span className="material-symbols-rounded" data-feature={item.feature} onClick={removeSelectedFeature}>close</span>
                         </div>
                     ))
                 }

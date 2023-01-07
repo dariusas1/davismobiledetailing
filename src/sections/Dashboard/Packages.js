@@ -24,7 +24,7 @@ const Packages = () => {
         setPackagesIsAdding(false);
         setPackageWarning("");
         setPackagePlan({ name: "", carType: "", price: "", features: [] });
-        setEnteredFeature({ feature: "" });
+        setEnteredFeature({ feature: "", color: "" });
     }
     const updatePackageBtnClicked = (id, name, carType, price, features) => {
         setPackagesIsUpdating(true);
@@ -40,7 +40,7 @@ const Packages = () => {
         setPackagesIsUpdating(false);
         setPackageWarning("");
         setUpdatedPackagePlan({ id: "", name: "", carType: "", price: "", features: [] });
-        setEnteredUpdatedFeature({ feature: "" });
+        setEnteredUpdatedFeature({ feature: "", color: "" });
     }
     return (
         <>

@@ -27,7 +27,7 @@ const PackagesView = ({ addPackageBtnClicked, updatePackageBtnClicked }) => {
                         <ul className="dashboard-package-card-features">
                             {
                                 item.features.map((item, index) => (
-                                    <li key={index}>{item}</li>
+                                    <li className={"bullet-" + item.color} key={index}>{item.feature}</li>
                                 ))
                             }
                         </ul>
