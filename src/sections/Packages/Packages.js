@@ -21,7 +21,7 @@ const Packages = () => {
             <div className="packages-content">
                 {
                     packagesList.map(item => (
-                        <PackageCard key={item.id} name={item.name} carType={item.carType} price={item.price} features={item.features} />
+                        <PackageCard key={item.id} name={item.name} pricing={item.pricing} features={item.features} />
                     ))
                 }
             </div>

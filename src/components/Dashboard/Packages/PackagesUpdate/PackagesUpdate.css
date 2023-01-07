@@ -29,6 +29,11 @@
     display: flex;
 }
 
+.package-update-features {
+    display: flex;
+    align-items: center;
+}
+
 .package-update-prices-input-btn,
 .package-update-features-input-btn {
     outline: none;
@@ -40,6 +45,7 @@
     color: var(--clr-white);
     font-family: var(--ff-poppins);
     font-size: 1rem;
+    margin: 0.75rem;
 }
 
 .package-update-btns {
@@ -75,8 +81,15 @@
     }
 }
 
+@media(max-width: 700px) {
+
+    .package-update-features,
+    .package-update-prices {
+        flex-direction: column;
+    }
+}
+
 .updated-feature-tag {
-    background-color: #aaf683;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -102,4 +115,73 @@
     font-family: var(--ff-poppins);
     font-weight: var(--fw-500);
     font-size: 1rem;
+}
+
+.package-update-feature-dropdown {
+    display: inline-block;
+    position: relative;
+    z-index: 100;
+}
+
+.package-update-feature-dropdown:hover>.update-feature-dropdown-items {
+    display: block;
+}
+
+.update-feature-dropdown-btn {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: var(--clr-light-gray);
+    padding: 0.25rem;
+    border: 1px solid #000000;
+}
+
+.update-feature-dropdown-items {
+    position: absolute;
+    display: none;
+    background-color: var(--clr-dark-gray);
+    width: 100%;
+}
+
+.update-feature-dropdown-item {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    display: block;
+    cursor: pointer;
+}
+
+.update-feature-dropdown-item:hover {
+    background-color: var(--clr-light-theme);
+    color: var(--clr-white);
+}
+
+.green {
+    background-color: #aaf683;
+}
+
+.blue {
+    background-color: #70d6ff;
+}
+
+.updated-pricing-tag {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--clr-dark-theme);
+}
+
+.updated-pricing-tag p {
+    color: var(--clr-white);
+    font-family: var(--ff-poppins);
+    font-size: 1rem;
+}
+
+.updated-pricing-tag span {
+    color: var(--clr-white);
+    font-size: 1.25rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
 }

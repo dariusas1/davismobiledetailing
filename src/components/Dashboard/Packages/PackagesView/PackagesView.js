@@ -22,7 +22,11 @@ const PackagesView = ({ addPackageBtnClicked, updatePackageBtnClicked }) => {
                     <div key={item.id} className="dashboard-package-card">
                         <p>{item.name}</p>
                         <ul className="dashboard-package-card-prices">
-                            <li>{item.carType} (${item.price})</li>
+                            {
+                                item.pricing.map((item, index) => (
+                                    <li key={index}>{item.carType} (${item.price})</li>
+                                ))
+                            }
                         </ul>
                         <ul className="dashboard-package-card-features">
                             {
@@ -32,7 +36,7 @@ const PackagesView = ({ addPackageBtnClicked, updatePackageBtnClicked }) => {
                             }
                         </ul>
                         <div className="dashboard-package-card-options">
-                            <span className="material-symbols-rounded" onClick={() => updatePackageBtnClicked(item.id, item.name, item.carType, item.price, item.features)}>edit</span>
+                            <span className="material-symbols-rounded" onClick={() => updatePackageBtnClicked(item.id, item.name, item.pricing, item.features)}>edit</span>
                             <span className="material-symbols-rounded" onClick={() => deletePackage(item.id)}>delete</span>
                         </div>
                     </div>

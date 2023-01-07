@@ -172,45 +172,45 @@ function App() {
   };
 
   // PACKAGES(state & firebase logic)
-  const [packagePlan, setPackagePlan] = useState({ name: "", carType: "", price: "", features: [] });
-  const [updatedPackagePlan, setUpdatedPackagePlan] = useState({ id: "", name: "", carType: "", price: "", features: [] });
+  const [packagePlan, setPackagePlan] = useState({ name: "", pricing: [], features: [] });
+  const [updatedPackagePlan, setUpdatedPackagePlan] = useState({ id: "", name: "", pricing: [], features: [] });
   const [packagesList, setPackagesList] = useState([]);
   const [packagesIsAdding, setPackagesIsAdding] = useState(false);
+  const [enteredPricing, setEnteredPricing] = useState({ carType: "", price: "" });
+  const [enteredUpdatedPricing, setEnteredUpdatedPricing] = useState({ carType: "", price: "" });
   const [enteredFeature, setEnteredFeature] = useState({ feature: "", color: "" });
-  const [enteredUpdatedFeature, setEnteredUpdatedFeature] = useState({ feature: "" });
+  const [enteredUpdatedFeature, setEnteredUpdatedFeature] = useState({ feature: "", color: "" });
   const [packagesIsUpdating, setPackagesIsUpdating] = useState(false);
   const [packageWarning, setPackageWarning] = useState("");
   const packagesCollectionRef = collection(db, "packages");
   const packageQ = query(packagesCollectionRef, orderBy("createdAt"));
+
   const getPackagesList = () => {
     onSnapshot(packageQ, snapshot => {
       setPackagesList(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
     });
   };
+
   const handlePackageSubmit = (e) => {
     e.preventDefault();
     const enteredName = packagePlan.name;
-    const enteredCarType = packagePlan.carType;
-    const enteredPrice = packagePlan.price;
     const featureArr = packagePlan.features;
+    const pricingArr = packagePlan.pricing;
     if (enteredName === "") {
       setPackageWarning("You must name your package");
-    } else if (enteredCarType === "") {
-      setPackageWarning("You must enter a car type");
-    } else if (enteredPrice === "") {
-      setPackageWarning("You must enter a price");
+    } else if (pricingArr.length === 0) {
+      setPackageWarning("You must enter at least 1 car type/price");
     } else if (featureArr.length === 0) {
       setPackageWarning("You must enter at least 1 feature");
     } else {
       addDoc(packagesCollectionRef, {
         name: enteredName,
-        carType: enteredCarType,
-        price: enteredPrice,
         features: featureArr,
+        pricing: pricingArr,
         createdAt: serverTimestamp()
       })
         .then(() => {
-          setPackagePlan({ name: "", carType: "", price: "", features: [] });
+          setPackagePlan({ name: "", pricing: [], features: [] });
           setPackagesIsAdding(false);
           setPackageWarning("");
         });
@@ -220,27 +220,23 @@ function App() {
   const submitUpdatedPackage = (e) => {
     e.preventDefault();
     const enteredName = updatedPackagePlan.name;
-    const enteredCarType = updatedPackagePlan.carType;
-    const enteredPrice = updatedPackagePlan.price;
+    const pricingArr = updatedPackagePlan.pricing;
     const featureArr = updatedPackagePlan.features;
     const docRef = doc(db, "packages", updatedPackagePlan.id);
     if (enteredName === "") {
       setPackageWarning("You must name your package");
-    } else if (enteredCarType === "") {
-      setPackageWarning("You must enter a car type");
-    } else if (enteredPrice === "") {
-      setPackageWarning("You must enter a price");
+    } else if (pricingArr.length === 0) {
+      setPackageWarning("You must enter at least 1 car type/price");
     } else if (featureArr.length === 0) {
       setPackageWarning("You must enter at least 1 feature");
     } else {
       updateDoc(docRef, {
         name: enteredName,
-        carType: enteredCarType,
-        price: enteredPrice,
+        pricing: pricingArr,
         features: featureArr
       })
         .then(() => {
-          setUpdatedPackagePlan({ id: "", name: "", carType: "", price: "", features: [] });
+          setUpdatedPackagePlan({ id: "", name: "", pricing: [], features: [] });
           setPackagesIsUpdating(false);
           setPackageWarning("");
         });
@@ -252,13 +248,77 @@ function App() {
     deleteDoc(docRef);
   };
 
+  const handlePricing = () => {
+    const newCarType = enteredPricing.carType;
+    const newPrice = enteredPricing.price;
+    const pricingArr = packagePlan.pricing;
+    const newPricingArr = [...pricingArr, { carType: newCarType, price: newPrice }];
+    if (newCarType === "") {
+      setPackageWarning("You can't enter an empty car type");
+    } else if (newPrice === "") {
+      setPackageWarning("You must enter a price");
+    } else {
+      setPackagePlan({
+        ...packagePlan,
+        pricing: newPricingArr
+      });
+      setEnteredPricing({
+        carType: "",
+        price: ""
+      });
+      setPackageWarning("");
+    }
+  };
+
+  const handleUpdatedPricing = () => {
+    const newCarType = enteredUpdatedPricing.carType;
+    const newPrice = enteredUpdatedPricing.price;
+    const pricingArr = updatedPackagePlan.pricing;
+    const newPricingArr = [...pricingArr, { carType: newCarType, price: newPrice }];
+    if (newCarType === "") {
+      setPackageWarning("You can't enter an empty car type");
+    } else if (newPrice === "") {
+      setPackageWarning("You must enter a price");
+    } else {
+      setUpdatedPackagePlan({
+        ...updatedPackagePlan,
+        pricing: newPricingArr
+      });
+      setEnteredUpdatedPricing({
+        carType: "",
+        price: ""
+      });
+      setPackageWarning("");
+    }
+  };
+
+  const removeSelectedPricing = (e) => {
+    const selectedCarType = e.target.dataset.cartype
+    const pricingArr = packagePlan.pricing;
+    const filteredItems = pricingArr.filter(item => item.carType !== selectedCarType);
+    setPackagePlan({
+      ...packagePlan,
+      pricing: filteredItems
+    });
+  };
+
+  const removeSelectedUpdatedPricing = (e) => {
+    const selectedCarType = e.target.dataset.cartype
+    const pricingArr = updatedPackagePlan.pricing;
+    const filteredItems = pricingArr.filter(item => item.carType !== selectedCarType);
+    setUpdatedPackagePlan({
+      ...updatedPackagePlan,
+      pricing: filteredItems
+    });
+  };
+
   const handleFeature = () => {
     const newFeature = enteredFeature.feature;
     const newFeatureColor = enteredFeature.color;
     const featuresArr = packagePlan.features;
     const newFeaturesArr = [...featuresArr, { feature: newFeature, color: newFeatureColor }];
     if (newFeature === "") {
-      setPackageWarning("You cant enter an empty feature");
+      setPackageWarning("You can't enter an empty feature");
     } else if (newFeatureColor === "") {
       setPackageWarning("You must choose either a blue or green icon for your feature");
     } else {
@@ -276,10 +336,11 @@ function App() {
 
   const handleUpdatedFeature = () => {
     const newFeature = enteredUpdatedFeature.feature;
+    const newFeatureColor = enteredUpdatedFeature.color;
     const featuresArr = updatedPackagePlan.features;
-    const newFeaturesArr = [...featuresArr, newFeature];
+    const newFeaturesArr = [...featuresArr, { feature: newFeature, color: newFeatureColor }];
     if (newFeature === "") {
-      setPackageWarning("You cant enter an empty feature");
+      setPackageWarning("You can't enter an empty feature");
     } else if (newFeatureColor === "") {
       setPackageWarning("You must choose either a blue or green icon for your feature");
     } else {
@@ -298,7 +359,7 @@ function App() {
   const removeSelectedFeature = (e) => {
     const selectedFeature = e.target.dataset.feature
     const featuresArr = packagePlan.features;
-    const filteredItems = featuresArr.filter(item => item[0] !== selectedFeature);
+    const filteredItems = featuresArr.filter(item => item.feature !== selectedFeature);
     setPackagePlan({
       ...packagePlan,
       features: filteredItems
@@ -308,7 +369,7 @@ function App() {
   const removeSelectedUpdatedFeature = (e) => {
     const selectedFeature = e.target.dataset.feature
     const featuresArr = updatedPackagePlan.features;
-    const filteredItems = featuresArr.filter(item => item !== selectedFeature);
+    const filteredItems = featuresArr.filter(item => item.feature !== selectedFeature);
     setUpdatedPackagePlan({
       ...updatedPackagePlan,
       features: filteredItems
@@ -383,7 +444,15 @@ function App() {
         enteredUpdatedFeature,
         setPackagesIsUpdating,
         packagesIsUpdating,
-        removeSelectedUpdatedFeature
+        removeSelectedUpdatedFeature,
+        enteredPricing,
+        setEnteredPricing,
+        handlePricing,
+        removeSelectedPricing,
+        enteredUpdatedPricing,
+        setEnteredUpdatedPricing,
+        handleUpdatedPricing,
+        removeSelectedUpdatedPricing
       }}>
         <Routes>
           <Route exact path="/" element={<HomePage />} />

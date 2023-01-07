@@ -11,7 +11,11 @@ const PackagesAdd = ({ cancelAddPackageBtnClicked }) => {
         handleFeature,
         enteredFeature,
         setEnteredFeature,
-        removeSelectedFeature
+        removeSelectedFeature,
+        enteredPricing,
+        setEnteredPricing,
+        handlePricing,
+        removeSelectedPricing
     } = useContext(AppContext);
     return (
         <form className="packages-add">
@@ -28,17 +32,27 @@ const PackagesAdd = ({ cancelAddPackageBtnClicked }) => {
                     className="package-add-type-input"
                     type="text"
                     placeholder="Car Type(ex. van)"
-                    onChange={(e) => setPackagePlan({ ...packagePlan, carType: e.target.value })}
-                    value={packagePlan.carType}
+                    onChange={(e) => setEnteredPricing({ ...enteredPricing, carType: e.target.value })}
+                    value={enteredPricing.carType}
                 />
                 <input
                     className="package-add-price-input"
                     type="text"
                     placeholder="Price(ex. 150)"
-                    onChange={(e) => setPackagePlan({ ...packagePlan, price: e.target.value })}
-                    value={packagePlan.price}
+                    onChange={(e) => setEnteredPricing({ ...enteredPricing, price: e.target.value })}
+                    value={enteredPricing.price}
                 />
-                {/* <button className="package-add-prices-input-btn" type="button">+</button> */}
+                <button className="package-add-prices-input-btn" type="button" onClick={handlePricing}>+</button>
+            </div>
+            <div className="selected-pricings">
+                {
+                    packagePlan.pricing.map((item, i) => (
+                        <div className="add-pricing-tag" key={i}>
+                            <p>{item.carType} (${item.price})</p>
+                            <span className="material-symbols-rounded" data-cartype={item.carType} onClick={removeSelectedPricing}>close</span>
+                        </div>
+                    ))
+                }
             </div>
             <div className="package-add-features">
                 <input

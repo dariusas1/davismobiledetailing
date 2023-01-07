@@ -14,7 +14,9 @@ const Packages = () => {
         packagesIsUpdating,
         setPackagesIsUpdating,
         setPackageWarning,
-        setEnteredUpdatedFeature
+        setEnteredUpdatedFeature,
+        setEnteredPricing,
+        setEnteredUpdatedPricing
     } = useContext(AppContext);
 
     const addPackageBtnClicked = () => {
@@ -23,23 +25,24 @@ const Packages = () => {
     const cancelAddPackageBtnClicked = () => {
         setPackagesIsAdding(false);
         setPackageWarning("");
-        setPackagePlan({ name: "", carType: "", price: "", features: [] });
+        setPackagePlan({ name: "", pricing: [], features: [] });
+        setEnteredPricing({ carType: "", price: "" });
         setEnteredFeature({ feature: "", color: "" });
     }
-    const updatePackageBtnClicked = (id, name, carType, price, features) => {
+    const updatePackageBtnClicked = (id, name, pricing, features) => {
         setPackagesIsUpdating(true);
         setUpdatedPackagePlan({
             id: id,
             name: name,
-            carType: carType,
-            price: price,
+            pricing: pricing,
             features: features
         });
     }
     const cancelUpdatePackageBtnClicked = () => {
         setPackagesIsUpdating(false);
         setPackageWarning("");
-        setUpdatedPackagePlan({ id: "", name: "", carType: "", price: "", features: [] });
+        setUpdatedPackagePlan({ id: "", name: "", pricing: [], features: [] });
+        setEnteredUpdatedPricing({ carType: "", price: "" });
         setEnteredUpdatedFeature({ feature: "", color: "" });
     }
     return (

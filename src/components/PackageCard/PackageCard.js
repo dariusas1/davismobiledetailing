@@ -1,15 +1,19 @@
 import "./PackageCard.css";
 import Icon from "../Icon/Icon";
 
-const PackageCard = ({ name, carType, price, features }) => {
+const PackageCard = ({ name, pricing, features }) => {
     return (
         <div className="package-card">
             <p className="package-card-heading">{name}</p>
             <div className="package-card-price-list">
-                <div className="package-card-price">
-                    <p>{carType}</p>
-                    <p>${price}</p>
-                </div>
+                {
+                    pricing.map((item, index) => (
+                        <div key={index} className="package-card-price">
+                            <p>{item.carType}</p>
+                            <p>${item.price}</p>
+                        </div>
+                    ))
+                }
             </div>
             <ul className="package-card-features">
                 {
