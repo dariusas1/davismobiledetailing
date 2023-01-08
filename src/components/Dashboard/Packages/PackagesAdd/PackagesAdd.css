@@ -1,11 +1,9 @@
 .packages-add {
     height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    align-items: center;
     overflow: auto;
-    /* if needed, fix overflow. Or maybe put selected-features div below form so that feature tags dont push input fields up */
 }
 
 .package-add-heading {
