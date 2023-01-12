@@ -1,11 +1,9 @@
 import './ProjectCard.css';
-import React from 'react';
-import tempCarImg from '../../assets/images/car.jpg';
 
-const ProjectCard = ({projectTitle}) => {
+const ProjectCard = ({ title, img }) => {
     return (
         <div className="project-card">
-            <img src={tempCarImg} alt={projectTitle} />
+            <img src={img} alt={title} />
             <div className="project-card-overlay">
                 <button type="button">View</button>
             </div>

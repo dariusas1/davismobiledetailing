@@ -25,14 +25,22 @@
 }
 
 .sidenav-icon:hover {
-    background-color: var(--clr-light-theme);
+    background-color: var(--clr-white);
 }
 
 .sidenav-icon span {
-    color: var(--clr-light-gray);
+    /* color: var(--clr-light-gray); */
     font-size: 2rem;
 }
 
 .sidenav-icon:hover span {
-    color: var(--clr-white);
+    color: var(--clr-dark-theme);
+}
+
+.selected-white {
+    background-color: var(--clr-white);
+}
+
+.selected-blue {
+    color: var(--clr-dark-theme);
 }

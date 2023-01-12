@@ -1,8 +1,17 @@
 import './Projects.css';
-import React from 'react';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
+import { AppContext } from '../../App';
+import { useContext, useEffect } from 'react';
 
 const Projects = () => {
+    const {
+        projectsList,
+        getProjectsList
+    } = useContext(AppContext);
+
+    useEffect(() => {
+        getProjectsList();
+    }, []);
     return (
         <section className="projects">
             <div className="projects-heading">
@@ -10,9 +19,11 @@ const Projects = () => {
                 <p>Our Work</p>
             </div>
             <div className="projects-content">
-                <ProjectCard projectTitle={"2019 Hellcat"} />
-                <ProjectCard projectTitle={"2019 Hellcat"} />
-                <ProjectCard projectTitle={"2019 Hellcat"} />
+                {
+                    projectsList.map((item, i) => (
+                        <ProjectCard key={i} title={item.title} img={item.img} />
+                    ))
+                }
             </div>
         </section>
     )

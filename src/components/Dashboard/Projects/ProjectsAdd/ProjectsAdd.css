@@ -57,3 +57,10 @@
     font-family: var(--ff-poppins);
     margin: 0 1rem;
 }
+
+.project-add-warning {
+    margin-top: 1rem;
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-500);
+    font-size: 1rem;
+}

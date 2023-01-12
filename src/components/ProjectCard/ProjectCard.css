@@ -34,18 +34,13 @@
 
 
 .project-card-overlay button {
-    background-color: transparent;
+    background-color: var(--clr-white);
+    color: var(--clr-black);
     border: 0.1rem solid var(--clr-white);
     cursor: pointer;
     padding: 0.5rem 1rem;
-    color: var(--clr-white);
     font-family: var(--ff-poppins);
     border-radius: 0.5rem;
     font-weight: var(--fw-700);
     transition: var(--transition);
-}
-
-.project-card-overlay button:hover {
-    background-color: var(--clr-white);
-    color: var(--clr-black);
 }

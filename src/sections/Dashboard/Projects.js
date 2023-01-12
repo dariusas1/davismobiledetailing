@@ -9,7 +9,9 @@ const Projects = () => {
         projectsIsAdding,
         setProjectsIsAdding,
         projectsIsUpdating,
-        setProjectsIsUpdating
+        setProjectsIsUpdating,
+        setProjectWarning,
+        setProject
     } = useContext(AppContext);
 
     const addProjectBtnClicked = () => {
@@ -18,6 +20,8 @@ const Projects = () => {
 
     const cancelAddProjectBtnClicked = () => {
         setProjectsIsAdding(false);
+        setProjectWarning("");
+        setProject({ title: "", img: "" });
     }
 
     const updateProjectBtnClicked = () => {

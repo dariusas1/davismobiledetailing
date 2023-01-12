@@ -1,13 +1,13 @@
 import './ProjectsView.css';
 import { useEffect, useContext } from 'react';
-// import carImg from '../../../../assets/images/car.jpg';
 import { AppContext } from '../../../../App';
 import Icon from '../../../Icon/Icon';
 
 const ProjectsView = ({ addProjectBtnClicked, updateProjectBtnClicked }) => {
     const {
         getProjectsList,
-        projectsList
+        projectsList,
+        deleteProject
     } = useContext(AppContext);
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const ProjectsView = ({ addProjectBtnClicked, updateProjectBtnClicked }) => {
                             <p>{item.title}</p>
                             <div className="project-card-options">
                                 <span className="material-symbols-rounded" onClick={updateProjectBtnClicked}>edit</span>
-                                <span className="material-symbols-rounded">delete</span>
+                                <span className="material-symbols-rounded" onClick={() => deleteProject(item.id)}>delete</span>
                             </div>
                         </div>
                     </div>

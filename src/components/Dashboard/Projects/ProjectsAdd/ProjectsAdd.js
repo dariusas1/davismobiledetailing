@@ -6,7 +6,8 @@ const ProjectsAdd = ({ cancelAddProjectBtnClicked }) => {
     const {
         project,
         setProject,
-        handleProjectSubmit
+        handleProjectSubmit,
+        projectWarning
     } = useContext(AppContext);
     return (
         <form className="projects-add">
@@ -19,15 +20,14 @@ const ProjectsAdd = ({ cancelAddProjectBtnClicked }) => {
             />
             <input className="project-add-files-input"
                 type="file"
-                // multiple
-                // accept="image/png image/jpg"
+                accept="image/*"
                 onChange={(e) => setProject({ ...project, img: e.target.files[0] })}
-                value={project.img}
             />
             <div className="project-add-btns">
                 <button className="project-add-submit-btn" type="submit" onClick={handleProjectSubmit}>Add</button>
                 <button className="project-add-cancel-btn" type="button" onClick={cancelAddProjectBtnClicked}>Cancel</button>
             </div>
+            <p className="project-add-warning">{projectWarning}</p>
         </form>
     )
 };
