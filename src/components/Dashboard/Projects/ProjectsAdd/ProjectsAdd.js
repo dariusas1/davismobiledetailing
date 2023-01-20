@@ -21,6 +21,9 @@ const ProjectsAdd = ({ cancelAddProjectBtnClicked }) => {
             <input className="project-add-files-input"
                 type="file"
                 accept="image/*"
+                // multiple
+                // name="file[]"
+                // onChange={(e) => setProject({ ...project, img: e.target.files })}
                 onChange={(e) => setProject({ ...project, img: e.target.files[0] })}
             />
             <div className="project-add-btns">

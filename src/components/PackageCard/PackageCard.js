@@ -5,7 +5,7 @@ const PackageCard = ({ name, pricing, features }) => {
     return (
         <div className="package-card">
             <p className="package-card-heading">{name}</p>
-            <div className="package-card-price-list">
+            <div className={(pricing.length === 1 ? "package-card-price-list-one" : "package-card-price-list")}>
                 {
                     pricing.map((item, index) => (
                         <div key={index} className="package-card-price">

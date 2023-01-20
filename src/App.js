@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import PackagesPage from './pages/PackagesPage/PackagesPage';
 import ContactPage from './pages/ContactPage/ContactPage';
@@ -8,13 +8,15 @@ import { db, storage } from './firebase.config';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 // import { ref, uploadBytes } from 'firebase/storage';
 import { collection, onSnapshot, doc, addDoc, deleteDoc, updateDoc, serverTimestamp, query, orderBy } from 'firebase/firestore';
+import Navbar from './components/Navbar/Navbar';
 
 export const AppContext = createContext();
 
 function App() {
 
   // PROJECTS(state & firebase logic)
-  const [project, setProject] = useState({ title: "", img: "" });
+  // const [project, setProject] = useState({ title: "", img: "" });
+  const [project, setProject] = useState({ title: "", img: [] });
   const [projectsList, setProjectsList] = useState([]);
   const [projectWarning, setProjectWarning] = useState("");
   const [projectsIsAdding, setProjectsIsAdding] = useState(false);

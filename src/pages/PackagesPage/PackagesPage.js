@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
-import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import Packages from '../../sections/Packages/Packages';
 import ExtraInfo from '../../sections/ExtraInfo/ExtraInfo';
 import Faqs from '../../sections/Faqs/Faqs';
+import Navbar from '../../components/Navbar/Navbar';
 
 const PackagesPage = () => {
     return (
         <>
-            <Navbar Link={Link} />
+            <Navbar Link={Link} isHome={"no"} />
             <Packages />
             <ExtraInfo />
             <Faqs />

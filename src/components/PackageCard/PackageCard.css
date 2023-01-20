@@ -25,6 +25,14 @@
     gap: 1rem;
 }
 
+.package-card-price-list-one {
+    margin-top: 1rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+}
+
 .package-card-price {
     text-align: center;
 }

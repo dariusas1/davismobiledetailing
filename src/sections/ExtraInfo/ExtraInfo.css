@@ -47,10 +47,13 @@
 }
 .why-choose-us-card-text {
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .why-choose-us-card-text p {
     font-family: var(--ff-poppins);
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-align: center;
 }
 

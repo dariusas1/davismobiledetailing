@@ -3,13 +3,20 @@
     background-color: var(--clr-light-gray);
     width: 100%;
     padding: 1rem 2rem;
-    /* position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
-    -webkit-transition: var(--transition);
-    transition: var(--transition);
-    z-index: 100; */
+    /* -webkit-transition: var(--transition);
+    transition: var(--transition); */
+    z-index: 100;
 }
+
+/* .navActive {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+} */
 
 /* .navbar.scrolled {
     background-color: var(--clr-light-gray);
