@@ -1,9 +1,9 @@
-import './Modal.css';
+import './PkgModal.css';
 import Icon from '../Icon/Icon';
 import { useState, useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
-const Modal = ({ pkgName, setIsActive, serviceReq }) => {
+const PkgModal = ({ pkgName, setIsActive, serviceReq }) => {
     const [modalForm, setModalForm] = useState({ serviceReq: serviceReq, name: "", phoneNum: "", error: "" });
     const [state, handleSubmit] = useForm("mdovznvd");
 
@@ -16,8 +16,8 @@ const Modal = ({ pkgName, setIsActive, serviceReq }) => {
     }, [state.succeeded, state.errors]);
 
     return (
-        <div className="overlay">
-            <form className="modal" onSubmit={handleSubmit}>
+        <div className="pkg-modal-overlay">
+            <form className="pkg-modal" onSubmit={handleSubmit}>
                 <span className="material-symbols-rounded pkg-modal-close" onClick={() => setIsActive(false)}>close</span>
                 <label id="service-request-label" htmlFor="service-request-input">Your Service Request:</label>
                 <input
@@ -86,4 +86,4 @@ const Modal = ({ pkgName, setIsActive, serviceReq }) => {
     )
 }
 
-export default Modal;
+export default PkgModal;

@@ -12,6 +12,7 @@ const Packages = () => {
     useEffect(() => {
         getPackagesList();
     }, []);
+
     return (
         <section className="packages">
             <div className="packages-heading">

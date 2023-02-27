@@ -1,4 +1,4 @@
-.overlay {
+.pkg-modal-overlay {
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100vh;
@@ -12,7 +12,7 @@
     padding: 2rem;
 }
 
-.modal {
+.pkg-modal {
     width: 40rem;
     background-color: var(--clr-white);
     border-radius: 1rem;
@@ -145,7 +145,7 @@
 }
 
 @media(max-width:585px) {
-    .modal {
+    .pkg-modal {
         padding: 2.5rem;
     }
 
@@ -161,20 +161,7 @@
 
     .pkg-modal-contact-info {
         flex-direction: column;
-        /* background-color: coral; */
         margin-top: 1rem;
-        /* width: fit-content; */
-        /* justify-content: center; */
         align-items: center;
     }
-
-    .pkg-modal-contact-info div {
-        /* background-color: darkgray; */
-        /* justify-content: center; */
-        /* width: fit-content; */
-    }
-
-    /* .modal-pkg-submit-btn {
-        margin-top: 1rem;
-    } */
 }
