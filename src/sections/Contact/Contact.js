@@ -1,7 +1,26 @@
 import './Contact.css';
 import Icon from '../../components/Icon/Icon';
+import { useState, useEffect } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
 const Contact = () => {
+    const [state, handleSubmit] = useForm("xayzjynj");
+    const [contactForm, setContactForm] = useState({ name: "", phone: "", email: "", msg: "", success: "", error: "" });
+    useEffect(() => {
+        if (state.succeeded) {
+            setContactForm({
+                name: "",
+                phone: "",
+                email: "",
+                msg: "",
+                success: "Form submitted successfully!",
+                error: ""
+            });
+        } else if (state.errors.length > 0) {
+            setContactForm({ ...contactForm, success: "", error: "There was a problem submitting." });
+        }
+    }, [state.succeeded, state.errors]);
+
     return (
         <section className="contact">
             <div className="contact-heading">
@@ -19,16 +38,70 @@ const Contact = () => {
                         </div>
                         <div className="contact-card-email">
                             <Icon className={""} name={"mail"} />
-                            <a href="mailto:davismobiledetailing@gmail.com">davismobiledetailing@gmail.com</a>
+                            <a href="mailto:davismobiledetailingaz@gmail.com">davismobiledetailingaz@gmail.com</a>
                         </div>
                     </div>
                 </div>
-                <form className="contact-form">
-                    <input type="text" required placeholder="Name" />
-                    <input type="text" required placeholder="Phone" />
-                    <input type="email" required placeholder="Email" />
-                    <textarea rows="4" required placeholder="Message"></textarea>
+                <form className="contact-form" onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        required
+                        placeholder="Name"
+                        name="name"
+                        onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                        value={contactForm.name}
+                    />
+                    <ValidationError
+                        prefix="name"
+                        field="name"
+                        errors={state.errors}
+                    />
+                    <input
+                        type="text"
+                        required
+                        placeholder="Phone"
+                        name="phone"
+                        onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
+                        value={contactForm.phone}
+                    />
+                    <ValidationError
+                        prefix="phone"
+                        field="phone"
+                        errors={state.errors}
+                    />
+                    <input
+                        type="email"
+                        required
+                        placeholder="Email"
+                        name="email"
+                        onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                        value={contactForm.email}
+                    />
+                    <ValidationError
+                        prefix="email"
+                        field="email"
+                        errors={state.errors}
+                    />
+                    <textarea
+                        rows="4"
+                        required
+                        placeholder="Message"
+                        name="message"
+                        onChange={(e) => setContactForm({ ...contactForm, msg: e.target.value })}
+                        value={contactForm.msg}
+                    ></textarea>
+                    <ValidationError
+                        prefix="message"
+                        field="message"
+                        errors={state.errors}
+                    />
                     <button type="submit">Submit</button>
+                    {
+                        contactForm.success && <p id="contact-form-success-msg">{contactForm.success}</p>
+                    }
+                    {
+                        contactForm.error && <p id="contact-form-error-msg">{contactForm.error}</p>
+                    }
                 </form>
             </div>
         </section>

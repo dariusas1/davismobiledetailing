@@ -15,7 +15,7 @@ const Footer = ({ Link }) => {
                     <div>
                         <p className="footer-heading">Contact</p>
                         <p>(480)-285-9857</p>
-                        <a href="mailto:davismobiledetailing@gmail.com">davismobiledetailing@gmail.com</a>
+                        <a href="mailto:davismobiledetailingaz@gmail.com">davismobiledetailingaz@gmail.com</a>
                     </div>
                     <div>
                         <p className="footer-heading">Links</p>

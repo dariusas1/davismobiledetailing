@@ -77,6 +77,23 @@
     background-color: var(--clr-dark-theme);
 }
 
+#contact-form-success-msg,
+#contact-form-error-msg {
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-500);
+    font-size: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#contact-form-success-msg {
+    color: #6cc73e;
+}
+
+#contact-form-error-msg {
+    color: #cf0d0d;
+}
+
 @media(min-width: 800px) {
     .contact-card {
         max-width: 60rem;
