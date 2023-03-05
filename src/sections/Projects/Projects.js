@@ -11,18 +11,22 @@ const Projects = () => {
 
     useEffect(() => {
         getProjectsList();
-    }, []);
+    });
     return (
         <section className="projects">
             <div className="projects-heading">
                 <p>PROJECTS</p>
                 <p>Our Work</p>
             </div>
-            <div className="projects-content">
+            <div className={projectsList.length > 0 ? "projects-content" : "projects-content-flex"}>
                 {
-                    projectsList.map((item, i) => (
-                        <ProjectCard key={i} title={item.title} img={item.img} />
-                    ))
+                    projectsList.length > 0
+                        ?
+                        projectsList.map((item, i) => (
+                            <ProjectCard key={i} title={item.title} imgs={item.imgs} />
+                        ))
+                        :
+                        <p className="projects-content-warning">Projects coming soon, check back later.</p>
                 }
             </div>
         </section>

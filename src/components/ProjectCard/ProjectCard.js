@@ -2,7 +2,7 @@ import './ProjectCard.css';
 import { useState, useEffect } from 'react';
 import ProjModal from '../ProjModal/ProjModal';
 
-const ProjectCard = ({ title, img }) => {
+const ProjectCard = ({ title, imgs }) => {
     const [isActive, setIsActive] = useState(false);
     useEffect(() => {
         if (isActive) {
@@ -14,13 +14,15 @@ const ProjectCard = ({ title, img }) => {
     return (
         <>
             <div className="project-card">
-                <img src={img} alt={title} />
+
+                <img src={imgs[0]} alt={title} />
+
                 <div className="project-card-overlay">
                     <button type="button" onClick={() => setIsActive(true)}>View</button>
                 </div>
             </div>
             {
-                isActive && <ProjModal setIsActive={setIsActive} title={title} />
+                isActive && <ProjModal setIsActive={setIsActive} title={title} imgs={imgs} />
             }
         </>
     )

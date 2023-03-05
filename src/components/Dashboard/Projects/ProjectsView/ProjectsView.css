@@ -8,17 +8,6 @@
     overflow: auto;
 }
 
-.add-project-card {
-    background-color: var(--clr-light-gray);
-    width: 100%;
-    height: 15rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0.75rem;
-    cursor: pointer;
-}
-
 .add-project-card span {
     font-size: 3rem;
 }

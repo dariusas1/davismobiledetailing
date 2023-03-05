@@ -11,7 +11,7 @@ const Faqs = () => {
 
     useEffect(() => {
         getFaqsList();
-    }, []);
+    });
 
     return (
         <section className="faq">
@@ -19,11 +19,15 @@ const Faqs = () => {
                 <p>LETS HELP</p>
                 <p>Frequently Asked Questions</p>
             </div>
-            <div className="faq-content">
+            <div className={faqsList.length > 0 ? "faq-content" : "faq-content-flex"}>
                 {
-                    faqsList.map(item => (
-                        <FaqCard key={item.id} question={item.question} answer={item.answer} />
-                    ))
+                    faqsList.length > 0
+                        ?
+                        faqsList.map(item => (
+                            <FaqCard key={item.id} question={item.question} answer={item.answer} />
+                        ))
+                        :
+                        <p className="faq-content-warning">FAQs coming soon, check back later.</p>
                 }
             </div>
         </section>

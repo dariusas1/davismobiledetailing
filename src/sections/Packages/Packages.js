@@ -11,7 +11,7 @@ const Packages = () => {
 
     useEffect(() => {
         getPackagesList();
-    }, []);
+    });
 
     return (
         <section className="packages">
@@ -19,16 +19,20 @@ const Packages = () => {
                 <p>PACKAGES</p>
                 <p>Choose Your Plan</p>
             </div>
-            <div className="packages-content">
+            <div className={packagesList.length > 0 ? "packages-content" : "packages-content-flex"}>
                 {
-                    packagesList.map(item => (
-                        <PackageCard
-                            key={item.id}
-                            name={item.name}
-                            pricing={item.pricing}
-                            features={item.features}
-                        />
-                    ))
+                    packagesList.length > 0
+                        ?
+                        packagesList.map(item => (
+                            <PackageCard
+                                key={item.id}
+                                name={item.name}
+                                pricing={item.pricing}
+                                features={item.features}
+                            />
+                        ))
+                        :
+                        <p className="packages-content-warning">Packages coming soon, check back later.</p>
                 }
             </div>
         </section>

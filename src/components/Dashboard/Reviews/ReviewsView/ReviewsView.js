@@ -12,7 +12,7 @@ const ReviewsView = ({ addReviewBtnClicked, updateReviewBtnClicked }) => {
 
     useEffect(() => {
         getReviewsList();
-    }, []);
+    });
 
     return (
         <div className="reviews-view">

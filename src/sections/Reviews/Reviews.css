@@ -25,12 +25,26 @@
 }
 
 .reviews-content {
-    /* background-color: aqua; */
     width: 100%;
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(1, 1fr);
     margin-top: 2rem;
+}
+
+.reviews-content-flex {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.reviews-content-warning {
+    color: var(--clr-black);
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-300);
+    font-size: 1.25rem;
+    text-align: center;
 }
 
 @media(min-width: 650px) {

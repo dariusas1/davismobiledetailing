@@ -1,59 +1,26 @@
 import { createContext, useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import PackagesPage from './pages/PackagesPage/PackagesPage';
 import ContactPage from './pages/ContactPage/ContactPage';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
-import { db, storage } from './firebase.config';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { db } from './firebase.config';
 // import { ref, uploadBytes } from 'firebase/storage';
 import { collection, onSnapshot, doc, addDoc, deleteDoc, updateDoc, serverTimestamp, query, orderBy } from 'firebase/firestore';
-import Navbar from './components/Navbar/Navbar';
 
 export const AppContext = createContext();
 
 function App() {
 
   // PROJECTS(state & firebase logic)
-  // const [project, setProject] = useState({ title: "", img: "" });
-  const [project, setProject] = useState({ title: "", img: [] });
   const [projectsList, setProjectsList] = useState([]);
-  const [projectWarning, setProjectWarning] = useState("");
-  const [projectsIsAdding, setProjectsIsAdding] = useState(false);
-  const [projectsIsUpdating, setProjectsIsUpdating] = useState(false);
   const projectsCollectionRef = collection(db, "projects");
-  const projectQ = query(projectsCollectionRef, orderBy("createdAt"));
+  const projectQ = query(projectsCollectionRef, orderBy("projID", "desc"));
 
   const getProjectsList = () => {
     onSnapshot(projectQ, snapshot => {
       setProjectsList(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
     });
-  };
-
-  const handleProjectSubmit = (e) => {
-    e.preventDefault();
-    const selectedImg = project.img;
-    const storageRef = ref(storage, `/images/${Date.now()}${selectedImg.name}`);
-    uploadBytesResumable(storageRef, selectedImg).then(() => {
-      getDownloadURL(storageRef).then((url) => {
-        const enteredProjectTitle = project.title;
-        if (enteredProjectTitle === "") {
-          setProjectWarning("You must enter a title for your project");
-        } else if (selectedImg === "") {
-          setProjectWarning("You must choose an image to upload");
-        } else {
-          addDoc(projectsCollectionRef, {
-            title: enteredProjectTitle,
-            img: url,
-            createdAt: serverTimestamp()
-          })
-            .then(() => {
-              setProject({ title: "", img: "" });
-              setProjectsIsAdding(false);
-            });
-        }
-      })
-    })
   };
 
   const deleteProject = id => {
@@ -424,17 +391,8 @@ function App() {
         reviewWarning,
         setReviewWarning,
         // projects
-        project,
-        setProject,
-        handleProjectSubmit,
-        projectsIsAdding,
-        setProjectsIsAdding,
-        projectsIsUpdating,
-        setProjectsIsUpdating,
         getProjectsList,
         projectsList,
-        setProjectWarning,
-        projectWarning,
         deleteProject,
         // faqs
         faq,

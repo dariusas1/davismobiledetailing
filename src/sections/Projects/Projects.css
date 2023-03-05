@@ -32,6 +32,21 @@
     justify-items: center;
 }
 
+.projects-content-flex {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.projects-content-warning {
+    color: var(--clr-black);
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-300);
+    font-size: 1.25rem;
+    text-align: center;
+}
+
 @media(min-width: 650px) {
     .projects-content {
         grid-template-columns: repeat(2, 1fr);

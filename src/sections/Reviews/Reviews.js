@@ -11,7 +11,7 @@ const Reviews = () => {
 
     useEffect(() => {
         getReviewsList();
-    }, []);
+    });
 
     return (
         <section className="reviews">
@@ -19,11 +19,15 @@ const Reviews = () => {
                 <p>REVIEWS</p>
                 <p>Customer Feedback</p>
             </div>
-            <div className="reviews-content">
+            <div className={reviewsList.length > 0 ? "reviews-content" : "reviews-content-flex"}>
                 {
-                    reviewsList.map(item => (
-                        <ReviewCard key={item.id} number={item.stars} name={item.name} review={item.review} />
-                    ))
+                    reviewsList.length > 0
+                        ?
+                        reviewsList.map(item => (
+                            <ReviewCard key={item.id} number={item.stars} name={item.name} review={item.review} />
+                        ))
+                        :
+                        <p className="reviews-content-warning">Reviews coming soon, check back later.</p>
                 }
 
             </div>

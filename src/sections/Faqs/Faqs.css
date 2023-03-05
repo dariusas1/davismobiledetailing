@@ -29,3 +29,18 @@
     margin-top: 2rem;
     max-width: 50rem;
 }
+
+.faq-content-flex {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.faq-content-warning {
+    color: var(--clr-black);
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-300);
+    font-size: 1.25rem;
+    text-align: center;
+}
