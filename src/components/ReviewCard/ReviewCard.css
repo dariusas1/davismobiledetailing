@@ -32,9 +32,10 @@
 .review-card-review {
     text-align: center;
     padding-top: 1rem;
-    border-top: 0.1rem solid var(--clr-light-gray);
+    border-top: 0.1rem solid var(--clr-dark-gray);
     font-family: var(--ff-poppins);
     font-weight: var(--fw-500);
     font-size: 0.9rem;
     color: #7a7a7a;
+    width: 100%;
 }

@@ -19,10 +19,10 @@ const ProjModal = ({ setIsActive, title, imgs }) => {
 
     return (
         <div className="proj-modal-overlay">
+            <span className="material-symbols-rounded proj-modal-close" onClick={() => setIsActive(false)}>close</span>
             <div className="proj-modal">
-                <span className="material-symbols-rounded proj-modal-close" onClick={() => setIsActive(false)}>close</span>
-                <span className="material-symbols-rounded proj-modal-prevArr" onClick={prevPic}>chevron_left</span>
-                <span className="material-symbols-rounded proj-modal-nextArr" onClick={nextPic}>chevron_right</span>
+                <span className="material-symbols-rounded proj-modal-prevArr" onClick={prevPic}>arrow_back_ios_new</span>
+                <span className="material-symbols-rounded proj-modal-nextArr" onClick={nextPic}>arrow_forward_ios</span>
                 <div className="proj-modal-slider" style={{ backgroundImage: `url(${imgs[currentIndex]})` }}></div>
             </div>
         </div>
