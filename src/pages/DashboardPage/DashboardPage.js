@@ -4,7 +4,8 @@ import Reviews from '../../sections/Dashboard/Reviews';
 import Projects from '../../sections/Dashboard/Projects';
 import Faqs from '../../sections/Dashboard/Faqs';
 import Packages from '../../sections/Dashboard/Packages';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AppContext } from '../../App';
 
 const DashboardPage = () => {
     const [isProjectsSelected, setIsProjectsSelected] = useState(true);
@@ -37,6 +38,10 @@ const DashboardPage = () => {
         setIsProjectsSelected(false);
     }
 
+    const {
+        logout
+    } = useContext(AppContext);
+
     return (
         <div className="dashboard-container">
             <Sidebar
@@ -48,6 +53,7 @@ const DashboardPage = () => {
                 isPackagesSelected={isPackagesSelected}
                 isFaqsSelected={isFaqsSelected}
                 isReviewsSelected={isReviewsSelected}
+                logout={logout}
             />
             <section className="dashboard">
                 <div className="dashboard-card">

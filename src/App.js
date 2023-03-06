@@ -1,12 +1,16 @@
-import { createContext, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { createContext, useState, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import PackagesPage from './pages/PackagesPage/PackagesPage';
 import ContactPage from './pages/ContactPage/ContactPage';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 import { db } from './firebase.config';
-// import { ref, uploadBytes } from 'firebase/storage';
+import { auth } from './firebase.config';
 import { collection, onSnapshot, doc, addDoc, deleteDoc, updateDoc, serverTimestamp, query, orderBy } from 'firebase/firestore';
+import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from '@firebase/auth';
+import ProtectedRoutes from './ProtectedRoutes';
+import PublicRoutes from './PublicRoutes';
 
 export const AppContext = createContext();
 
@@ -371,6 +375,51 @@ function App() {
     };
   };
 
+  // LoginPage (state & firebase logic)
+  const [user, setUser] = useState(null);
+  const [loginForm, setLoginForm] = useState({ email: "", password: "", error: "" });
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (user && window.location.pathname != "/dashboard") {
+      navigate("/dashboard");
+    }
+    if (!user && window.location.pathname == "/" || !user && window.location.pathname == "/packages" || !user && window.location.pathname == "/contact" || !user && window.location.pathname == "/login") {
+      return;
+    } else {
+      navigate("/");
+    }
+  }, [user]);
+
+  const login = (e) => {
+    e.preventDefault();
+    const email = loginForm.email;
+    const password = loginForm.password;
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        navigate("/dashboard");
+      }).catch((err) => {
+        setLoginForm({ ...loginForm, error: "Username or password is incorrect" });
+        console.log(err);
+      });
+  };
+
+  const logout = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/");
+      }).catch((err) => console.loog(err))
+  };
+
   return (
     <div className="container">
       <AppContext.Provider value={{
@@ -441,13 +490,24 @@ function App() {
         enteredUpdatedPricing,
         setEnteredUpdatedPricing,
         handleUpdatedPricing,
-        removeSelectedUpdatedPricing
+        removeSelectedUpdatedPricing,
+        // Login
+        loginForm,
+        setLoginForm,
+        login,
+        logout,
+        user
       }}>
         <Routes>
+          <Route element={<PublicRoutes />}>
           <Route exact path="/" element={<HomePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/packages" element={<PackagesPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          </Route>
+          <Route element={<ProtectedRoutes />}>
           <Route path="/dashboard" element={<DashboardPage />} />
+          </Route>
         </Routes>
       </AppContext.Provider>
     </div>

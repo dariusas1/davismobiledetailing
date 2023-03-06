@@ -11,7 +11,7 @@ const Packages = () => {
 
     useEffect(() => {
         getPackagesList();
-    });
+    }, []);
 
     return (
         <section className="packages">

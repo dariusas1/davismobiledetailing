@@ -11,7 +11,7 @@ const Faqs = () => {
 
     useEffect(() => {
         getFaqsList();
-    });
+    }, []);
 
     return (
         <section className="faq">

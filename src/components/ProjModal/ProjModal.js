@@ -2,7 +2,7 @@ import './ProjModal.css';
 import { useState } from 'react';
 
 
-const ProjModal = ({ setIsActive, title, imgs }) => {
+const ProjModal = ({ setIsActive, imgs }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const prevPic = () => {

@@ -11,7 +11,7 @@ const ProjectsView = () => {
 
     useEffect(() => {
         getProjectsList();
-    });
+    }, []);
 
     return (
         <div className="projects-view">

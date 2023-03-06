@@ -11,7 +11,7 @@ const PackagesView = ({ addPackageBtnClicked, updatePackageBtnClicked }) => {
     } = useContext(AppContext);
     useEffect(() => {
         getPackagesList();
-    });
+    }, []);
     return (
         <div className="packages-view">
             <div className="add-package-card" onClick={addPackageBtnClicked}>

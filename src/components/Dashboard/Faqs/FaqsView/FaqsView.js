@@ -11,7 +11,7 @@ const FaqsView = ({ addFaqBtnClicked, updateFaqBtnClicked }) => {
     } = useContext(AppContext);
     useEffect(() => {
         getFaqsList();
-    });
+    }, []);
     return (
         <div className="faqs-view">
             <div className="add-faq-card" onClick={addFaqBtnClicked}>

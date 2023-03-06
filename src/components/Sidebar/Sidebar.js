@@ -1,6 +1,6 @@
 import './Sidebar.css';
 
-const Sidebar = ({ projectsClicked, packagesClicked, faqsClicked, reviewsClicked, isProjectsSelected, isPackagesSelected, isFaqsSelected, isReviewsSelected }) => {
+const Sidebar = ({ projectsClicked, packagesClicked, faqsClicked, reviewsClicked, isProjectsSelected, isPackagesSelected, isFaqsSelected, isReviewsSelected, logout }) => {
     return (
         <nav className="sidenav">
             <div className="sidenav-content">
@@ -24,7 +24,7 @@ const Sidebar = ({ projectsClicked, packagesClicked, faqsClicked, reviewsClicked
                         hotel_class
                     </span>
                 </div>
-                <div className="sidenav-icon">
+                <div className="sidenav-icon" onClick={logout}>
                     <span className="material-symbols-rounded">
                         settings
                     </span>

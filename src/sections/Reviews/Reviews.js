@@ -11,7 +11,7 @@ const Reviews = () => {
 
     useEffect(() => {
         getReviewsList();
-    });
+    }, []);
 
     return (
         <section className="reviews">
