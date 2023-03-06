@@ -22,7 +22,7 @@ const ProjectCard = ({ title, imgs }) => {
                 </div>
             </div>
             {
-                isActive && <ProjModal setIsActive={setIsActive} imgs={imgs} />
+                isActive && <ProjModal setIsActive={setIsActive} imgs={imgs} title={title} />
             }
         </>
     )

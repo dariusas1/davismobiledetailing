@@ -17,6 +17,7 @@
     height: 35rem;
     background-color: var(--clr-black);
     position: relative;
+    cursor: grab;
 }
 
 .proj-modal-close {
@@ -29,40 +30,61 @@
     cursor: pointer;
 }
 
-.proj-modal-prevArr,
-.proj-modal-nextArr {
-    position: absolute;
-    color: var(--clr-light-theme);
-    font-size: 4rem;
-    top: 50%;
-    cursor: pointer;
-    transform: translate(0, -50%);
-}
-
-.proj-modal-prevArr {
-    left: 1.5%;
-}
-
-.proj-modal-nextArr {
-    right: 1.5%;
-}
-
-.proj-modal-slider {
-    width: 100%;
+.slick-slider,
+.slick-slide,
+.slick-slide div,
+.proj-modal-img {
     height: 100%;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    width: 100%;
 }
 
-@media(max-width: 850px) {
+.slick-list {
+    height: 100% !important;
+    width: 100%;
+}
+
+.slick-track {
+    height: 100%;
+}
+
+.proj-modal-img {
+    display: block;
+    object-fit: contain;
+}
+
+/* .slick-prev:before, .slick-next:before {
+    color: var(--clr-light-theme) !important;
+} */
+
+.slick-dots li.slick-active button:before {
+    color: var(--clr-white) !important;
+}
+
+.slick-dots li button:before {
+    color: var(--clr-white) !important;
+}
+
+@media(max-width: 1100px) {
     .proj-modal {
         width: 55rem;
+        height: 30rem;
+    }
+}
+
+@media(max-width: 1000px) {
+    .proj-modal {
+        width: 45rem;
         height: 25rem;
     }
 }
 
-@media(max-width: 550px) {
+@media(max-width: 850px) {
+    .proj-modal {
+        width: 90%;
+    }
+}
+
+@media(max-width: 450px) {
     .proj-modal {
         height: 20rem;
     }
