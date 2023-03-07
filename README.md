@@ -1,2 +1,8 @@
-on package card "choose plan" btn, set modal to active/true-which will add css property to body to prevent scrolling while modal is open.
-then when modal is closed, set modal to false and css property will be removed from body
+REACT_APP_API_KEY=AIzaSyCrgkDMEAkEwzdRpt42slEQVPMO3mFqysY
+REACT_APP_AUTH_DOMAIN=davis-e2ce9.firebaseapp.com
+REACT_APP_PROJECT_ID=davis-e2ce9
+REACT_APP_STORAGE_BUCKET=davis-e2ce9.appspot.com
+REACT_APP_MESSAGING_SENDER_ID=521729027677
+REACT_APP_APP_ID=1:521729027677:web:790d672ee39a58ca15e7b4
+REACT_APP_CONTACT_FORM_ID=xayzjynj
+REACT_APP_PKG_MODAL_FORM_ID=mdovznvd
