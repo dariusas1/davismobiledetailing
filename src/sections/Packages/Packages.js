@@ -2,6 +2,13 @@ import './Packages.css';
 import PackageCard from '../../components/PackageCard/PackageCard';
 import { AppContext } from '../../App';
 import { useContext, useEffect } from 'react';
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import { Pagination, Navigation } from "swiper";
 
 const Packages = () => {
     const {
@@ -19,10 +26,18 @@ const Packages = () => {
                 <p>PACKAGES</p>
                 <p>Choose Your Plan</p>
             </div>
-            <div className={packagesList.length > 0 ? "packages-content" : "packages-content-flex"}>
-                {
-                    packagesList.length > 0
-                        ?
+            {
+                packagesList.length === 0
+                &&
+                <div className="packages-content-no-package">
+                    <p className="packages-content-warning">Packages coming soon, check back later.</p>
+                </div>
+            }
+            {
+                packagesList.length <= 3 && packagesList.length !== 0
+                &&
+                <div className="packages-content-less-than-three">
+                    {
                         packagesList.map(item => (
                             <PackageCard
                                 key={item.id}
@@ -31,10 +46,49 @@ const Packages = () => {
                                 features={item.features}
                             />
                         ))
-                        :
-                        <p className="packages-content-warning">Packages coming soon, check back later.</p>
-                }
-            </div>
+                    }
+                </div>
+            }
+            {
+                packagesList.length > 3
+                &&
+                <div className="packages-content">
+                    <Swiper
+                        slidesPerView={3}
+                        spaceBetween={40}
+                        grabCursor={true}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        navigation={true}
+                        modules={[Pagination, Navigation]}
+                        className="mySwiper"
+                        breakpoints={{
+                            0: {
+                                slidesPerView: 1
+                            },
+                            900: {
+                                slidesPerView: 2
+                            },
+                            1150: {
+                                slidesPerView: 3
+                            }
+                        }}
+                    >
+                        {
+                            packagesList.map(item => (
+                                <SwiperSlide key={item.id}>
+                                    <PackageCard
+                                        name={item.name}
+                                        pricing={item.pricing}
+                                        features={item.features}
+                                    />
+                                </SwiperSlide>
+                            ))
+                        }
+                    </Swiper>
+                </div>
+            }
         </section>
     )
 };

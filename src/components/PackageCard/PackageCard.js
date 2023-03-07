@@ -1,17 +1,20 @@
 import "./PackageCard.css";
 import Icon from "../Icon/Icon";
-import PkgModal from "../PkgModal/PkgModal";
-import { useState, useEffect } from 'react';
+import { AppContext } from '../../App';
+import { useContext } from 'react';
 
 const PackageCard = ({ name, pricing, features }) => {
-    const [isActive, setIsActive] = useState(false);
-    useEffect(() => {
-        if (isActive) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "";
-        }
-    }, [isActive]);
+    const {
+        setIsPkgModalActive,
+        setPackagePlan,
+        packagePlan
+    } = useContext(AppContext);
+
+    const choosePlan = () => {
+        setIsPkgModalActive(true);
+        setPackagePlan({ ...packagePlan, name: name });
+    };
+
     return (
         <>
             <div className="package-card">
@@ -42,11 +45,8 @@ const PackageCard = ({ name, pricing, features }) => {
                         ))
                     }
                 </ul>
-                <button type="button" onClick={() => setIsActive(true)}>Choose Plan</button>
+                <button type="button" onClick={choosePlan}>Choose Plan</button>
             </div>
-            {
-                isActive && <PkgModal serviceReq={name} setIsActive={setIsActive} />
-            }
         </>
     )
 };

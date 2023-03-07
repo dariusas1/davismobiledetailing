@@ -43,6 +43,9 @@ function App() {
   const [enteredUpdatedFeature, setEnteredUpdatedFeature] = useState({ feature: "", color: "" });
   const [packagesIsUpdating, setPackagesIsUpdating] = useState(false);
   const [packageWarning, setPackageWarning] = useState("");
+
+  const [isPkgModalActive, setIsPkgModalActive] = useState(false);
+  
   const packagesCollectionRef = collection(db, "packages");
   const packageQ = query(packagesCollectionRef, orderBy("createdAt"));
 
@@ -491,6 +494,8 @@ function App() {
         setEnteredUpdatedPricing,
         handleUpdatedPricing,
         removeSelectedUpdatedPricing,
+        isPkgModalActive,
+        setIsPkgModalActive,
         // Login
         loginForm,
         setLoginForm,
@@ -500,13 +505,13 @@ function App() {
       }}>
         <Routes>
           <Route element={<PublicRoutes />}>
-          <Route exact path="/" element={<HomePage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/packages" element={<PackagesPage />} />
-          <Route path="/login" element={<LoginPage />} />
+            <Route exact path="/" element={<HomePage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/packages" element={<PackagesPage />} />
+            <Route path="/login" element={<LoginPage />} />
           </Route>
           <Route element={<ProtectedRoutes />}>
-          <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
           </Route>
         </Routes>
       </AppContext.Provider>

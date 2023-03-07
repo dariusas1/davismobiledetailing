@@ -3,8 +3,8 @@ import Icon from '../Icon/Icon';
 import { useState, useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
-const PkgModal = ({ pkgName, setIsActive, serviceReq }) => {
-    const [modalForm, setModalForm] = useState({ serviceReq: serviceReq, name: "", phoneNum: "", error: "" });
+const PkgModal = ({ setIsActive, setPackagePlan, packagePlan }) => {
+    const [modalForm, setModalForm] = useState({ serviceReq: packagePlan.name, name: "", phoneNum: "", error: "" });
     const [state, handleSubmit] = useForm(process.env.REACT_APP_PKG_MODAL_FORM_ID);
 
     useEffect(() => {
@@ -15,18 +15,23 @@ const PkgModal = ({ pkgName, setIsActive, serviceReq }) => {
         }
     }, [state.succeeded, state.errors]);
 
+    const closePkgModal = () => {
+        setIsActive(false);
+        setPackagePlan({ ...packagePlan, name: "" });
+    };
+
     return (
         <div className="pkg-modal-overlay">
             <form className="pkg-modal" onSubmit={handleSubmit}>
-                <span className="material-symbols-rounded pkg-modal-close" onClick={() => setIsActive(false)}>close</span>
+                <span className="material-symbols-rounded pkg-modal-close" onClick={closePkgModal}>close</span>
                 <label id="service-request-label" htmlFor="service-request-input">Your Service Request:</label>
                 <input
                     id="service-request-input"
                     type="text"
                     name="service-request"
                     readOnly
-                    placeholder={pkgName}
-                    defaultValue={modalForm.serviceReq}
+                    placeholder={packagePlan.name}
+                    defaultValue={packagePlan.name}
                 />
                 <ValidationError
                     prefix="service-request"

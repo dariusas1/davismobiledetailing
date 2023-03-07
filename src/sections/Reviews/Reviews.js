@@ -32,14 +32,14 @@ const Reviews = () => {
                 <p>Customer Feedback</p>
             </div>
             {
-                reviewsList.length == 0
+                reviewsList.length === 0
                 &&
                 <div className="reviews-content-no-reviews">
                     <p className="reviews-content-warning">Reviews coming soon, check back later.</p>
                 </div>
             }
             {
-                reviewsList.length == 1
+                reviewsList.length === 1
                 &&
                 <div className="reviews-content-one-review">
                     {reviewsList.map(item => (

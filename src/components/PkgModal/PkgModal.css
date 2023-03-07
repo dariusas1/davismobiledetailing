@@ -103,7 +103,6 @@
 }
 
 .pkg-modal-contact-info {
-    /* background-color: aquamarine; */
     margin-top: 2rem;
     display: flex;
     justify-content: center;
@@ -112,7 +111,6 @@
 .pkg-modal-contact-info div {
     display: flex;
     align-items: center;
-    /* background-color: brown; */
     margin: 0 0.5rem;
 }
 
@@ -124,7 +122,6 @@
 .pkg-modal-contact-info div p,
 .pkg-modal-contact-info div a {
     margin-left: 0.5rem;
-    /* color: var(--clr-black); */
     color: #7a7a7a;
     font-family: var(--ff-poppins);
     font-weight: var(--fw-500);
@@ -144,7 +141,7 @@
     margin-top: 1.5rem;
 }
 
-@media(max-width:585px) {
+@media(max-width:600px) {
     .pkg-modal {
         padding: 2.5rem;
     }
