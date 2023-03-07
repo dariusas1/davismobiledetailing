@@ -1,16 +1,18 @@
 import './ProjectCard.css';
-import { useState, useEffect } from 'react';
-import ProjModal from '../ProjModal/ProjModal';
+import { AppContext } from '../../App';
+import { useContext } from 'react';
 
 const ProjectCard = ({ title, imgs }) => {
-    const [isActive, setIsActive] = useState(false);
-    useEffect(() => {
-        if (isActive) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "";
-        }
-    }, [isActive]);
+    const {
+        setIsProjModalActive,
+        setProjectInfo
+    } = useContext(AppContext);
+
+    const viewProject = () => {
+        setIsProjModalActive(true);
+        setProjectInfo({ title: title, imgs: imgs });
+    };
+
     return (
         <>
             <div className="project-card">
@@ -18,12 +20,9 @@ const ProjectCard = ({ title, imgs }) => {
                 <img src={imgs[0]} alt={title} />
 
                 <div className="project-card-overlay">
-                    <button type="button" onClick={() => setIsActive(true)}>View</button>
+                    <button type="button" onClick={viewProject}>View</button>
                 </div>
             </div>
-            {
-                isActive && <ProjModal setIsActive={setIsActive} imgs={imgs} title={title} />
-            }
         </>
     )
 };

@@ -18,6 +18,8 @@ function App() {
 
   // PROJECTS(state & firebase logic)
   const [projectsList, setProjectsList] = useState([]);
+  const [isProjModalActive, setIsProjModalActive] = useState(false);
+  const [projectInfo, setProjectInfo] = useState({ title: "", imgs: [] });
   const projectsCollectionRef = collection(db, "projects");
   const projectQ = query(projectsCollectionRef, orderBy("projID", "desc"));
 
@@ -43,9 +45,7 @@ function App() {
   const [enteredUpdatedFeature, setEnteredUpdatedFeature] = useState({ feature: "", color: "" });
   const [packagesIsUpdating, setPackagesIsUpdating] = useState(false);
   const [packageWarning, setPackageWarning] = useState("");
-
   const [isPkgModalActive, setIsPkgModalActive] = useState(false);
-  
   const packagesCollectionRef = collection(db, "packages");
   const packageQ = query(packagesCollectionRef, orderBy("createdAt"));
 
@@ -446,6 +446,10 @@ function App() {
         getProjectsList,
         projectsList,
         deleteProject,
+        isProjModalActive,
+        setIsProjModalActive,
+        projectInfo,
+        setProjectInfo,
         // faqs
         faq,
         setFaq,

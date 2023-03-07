@@ -6,8 +6,26 @@ import Banner from '../../sections/Banner/Banner';
 import Reviews from '../../sections/Reviews/Reviews';
 import Footer from '../../components/Footer/Footer';
 import Navbar from '../../components/Navbar/Navbar';
+import ProjModal from '../../components/ProjModal/ProjModal';
+import { AppContext } from '../../App';
+import { useContext, useEffect } from 'react';
 
 const HomePage = () => {
+    const {
+        isProjModalActive,
+        setIsProjModalActive,
+        projectInfo,
+        setProjectInfo,
+    } = useContext(AppContext);
+
+    useEffect(() => {
+        if (isProjModalActive) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+    }, [isProjModalActive]);
+
     return (
         <>
             <Navbar Link={Link} isHome={"yes"} />
@@ -17,6 +35,15 @@ const HomePage = () => {
             <Banner />
             <Reviews />
             <Footer Link={Link} />
+            {
+                isProjModalActive 
+                && 
+                <ProjModal 
+                setIsActive={setIsProjModalActive} 
+                projectInfo={projectInfo}
+                setProjectInfo={setProjectInfo} 
+                />
+            }
         </>
     )
 };
