@@ -3,12 +3,10 @@ import PackageCard from '../../components/PackageCard/PackageCard';
 import { AppContext } from '../../App';
 import { useContext, useEffect } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-import { Pagination, Navigation } from "swiper";
 
 const Packages = () => {
     const {
@@ -34,9 +32,41 @@ const Packages = () => {
                 </div>
             }
             {
-                packagesList.length <= 3 && packagesList.length !== 0
+                packagesList.length === 1
                 &&
-                <div className="packages-content-less-than-three">
+                <div className="packages-content-one-package">
+                    {
+                        packagesList.map(item => (
+                            <PackageCard
+                                key={item.id}
+                                name={item.name}
+                                pricing={item.pricing}
+                                features={item.features}
+                            />
+                        ))
+                    }
+                </div>
+            }
+            {
+                packagesList.length === 2
+                &&
+                <div className="packages-content-two-packages">
+                    {
+                        packagesList.map(item => (
+                            <PackageCard
+                                key={item.id}
+                                name={item.name}
+                                pricing={item.pricing}
+                                features={item.features}
+                            />
+                        ))
+                    }
+                </div>
+            }
+            {
+                packagesList.length === 3
+                &&
+                <div className="packages-content-three-packages">
                     {
                         packagesList.map(item => (
                             <PackageCard
@@ -74,6 +104,7 @@ const Packages = () => {
                                 slidesPerView: 3
                             }
                         }}
+                        speed={750}
                     >
                         {
                             packagesList.map(item => (
