@@ -12,6 +12,7 @@ const Projects = () => {
     useEffect(() => {
         getProjectsList();
     }, []);
+
     return (
         <section className="projects">
             <div className="projects-heading">
