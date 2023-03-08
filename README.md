@@ -1,1 +1,1 @@
-insert bio and images here
+1. call/text above contact info in pkg modal form
