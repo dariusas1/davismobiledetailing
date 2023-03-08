@@ -2,6 +2,11 @@ import './Projects.css';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import { AppContext } from '../../App';
 import { useContext, useEffect } from 'react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const Projects = () => {
     const {
@@ -19,17 +24,83 @@ const Projects = () => {
                 <p>PROJECTS</p>
                 <p>Our Work</p>
             </div>
-            <div className={projectsList.length > 0 ? "projects-content" : "projects-content-flex"}>
-                {
-                    projectsList.length > 0
-                        ?
+            {
+                projectsList.length === 0
+                &&
+                <div className="projects-content-no-project">
+                    <p className="projects-content-warning">Projects coming soon, check back later.</p>
+                </div>
+            }
+            {
+                projectsList.length === 1
+                &&
+                <div className="projects-content-one-project">
+                    {
                         projectsList.map((item, i) => (
                             <ProjectCard key={i} title={item.title} imgs={item.imgs} />
                         ))
-                        :
-                        <p className="projects-content-warning">Projects coming soon, check back later.</p>
-                }
-            </div>
+                    }
+                </div>
+            }
+            {
+                projectsList.length === 2
+                &&
+                <div className="projects-content-two-projects">
+                    {
+                        projectsList.map((item, i) => (
+                            <ProjectCard key={i} title={item.title} imgs={item.imgs} />
+                        ))
+                    }
+                </div>
+            }
+            {
+                projectsList.length === 3
+                &&
+                <div className="projects-content-three-projects">
+                    {
+                        projectsList.map((item, i) => (
+                            <ProjectCard key={i} title={item.title} imgs={item.imgs} />
+                        ))
+                    }
+                </div>
+            }
+            {
+                projectsList.length > 3
+                &&
+                <div className="projects-content">
+                    <Swiper
+                        slidesPerView={3}
+                        // spaceBetween={20}
+                        grabCursor={true}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        navigation={true}
+                        modules={[Pagination, Navigation]}
+                        className="mySwiper"
+                        breakpoints={{
+                            0: {
+                                slidesPerView: 1
+                            },
+                            700: {
+                                slidesPerView: 2
+                            },
+                            1000: {
+                                slidesPerView: 3
+                            }
+                        }}
+                        speed={750}
+                    >
+                        {
+                            projectsList.map((item, i) => (
+                                <SwiperSlide key={i}>
+                                    <ProjectCard title={item.title} imgs={item.imgs} />
+                                </SwiperSlide>
+                            ))
+                        }
+                    </Swiper>
+                </div>
+            }
         </section>
     )
 };

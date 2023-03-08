@@ -25,18 +25,40 @@
 }
 
 .projects-content {
-    margin-top: 2rem;
+    margin-top: 1rem;
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    justify-items: center;
 }
 
-.projects-content-flex {
+.projects-content-no-project {
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+}
+
+.projects-content-one-project {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.projects-content-two-projects {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 2rem;
+    gap: 3rem;
+    justify-items: center;
+}
+
+.projects-content-three-projects {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 2rem;
+    gap: 3rem;
+    justify-items: center;
 }
 
 .projects-content-warning {
@@ -47,20 +69,61 @@
     text-align: center;
 }
 
-@media(min-width: 650px) {
+.projects-content .swiper-slide,
+.projects-content swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+
+.projects-content .swiper {
+    padding: 1rem 1rem 2.5rem;
+}
+
+.projects-content .swiper-button-next, .projects-content .swiper-button-prev {
+    color: var(--clr-light-theme);
+}
+
+.projects-content .swiper-pagination-bullet-active {
+    color: var(--clr-light-theme);
+}
+
+@media(min-width: 500px) {
     .projects-content {
-        grid-template-columns: repeat(2, 1fr);
+        max-width: 22rem;
+    }
+
+    .projects-content-three-projects {
+        max-width: 22rem;
+    }
+
+    .projects-content-two-projects {
+        max-width: 22rem;
     }
 }
 
-@media(min-width: 900px) {
+@media(min-width: 700px) {
     .projects-content {
-        grid-template-columns: repeat(3, 1fr);
+        max-width: 38rem;
+    }
+
+    .projects-content-three-projects {
+        max-width: 38rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-content-two-projects {
+        max-width: 38rem;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media(min-width: 1000px) {
     .projects-content {
-        max-width: 57rem;
+        max-width: 55rem;
+    }
+
+    .projects-content-three-projects {
+        max-width: 55rem;
+        grid-template-columns: repeat(3, 1fr);
     }
 }

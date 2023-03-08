@@ -9,6 +9,7 @@
     background-position: center;
     background-size: cover;
     text-align: center;
+    margin-top: 2rem;
 }
 
 .banner p:nth-child(1) {
