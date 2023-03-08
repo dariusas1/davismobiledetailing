@@ -70,7 +70,6 @@ const Projects = () => {
                 <div className="projects-content">
                     <Swiper
                         slidesPerView={3}
-                        // spaceBetween={20}
                         grabCursor={true}
                         pagination={{
                             clickable: true,

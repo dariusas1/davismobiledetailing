@@ -50,6 +50,7 @@
     grid-template-columns: repeat(1, 1fr);
     margin-top: 2rem;
     gap: 2rem;
+    justify-items: center;
 }
 
 .packages-content-three-packages {

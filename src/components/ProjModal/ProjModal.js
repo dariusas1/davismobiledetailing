@@ -1,17 +1,11 @@
 import './ProjModal.css';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const ProjModal = ({ setIsActive, projectInfo, setProjectInfo }) => {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 750,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        swipe: true
-    };
 
     const closeProjModal = () => {
         setIsActive(false);
@@ -22,11 +16,36 @@ const ProjModal = ({ setIsActive, projectInfo, setProjectInfo }) => {
         <div className="proj-modal-overlay">
             <span className="material-symbols-rounded proj-modal-close" onClick={closeProjModal}>close</span>
             <div className="proj-modal">
-                <Slider {...settings}>
-                    {projectInfo.imgs.map((item, i) => (
+                {
+                    projectInfo.imgs.length === 1
+                    &&
+                    projectInfo.imgs.map((item, i) => (
                         <img className="proj-modal-img" key={i} src={item} alt={projectInfo.title} />
-                    ))}
-                </Slider>
+                    ))
+                }
+                {
+                    projectInfo.imgs.length >= 2
+                    &&
+                    <Swiper
+                        slidesPerView={1}
+                        grabCursor={true}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        navigation={true}
+                        modules={[Pagination, Navigation]}
+                        className="mySwiper"
+                        speed={750}
+                    >
+                        {
+                            projectInfo.imgs.map((item, i) => (
+                                <SwiperSlide key={i}>
+                                    <img className="proj-modal-img" src={item} alt={projectInfo.title} />
+                                </SwiperSlide>
+                            ))
+                        }
+                    </Swiper>
+                }
             </div>
         </div>
     )
