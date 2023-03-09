@@ -2,6 +2,7 @@ import './Contact.css';
 import Icon from '../../components/Icon/Icon';
 import { useState, useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import logo from '../../assets/images/logo.png';
 
 const Contact = () => {
     const [state, handleSubmit] = useForm(process.env.REACT_APP_CONTACT_FORM_ID);
@@ -29,6 +30,9 @@ const Contact = () => {
             </div>
             <div className="contact-card">
                 <div className="contact-card-info">
+                    <div className="contact-card-logo">
+                        <img src={logo} alt="Davis Mobile Detailing Logo" />
+                    </div>
                     <div className="contact-card-info-content">
                         <p className="contact-card-msg">We would love to hear from you! Please fill out this form and one of our mobile detailing
                             representatives will be in touch with you ASAP.</p>

@@ -1,4 +1,5 @@
 import './Footer.css';
+import logo from '../../assets/images/logo.png';
 
 const Footer = ({ Link }) => {
     return (
@@ -11,6 +12,7 @@ const Footer = ({ Link }) => {
                 </svg>
             </div>
             <footer className="footer">
+                <img className="footer-logo" src={logo} alt="Davis Mobile Detailing Logo" />
                 <div className="footer-content">
                     <div>
                         <p className="footer-heading">Contact</p>

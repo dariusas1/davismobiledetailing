@@ -2,6 +2,9 @@
     width: 100%;
     background-color: var(--clr-light-gray);
     padding: 0 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer-content {
@@ -9,6 +12,8 @@
     grid-template-columns: repeat(1, 1fr);
     justify-items: center;
     max-width: 80rem;
+    border-top: 0.1rem solid var(--clr-dark-gray);
+    padding-top: 2rem;
 }
 
 .footer-content div:not(.footer-links) {
@@ -46,6 +51,11 @@
 .footer-links {
     display: flex;
     flex-direction: column;
+}
+
+.footer-logo {
+    width: 6rem;
+    margin-bottom: 2rem;
 }
 
 @media(min-width: 650px) {

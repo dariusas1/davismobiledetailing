@@ -30,12 +30,14 @@
 }
 
 .review-card-review {
-    text-align: center;
     padding-top: 1rem;
     border-top: 0.1rem solid var(--clr-dark-gray);
+    overflow: auto;
+}
+
+.review-card-review p{
     font-family: var(--ff-poppins);
     font-weight: var(--fw-500);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #7a7a7a;
-    width: 100%;
 }

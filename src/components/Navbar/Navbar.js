@@ -2,7 +2,7 @@ import './Navbar.css';
 import { useState } from 'react';
 import logo from '../../assets/images/logo.png';
 
-const Navbar = ({ Link, isHome }) => {
+const Navbar = ({ Link }) => {
     const [isActive, setIsActive] = useState(false);
     // const [isHomePage, setIsHomePage] = useState(false);
     // useEffect(() => {
@@ -33,7 +33,10 @@ const Navbar = ({ Link, isHome }) => {
                 </div>
             </div>
             <div className="navbar-content">
-                <img src={logo} alt="Logo" />
+                <div className="navbar-logo">
+                    <img src={logo} alt="Logo" />
+                    <p><span>D</span>avis <span>M</span>obile <span>D</span>etailing</p>
+                </div>
                 <div className="navbar-links">
                     <Link className="navbar-link" to="/">HOME</Link>
                     <Link className="navbar-link" to="/packages">PACKAGES</Link>

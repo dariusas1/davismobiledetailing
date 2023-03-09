@@ -12,7 +12,9 @@ const ReviewCard = ({ name, review, number }) => {
                     ))
                 }
             </div>
-            <p className="review-card-review">{review}</p>
+            <div className="review-card-review">
+                <p>{review}</p>
+            </div>
         </div>
     )
 };
