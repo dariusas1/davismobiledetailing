@@ -1,8 +1,9 @@
 # Davis Mobile Detailing
 
 ### Links:
-[Demo Live Site](https://loganveik.com)
-[Github Repo](https://github.com/loganveik/loganveik_portfolio)
+[Demo Live Site](https://davismobiledetailingaz.com/)
+ || 
+[Github Repo](https://github.com/loganveik/davismobiledetailing)
 
 ### Description:
 This is a site i built for a client who owns a car detailing business. Met with client to plan/design his vision for the site. This site is a 3-page public site with a private admin dashboard for my client to be able to perform full crud operations on the fly to his: Projects, Reviews, Packages, and FAQs. Which immediately reflect on the public site.
