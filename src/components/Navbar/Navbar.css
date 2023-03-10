@@ -143,14 +143,14 @@
     .navbar-logo p {
         color: var(--clr-black);
         font-size: 1.1rem;
-        font-family: var(--ff-roboto);
+        font-family: var(--ff-mont);
         font-weight: var(--fw-300);
         margin-left: 0.5rem;
         letter-spacing: 0.1rem;
     }
 
     .navbar-logo p span {
-        color: var(--clr-dark-theme);
+        color: var(--clr-light-theme);
         font-size: 1.3rem;
         font-family: var(--ff-poppins);
         font-weight: var(--fw-500);

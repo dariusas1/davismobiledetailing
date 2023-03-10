@@ -34,7 +34,8 @@
 }
 
 .why-choose-us-card {
-    background-color: var(--clr-white);
+    /* background-color: var(--clr-white); */
+    background-color: var(--clr-light-gray);
     box-shadow: 0 0 1rem rgb(0 0 0 / 0.3);
     border-radius: 1rem;
     max-width: 50rem;
@@ -56,7 +57,7 @@
 
 .why-choose-us-card-text p {
     font-family: var(--ff-poppins);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     text-align: center;
     z-index: 51;
 }
