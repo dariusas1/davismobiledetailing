@@ -68,7 +68,7 @@
     right: -10%;
     transform: rotate(-15deg);
     z-index: 50;
-    opacity: 0.25;
+    opacity: 0.2;
 }
 
 @media(min-width: 1000px) {
