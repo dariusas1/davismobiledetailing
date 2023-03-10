@@ -1,5 +1,6 @@
 import './ExtraInfo.css';
 import xtraSideImg from '../../assets/images/whysidecar.jpg';
+import logo from '../../assets/images/logo.png';
 
 const ExtraInfo = () => {
     return (
@@ -22,6 +23,7 @@ const ExtraInfo = () => {
                             knowledge on correcting and protecting your paint/interior for longevity, and consistently
                             high quality finished products.</p>
                     </div>
+                    <img className="why-choose-us-card-logo" src={logo} alt="Davis Mobile Detailing Logo" />
                 </div>
             </div>
         </section>

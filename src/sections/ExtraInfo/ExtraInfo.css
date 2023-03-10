@@ -39,22 +39,36 @@
     border-radius: 1rem;
     max-width: 50rem;
     display: flex;
+    position: relative;
     overflow: hidden;
 }
 
 .why-choose-us-card-img {
     display: none;
 }
+
 .why-choose-us-card-text {
     padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
 .why-choose-us-card-text p {
     font-family: var(--ff-poppins);
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     text-align: center;
+    z-index: 51;
+}
+
+.why-choose-us-card-logo {
+    width: 11rem;
+    position: absolute;
+    bottom: -17%;
+    right: -10%;
+    transform: rotate(-15deg);
+    z-index: 50;
+    opacity: 0.25;
 }
 
 @media(min-width: 1000px) {
@@ -66,5 +80,13 @@
         width: 100%;
         object-fit: cover;
         display: block;
+    }
+
+    .why-choose-us-card-text p {
+        font-size: 1.1rem;
+    }
+
+    .why-choose-us-card-logo {
+        display: none;
     }
 }
