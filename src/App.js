@@ -393,15 +393,15 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (user && window.location.pathname != "/dashboard") {
+    if (user && window.location.pathname !== "/dashboard") {
       navigate("/dashboard");
     }
-    if (!user && window.location.pathname == "/" || !user && window.location.pathname == "/packages" || !user && window.location.pathname == "/contact" || !user && window.location.pathname == "/login") {
+    if ((!user && window.location.pathname) === "/" || (!user && window.location.pathname) === "/packages" || (!user && window.location.pathname) === "/contact" || (!user && window.location.pathname) === "/login") {
       return;
     } else {
       navigate("/");
     }
-  }, [user]);
+  }, [user, navigate]);
 
   const login = (e) => {
     e.preventDefault();
