@@ -11,6 +11,7 @@ const FaqsView = ({ addFaqBtnClicked, updateFaqBtnClicked }) => {
     } = useContext(AppContext);
     useEffect(() => {
         getFaqsList();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return (
         <div className="faqs-view">

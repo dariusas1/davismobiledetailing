@@ -11,6 +11,7 @@ const PackagesView = ({ addPackageBtnClicked, updatePackageBtnClicked }) => {
     } = useContext(AppContext);
     useEffect(() => {
         getPackagesList();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return (
         <div className="packages-view">

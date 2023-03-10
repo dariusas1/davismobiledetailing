@@ -13,6 +13,7 @@ const PkgModal = ({ setIsActive, setPackagePlan, packagePlan }) => {
         } else if (state.errors.length > 0) {
             setModalForm({ ...modalForm, error: "There was a problem submitting." });
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state.succeeded, state.errors]);
 
     const closePkgModal = () => {

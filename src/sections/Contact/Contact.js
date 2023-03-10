@@ -20,6 +20,7 @@ const Contact = () => {
         } else if (state.errors.length > 0) {
             setContactForm({ ...contactForm, success: "", error: "There was a problem submitting." });
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state.succeeded, state.errors]);
 
     return (

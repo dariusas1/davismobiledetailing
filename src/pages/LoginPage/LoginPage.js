@@ -13,7 +13,7 @@ const LoginPage = () => {
     return (
         <div className="login-container">
             <form className="login-form" onSubmit={login}>
-                <img src={logo} />
+                <img src={logo} alt="Davis Mobile Detailing Logo" />
                 <div className="login-form-inputs">
                     <input
                         type="email"

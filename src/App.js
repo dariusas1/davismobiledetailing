@@ -401,7 +401,8 @@ function App() {
     } else {
       navigate("/");
     }
-  }, [user, navigate]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   const login = (e) => {
     e.preventDefault();
