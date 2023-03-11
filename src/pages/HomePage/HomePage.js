@@ -5,7 +5,7 @@ import Projects from '../../sections/Projects/Projects';
 import Banner from '../../sections/Banner/Banner';
 import Reviews from '../../sections/Reviews/Reviews';
 import Footer from '../../components/Footer/Footer';
-import Navbar from '../../components/Navbar/Navbar';
+import HomeNavbar from '../../components/HomeNavbar/HomeNavbar';
 import ProjModal from '../../components/ProjModal/ProjModal';
 import { AppContext } from '../../App';
 import { useContext, useEffect } from 'react';
@@ -28,7 +28,7 @@ const HomePage = () => {
 
     return (
         <>
-            <Navbar Link={Link} isHome={"yes"} />
+            <HomeNavbar Link={Link} />
             <Hero />
             <About />
             <Projects />
@@ -36,12 +36,12 @@ const HomePage = () => {
             <Reviews />
             <Footer Link={Link} />
             {
-                isProjModalActive 
-                && 
-                <ProjModal 
-                setIsActive={setIsProjModalActive} 
-                projectInfo={projectInfo}
-                setProjectInfo={setProjectInfo} 
+                isProjModalActive
+                &&
+                <ProjModal
+                    setIsActive={setIsProjModalActive}
+                    projectInfo={projectInfo}
+                    setProjectInfo={setProjectInfo}
                 />
             }
         </>

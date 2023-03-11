@@ -4,17 +4,6 @@ import logo from '../../assets/images/logo.png';
 
 const Navbar = ({ Link }) => {
     const [isActive, setIsActive] = useState(false);
-    // const [isHomePage, setIsHomePage] = useState(false);
-    // useEffect(() => {
-    //     const navbar = document.querySelector(".navbar");
-    //     window.onscroll = () => {
-    //         if (window.scrollY > 0 && isHomePage === true) {
-    //             navbar.classList.add("scrolled");
-    //         } else {
-    //             navbar.classList.remove("scrolled");
-    //         }
-    //     };
-    // }, []);
     return (
         <nav className="navbar">
             <div className="navbar-content-mobile">
