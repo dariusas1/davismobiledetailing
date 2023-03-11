@@ -22,7 +22,7 @@ const About = () => {
                     <div className="about-card-list">
                         <div className="about-card-list-item">
                             <Icon className={" about-list-icon"} name={"task_alt"} />
-                            <p className="about-list-title">Service Hours (7am-7pm)</p>
+                            <p className="about-list-title">Service Hours (8am-6pm)</p>
                         </div>
                         <div className="about-card-list-item">
                             <Icon className={" about-list-icon"} name={"task_alt"} />

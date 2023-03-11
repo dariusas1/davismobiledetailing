@@ -7,10 +7,15 @@ const HomeNavbar = ({ Link }) => {
     useEffect(() => {
         const navbar = document.querySelector(".home-navbar");
         window.onscroll = () => {
-            if (window.scrollY > 0) {
-                navbar.classList.add("scrolled");
+            // if (window.scrollY > 0) {
+            //     navbar.classList.add("scrolled");
+            // } else {
+            //     navbar.classList.remove("scrolled");
+            // }
+            if (window.scrollY === 0) {
+                navbar.classList.add("top");
             } else {
-                navbar.classList.remove("scrolled");
+                navbar.classList.remove("top");
             }
         };
     }, []);

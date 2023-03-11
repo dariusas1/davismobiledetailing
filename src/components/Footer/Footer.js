@@ -30,7 +30,7 @@ const Footer = ({ Link }) => {
                     <div>
                         <p className="footer-heading">Hours</p>
                         <p>Monday-Saturday</p>
-                        <p>7am-7pm</p>
+                        <p>8am-6pm</p>
                     </div>
                     <div>
                         <p className="footer-heading">Service Locations</p>
