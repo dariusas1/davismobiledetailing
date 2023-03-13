@@ -105,22 +105,35 @@
 .pkg-modal-contact-info {
     margin-top: 2rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
-.pkg-modal-contact-info div {
+.pkg-modal-info-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pkg-modal-info-header {
+    color: var(--clr-black);
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-700);
+    font-size: 0.8rem;
+}
+
+.pkg-modal-info-group div {
     display: flex;
     align-items: center;
     margin: 0 0.5rem;
 }
 
-.pkg-modal-contact-info div span {
+.pkg-modal-info-group div span {
     font-size: 1.5rem;
     color: var(--clr-light-theme);
 }
 
-.pkg-modal-contact-info div p,
-.pkg-modal-contact-info div a {
+.pkg-modal-info-group div p,
+.pkg-modal-info-group div a {
     margin-left: 0.5rem;
     color: #7a7a7a;
     font-family: var(--ff-poppins);
@@ -128,7 +141,7 @@
     font-size: 0.8rem;
 }
 
-.pkg-modal-contact-info div a:hover {
+.pkg-modal-info-group div a:hover {
     text-decoration: underline;
 }
 
@@ -159,6 +172,13 @@
     .pkg-modal-contact-info {
         flex-direction: column;
         align-items: center;
+        margin: 0;
+        padding: 0;
+
+    }
+
+    .pkg-modal-info-group:nth-child(1) {
+        margin: 1rem 0;
     }
 
     .modal-pkg-submit-btn {

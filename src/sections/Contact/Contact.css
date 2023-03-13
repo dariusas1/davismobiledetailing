@@ -1,6 +1,5 @@
 .contact {
     width: 100%;
-    /* padding: 0 3rem 3rem 3rem; */
     padding: 5rem 3rem 3rem;
     display: flex;
     flex-direction: column;
@@ -122,17 +121,13 @@
     }
 
     .contact-card-contact-heading:nth-child(2) {
-        margin: 1rem 0;
+        margin: 1.5rem 0;
     }
 
     .contact-card-heading {
         font-weight: var(--fw-700);
         font-family: var(--ff-poppins);
         color: var(--clr-black);
-    }
-
-    .contact-card-phone {
-        /* margin: 2rem 0; */
     }
 
     .contact-card-phone,

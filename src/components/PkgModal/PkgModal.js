@@ -78,13 +78,19 @@ const PkgModal = ({ setIsActive, setPackagePlan, packagePlan }) => {
                     modalForm.error && <p id="pkg-plan-modal-error">{modalForm.error}</p>
                 }
                 <div className="pkg-modal-contact-info">
-                    <div>
-                        <Icon className={""} name={"phone"} />
-                        <p>(480)-285-9857</p>
+                    <div className="pkg-modal-info-group">
+                        <p className="pkg-modal-info-header">Text/Call at:</p>
+                        <div>
+                            <Icon className={""} name={"phone"} />
+                            <p>(480)-285-9857</p>
+                        </div>
                     </div>
-                    <div>
-                        <Icon className={""} name={"mail"} />
-                        <a href="mailto:davismobiledetailingaz@gmail.com">davismobiledetailingaz@gmail.com</a>
+                    <div className="pkg-modal-info-group">
+                        <p className="pkg-modal-info-header">Email at:</p>
+                        <div>
+                            <Icon className={""} name={"mail"} />
+                            <a href="mailto:davismobiledetailingaz@gmail.com">davismobiledetailingaz@gmail.com</a>
+                        </div>
                     </div>
                 </div>
             </form>
