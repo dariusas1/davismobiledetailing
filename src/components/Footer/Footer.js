@@ -16,8 +16,14 @@ const Footer = ({ Link }) => {
                 <div className="footer-content">
                     <div>
                         <p className="footer-heading">Contact</p>
-                        <p>(480)-285-9857</p>
-                        <a href="mailto:davismobiledetailingaz@gmail.com">davismobiledetailingaz@gmail.com</a>
+                        <div className="footer-contact-group">
+                            <p className="footer-contact-group-heading">Text/Call at:</p>
+                            <p>(480)-285-9857</p>
+                        </div>
+                        <div className="footer-contact-group">
+                            <p className="footer-contact-group-heading">Email at:</p>
+                            <a href="mailto:davismobiledetailingaz@gmail.com">davismobiledetailingaz@gmail.com</a>
+                        </div>
                     </div>
                     <div>
                         <p className="footer-heading">Links</p>

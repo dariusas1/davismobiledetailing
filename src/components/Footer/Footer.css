@@ -16,7 +16,7 @@
     padding-top: 2rem;
 }
 
-.footer-content div:not(.footer-links) {
+.footer-content div:not(.footer-links, .footer-contact-group) {
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -32,7 +32,6 @@
 .footer-content div p:not(.footer-heading) {
     color: var(--clr-black);
     font-family: var(--ff-poppins);
-    font-weight: var(--fw-300);
     font-size: 1rem;
 }
 
@@ -46,6 +45,14 @@
 
 .footer-content div a:hover {
     text-decoration: underline;
+}
+
+.footer-contact-group:nth-child(2) {
+    margin-bottom: 1rem;
+}
+
+.footer-contact-group-heading {
+    font-weight: var(--fw-700);
 }
 
 .footer-links {

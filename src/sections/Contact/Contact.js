@@ -37,13 +37,19 @@ const Contact = () => {
                     <div className="contact-card-info-content">
                         <p className="contact-card-msg">We would love to hear from you! Please fill out this form and one of our mobile detailing
                             representatives will be in touch with you ASAP.</p>
-                        <div className="contact-card-phone">
-                            <Icon className={""} name={"phone"} />
-                            <p>(480)-285-9857</p>
+                        <div className="contact-card-contact-heading">
+                            <p className="contact-card-heading">Text/Call at:</p>
+                            <div className="contact-card-phone">
+                                <Icon className={""} name={"phone"} />
+                                <p>(480)-285-9857</p>
+                            </div>
                         </div>
-                        <div className="contact-card-email">
-                            <Icon className={""} name={"mail"} />
-                            <a href="mailto:davismobiledetailingaz@gmail.com">davismobiledetailingaz@gmail.com</a>
+                        <div className="contact-card-contact-heading">
+                            <p className="contact-card-heading">Email at:</p>
+                            <div className="contact-card-email">
+                                <Icon className={""} name={"mail"} />
+                                <a href="mailto:davismobiledetailingaz@gmail.com">davismobiledetailingaz@gmail.com</a>
+                            </div>
                         </div>
                     </div>
                 </div>

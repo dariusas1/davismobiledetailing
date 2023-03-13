@@ -17,6 +17,7 @@
     font-family: var(--ff-poppins);
     font-weight: var(--fw-700);
     font-size: 1.1rem;
+    text-align: center;
 }
 
 .review-card-stars {

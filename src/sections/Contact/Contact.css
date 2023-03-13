@@ -121,8 +121,18 @@
         font-weight: var(--fw-500);
     }
 
+    .contact-card-contact-heading:nth-child(2) {
+        margin: 1rem 0;
+    }
+
+    .contact-card-heading {
+        font-weight: var(--fw-700);
+        font-family: var(--ff-poppins);
+        color: var(--clr-black);
+    }
+
     .contact-card-phone {
-        margin: 2rem 0;
+        /* margin: 2rem 0; */
     }
 
     .contact-card-phone,
