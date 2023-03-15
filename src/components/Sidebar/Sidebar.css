@@ -4,6 +4,7 @@
     width: 5rem;
     position: fixed;
     padding: 1rem 0;
+    overflow: hidden;
 }
 
 .sidenav-content {
@@ -29,7 +30,6 @@
 }
 
 .sidenav-icon span {
-    /* color: var(--clr-light-gray); */
     font-size: 2rem;
 }
 
@@ -43,4 +43,25 @@
 
 .selected-blue {
     color: var(--clr-dark-theme);
+}
+
+@media(max-width: 600px) {
+    .sidenav {
+        height: 5rem;
+        width: 100%;
+        padding: 0;
+    }
+    .sidenav-content {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .sidenav-icon {
+        padding: 1.5rem 0;
+    }
+    .sidenav-icon:last-child {
+        margin-top: 0;
+    }
 }
