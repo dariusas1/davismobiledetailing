@@ -16,14 +16,14 @@ const ExtraInfo = () => {
                     </div>
                     <div className="why-choose-us-card-text">
                         <p> It is important to note that a detail done by a professional has many benefits over a drive
-                            through car wash. When a professional detailer from Davis Mobile Detailing services your
+                            through car wash. When a professional detailer from Precision Detailing services your
                             vehicle, they treat it as if it was their own, and strive for complete customer
                             satisfaction. Some of the reasons you should hire a professional detailer, over going to a
                             drive through car wash, are: the attention to detail a machine cannot replicate, the
                             knowledge on correcting and protecting your paint/interior for longevity, and consistently
                             high quality finished products.</p>
                     </div>
-                    <img className="why-choose-us-card-logo" src={logo} alt="Davis Mobile Detailing Logo" />
+                    <img className="why-choose-us-card-logo" src={logo} alt="Precision Detailing Logo" />
                 </div>
             </div>
         </section>

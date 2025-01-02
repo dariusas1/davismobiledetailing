@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import './About.css';
 import React from 'react';
 import sideCarImg from '../../assets/images/aboutside.jpg';
@@ -8,33 +9,35 @@ const About = () => {
         <section className="about">
             <div className="about-heading">
                 <p>ABOUT US</p>
-                <p>Davis Mobile Detailing</p>
+                <p>Precision Detailing</p>
             </div>
             <div className="about-content">
-                <div className="about-img">
-                    <img src={sideCarImg} alt="blue car" />
-                </div>
-                <div className="about-card">
-                    <p className="about-card-bio">We were founded in and operate out of Chandler, AZ. When you book with us,
-                        we bring a professional mobile detailer right to you. We understand the inconvenience of
-                        cleaning your own vehicle and strive to make our process as seamless as possible. Thank you for
-                        stopping by and considering our services.</p>
-                    <div className="about-card-list">
-                        <div className="about-card-list-item">
-                            <Icon className={" about-list-icon"} name={"task_alt"} />
-                            <p className="about-list-title">Service Hours (8am-6pm)</p>
+                <div className="about-img"></div>
+                <div className="about-text">
+                    <h2>Professional Mobile Detailing Services</h2>
+                    <p>
+                        Precision Detailing is a premier mobile car detailing service dedicated to transforming 
+                        your vehicle with meticulous care and exceptional craftsmanship. We bring professional 
+                        detailing services directly to you, ensuring convenience and top-quality results.
+                    </p>
+                    <p>
+                        Our team of skilled detailers treats every vehicle as a unique masterpiece, using 
+                        state-of-the-art techniques and premium products to restore and protect your car's 
+                        appearance. Whether you need a comprehensive detail or specific service, we're committed 
+                        to exceeding your expectations.
+                    </p>
+                    <div className="about-stats">
+                        <div className="stat">
+                            <h3>100%</h3>
+                            <p>Customer Satisfaction</p>
                         </div>
-                        <div className="about-card-list-item">
-                            <Icon className={" about-list-icon"} name={"task_alt"} />
-                            <p className="about-list-title">Discount on Cash Payments</p>
+                        <div className="stat">
+                            <h3>Mobile</h3>
+                            <p>Convenient Service</p>
                         </div>
-                        <div className="about-card-list-item">
-                            <Icon className={" about-list-icon"} name={"task_alt"} />
-                            <p className="about-list-title">Flexible Scheduling</p>
-                        </div>
-                        <div className="about-card-list-item">
-                            <Icon className={" about-list-icon"} name={"task_alt"} />
-                            <p className="about-list-title">Competitive Pricing</p>
+                        <div className="stat">
+                            <h3>Premium</h3>
+                            <p>Detailing Solutions</p>
                         </div>
                     </div>
                 </div>

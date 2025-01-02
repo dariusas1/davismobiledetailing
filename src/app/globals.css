@@ -1,0 +1,30 @@
+:root {
+  --primary-gold: #D4AF37;
+  --secondary-black: #1A1A1A;
+  --pure-white: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--secondary-black);
+  color: var(--pure-white);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+} 

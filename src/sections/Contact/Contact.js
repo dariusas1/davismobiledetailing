@@ -1,122 +1,313 @@
-import './Contact.css';
-import Icon from '../../components/Icon/Icon';
-import { useState, useEffect } from 'react';
-import { useForm, ValidationError } from '@formspree/react';
-import logo from '../../assets/images/logo.png';
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react';
+import { 
+    Container, 
+    Grid, 
+    TextField, 
+    Button, 
+    Typography, 
+    Box,
+    MenuItem,
+    FormControl,
+    InputLabel,
+    Select,
+    Snackbar,
+    Alert
+} from '@mui/material';
+import ContactService from '../../services/contactService';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 const Contact = () => {
-    const [state, handleSubmit] = useForm(process.env.REACT_APP_CONTACT_FORM_ID);
-    const [contactForm, setContactForm] = useState({ name: "", phone: "", email: "", msg: "", success: "", error: "" });
-    useEffect(() => {
-        if (state.succeeded) {
-            setContactForm({
-                name: "",
-                phone: "",
-                email: "",
-                msg: "",
-                success: "Form submitted successfully!",
-                error: ""
-            });
-        } else if (state.errors.length > 0) {
-            setContactForm({ ...contactForm, success: "", error: "There was a problem submitting." });
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        serviceType: '',
+        message: ''
+    });
+
+    const [submitStatus, setSubmitStatus] = useState({
+        open: false,
+        success: false,
+        message: ''
+    });
+
+    const [errors, setErrors] = useState({});
+
+    const validateForm = () => {
+        const newErrors = {};
+        
+        if (!formData.name.trim()) {
+            newErrors.name = 'Name is required';
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [state.succeeded, state.errors]);
+        
+        if (!formData.email.trim()) {
+            newErrors.email = 'Email is required';
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            newErrors.email = 'Email is invalid';
+        }
+        
+        if (!formData.phone) {
+            newErrors.phone = 'Phone number is required';
+        }
+        
+        if (!formData.serviceType) {
+            newErrors.serviceType = 'Service type is required';
+        }
+        
+        if (!formData.message.trim()) {
+            newErrors.message = 'Message is required';
+        }
+        
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+        
+        // Clear specific error when user starts typing
+        if (errors[name]) {
+            setErrors(prev => ({
+                ...prev,
+                [name]: undefined
+            }));
+        }
+    };
+
+    const handlePhoneChange = (value) => {
+        setFormData(prev => ({
+            ...prev,
+            phone: value
+        }));
+        
+        if (errors.phone) {
+            setErrors(prev => ({
+                ...prev,
+                phone: undefined
+            }));
+        }
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        if (!validateForm()) {
+            return;
+        }
+        
+        try {
+            const response = await ContactService.submitContactForm(formData);
+            
+            setSubmitStatus({
+                open: true,
+                success: true,
+                message: 'Your message has been sent successfully!'
+            });
+
+            // Reset form
+            setFormData({
+                name: '',
+                email: '',
+                phone: '',
+                serviceType: '',
+                message: ''
+            });
+        } catch (error) {
+            setSubmitStatus({
+                open: true,
+                success: false,
+                message: error.message || 'Failed to send message. Please try again.'
+            });
+        }
+    };
+
+    const handleCloseSnackbar = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setSubmitStatus(prev => ({ ...prev, open: false }));
+    };
+
+    const serviceTypes = [
+        'Basic Wash',
+        'Premium Detailing', 
+        'Full Ceramic Coating', 
+        'Interior Detailing', 
+        'Exterior Detailing', 
+        'Paint Correction'
+    ];
 
     return (
-        <section className="contact">
-            <div className="contact-heading">
-                <p>CONTACT</p>
-                <p>Got a Question?</p>
-            </div>
-            <div className="contact-card">
-                <div className="contact-card-info">
-                    <div className="contact-card-logo">
-                        <img src={logo} alt="Davis Mobile Detailing Logo" />
-                    </div>
-                    <div className="contact-card-info-content">
-                        <p className="contact-card-msg">We would love to hear from you! Please fill out this form and one of our mobile detailing
-                            representatives will be in touch with you ASAP.</p>
-                        <div className="contact-card-contact-heading">
-                            <p className="contact-card-heading">Text/Call at:</p>
-                            <div className="contact-card-phone">
-                                <Icon className={""} name={"phone"} />
-                                <p>(480)-285-9857</p>
-                            </div>
-                        </div>
-                        <div className="contact-card-contact-heading">
-                            <p className="contact-card-heading">Email at:</p>
-                            <div className="contact-card-email">
-                                <Icon className={""} name={"mail"} />
-                                <a href="mailto:davismobiledetailingaz@gmail.com">davismobiledetailingaz@gmail.com</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <form className="contact-form" onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        required
-                        placeholder="Name"
-                        name="name"
-                        onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
-                        value={contactForm.name}
-                    />
-                    <ValidationError
-                        prefix="name"
-                        field="name"
-                        errors={state.errors}
-                    />
-                    <input
-                        type="text"
-                        required
-                        placeholder="Phone"
-                        name="phone"
-                        onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
-                        value={contactForm.phone}
-                    />
-                    <ValidationError
-                        prefix="phone"
-                        field="phone"
-                        errors={state.errors}
-                    />
-                    <input
-                        type="email"
-                        required
-                        placeholder="Email"
-                        name="email"
-                        onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
-                        value={contactForm.email}
-                    />
-                    <ValidationError
-                        prefix="email"
-                        field="email"
-                        errors={state.errors}
-                    />
-                    <textarea
-                        rows="4"
-                        required
-                        placeholder="Message"
-                        name="message"
-                        onChange={(e) => setContactForm({ ...contactForm, msg: e.target.value })}
-                        value={contactForm.msg}
-                    ></textarea>
-                    <ValidationError
-                        prefix="message"
-                        field="message"
-                        errors={state.errors}
-                    />
-                    <button type="submit">Submit</button>
-                    {
-                        contactForm.success && <p id="contact-form-success-msg">{contactForm.success}</p>
-                    }
-                    {
-                        contactForm.error && <p id="contact-form-error-msg">{contactForm.error}</p>
-                    }
+        <Container maxWidth="md" sx={{ mt: 8 }}>
+            <Box 
+                sx={{ 
+                    border: '1px solid #e0e0e0', 
+                    borderRadius: 2, 
+                    p: 4,
+                    boxShadow: 3,
+                    backgroundColor: 'background.paper'
+                }}
+            >
+                <Typography 
+                    variant="h4" 
+                    gutterBottom 
+                    align="center"
+                    sx={{ 
+                        color: 'primary.main',
+                        fontWeight: 'bold',
+                        mb: 4
+                    }}
+                >
+                    Contact Precision Detailing
+                </Typography>
+                
+                <form onSubmit={handleSubmit}>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                fullWidth
+                                label="Name"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                required
+                                error={!!errors.name}
+                                helperText={errors.name}
+                                variant="outlined"
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                fullWidth
+                                label="Email"
+                                name="email"
+                                type="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
+                                error={!!errors.email}
+                                helperText={errors.email}
+                                variant="outlined"
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <PhoneInput
+                                country={'us'}
+                                value={formData.phone}
+                                onChange={handlePhoneChange}
+                                inputProps={{
+                                    name: 'phone',
+                                    required: true,
+                                }}
+                                specialLabel="Phone Number"
+                                containerStyle={{ width: '100%' }}
+                                inputStyle={{ 
+                                    width: '100%', 
+                                    height: '56px',
+                                    borderColor: errors.phone ? 'red' : undefined
+                                }}
+                            />
+                            {errors.phone && (
+                                <Typography 
+                                    variant="caption" 
+                                    color="error"
+                                    sx={{ ml: 2 }}
+                                >
+                                    {errors.phone}
+                                </Typography>
+                            )}
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <FormControl 
+                                fullWidth 
+                                variant="outlined" 
+                                error={!!errors.serviceType}
+                            >
+                                <InputLabel>Service Type</InputLabel>
+                                <Select
+                                    name="serviceType"
+                                    value={formData.serviceType}
+                                    onChange={handleChange}
+                                    label="Service Type"
+                                    required
+                                >
+                                    {serviceTypes.map((service) => (
+                                        <MenuItem key={service} value={service}>
+                                            {service}
+                                        </MenuItem>
+                                    ))}
+                                </Select>
+                                {errors.serviceType && (
+                                    <Typography 
+                                        variant="caption" 
+                                        color="error"
+                                        sx={{ ml: 2 }}
+                                    >
+                                        {errors.serviceType}
+                                    </Typography>
+                                )}
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                fullWidth
+                                label="Your Message"
+                                name="message"
+                                multiline
+                                rows={4}
+                                value={formData.message}
+                                onChange={handleChange}
+                                required
+                                error={!!errors.message}
+                                helperText={errors.message}
+                                variant="outlined"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Button
+                                type="submit"
+                                variant="contained"
+                                color="primary"
+                                fullWidth
+                                size="large"
+                                sx={{ 
+                                    mt: 2,
+                                    py: 1.5,
+                                    fontWeight: 'bold',
+                                    '&:hover': {
+                                        backgroundColor: 'primary.dark'
+                                    }
+                                }}
+                            >
+                                Send Message
+                            </Button>
+                        </Grid>
+                    </Grid>
                 </form>
-            </div>
-        </section>
-    )
+            </Box>
+
+            <Snackbar
+                open={submitStatus.open}
+                autoHideDuration={6000}
+                onClose={handleCloseSnackbar}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+            >
+                <Alert 
+                    onClose={handleCloseSnackbar}
+                    severity={submitStatus.success ? 'success' : 'error'}
+                    sx={{ width: '100%' }}
+                >
+                    {submitStatus.message}
+                </Alert>
+            </Snackbar>
+        </Container>
+    );
 };
 
 export default Contact;

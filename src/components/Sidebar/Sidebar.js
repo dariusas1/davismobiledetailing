@@ -1,37 +1,82 @@
-import './Sidebar.css';
+import React from 'react';
+import { 
+    Drawer, 
+    List, 
+    ListItem, 
+    ListItemIcon, 
+    ListItemText, 
+    Divider 
+} from '@mui/material';
+import { 
+    Dashboard as DashboardIcon, 
+    Book as BookIcon, 
+    ContactPage as ContactIcon, 
+    Home as HomeIcon 
+} from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
-const Sidebar = ({ projectsClicked, packagesClicked, faqsClicked, reviewsClicked, isProjectsSelected, isPackagesSelected, isFaqsSelected, isReviewsSelected, logout }) => {
+const Sidebar = ({ open, onClose }) => {
+    const navigate = useNavigate();
+
+    const menuItems = [
+        { 
+            text: 'Home', 
+            icon: <HomeIcon />, 
+            path: '/' 
+        },
+        { 
+            text: 'Dashboard', 
+            icon: <DashboardIcon />, 
+            path: '/dashboard' 
+        },
+        { 
+            text: 'Booking', 
+            icon: <BookIcon />, 
+            path: '/booking' 
+        },
+        { 
+            text: 'Contact', 
+            icon: <ContactIcon />, 
+            path: '/contact' 
+        }
+    ];
+
+    const handleNavigation = (path) => {
+        navigate(path);
+        onClose && onClose();
+    };
+
     return (
-        <nav className="sidenav">
-            <div className="sidenav-content">
-                <div className={"sidenav-icon" + (isProjectsSelected ? " selected-white" : "")} onClick={projectsClicked}>
-                    <span className={"material-symbols-rounded" + (isProjectsSelected ? " selected-blue" : "")}>
-                        directions_car
-                    </span>
-                </div>
-                <div className={"sidenav-icon" + (isPackagesSelected ? " selected-white" : "")} onClick={packagesClicked}>
-                    <span className={"material-symbols-rounded" + (isPackagesSelected ? " selected-blue" : "")}>
-                        request_quote
-                    </span>
-                </div>
-                <div className={"sidenav-icon" + (isFaqsSelected ? " selected-white" : "")} onClick={faqsClicked}>
-                    <span className={"material-symbols-rounded" + (isFaqsSelected ? " selected-blue" : "")}>
-                        live_help
-                    </span>
-                </div>
-                <div className={"sidenav-icon" + (isReviewsSelected ? " selected-white" : "")} onClick={reviewsClicked}>
-                    <span className={"material-symbols-rounded" + (isReviewsSelected ? " selected-blue" : "")}>
-                        hotel_class
-                    </span>
-                </div>
-                <div className="sidenav-icon" onClick={logout}>
-                    <span className="material-symbols-rounded">
-                        settings
-                    </span>
-                </div>
-            </div>
-        </nav>
-    )
+        <Drawer 
+            anchor="left" 
+            open={open} 
+            onClose={onClose}
+            sx={{
+                width: 240,
+                flexShrink: 0,
+                '& .MuiDrawer-paper': {
+                    width: 240,
+                    boxSizing: 'border-box',
+                }
+            }}
+        >
+            <List>
+                {menuItems.map((item, index) => (
+                    <ListItem 
+                        button 
+                        key={item.text} 
+                        onClick={() => handleNavigation(item.path)}
+                    >
+                        <ListItemIcon>
+                            {item.icon}
+                        </ListItemIcon>
+                        <ListItemText primary={item.text} />
+                    </ListItem>
+                ))}
+            </List>
+            <Divider />
+        </Drawer>
+    );
 };
 
 export default Sidebar;

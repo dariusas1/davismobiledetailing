@@ -4,40 +4,60 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  transition: all 0.3s ease;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-accent) var(--background-color);
 }
 
 *::before, *::after {
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--gold-accent);
+  border-radius: 20px;
+  border: 2px solid var(--background-color);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--dark-gold);
+}
+
 :root {
   /* Colors */
-  --clr-light-theme: #0466c8;
-  --clr-dark-theme: #0353a4;
-  --clr-white: #ffffff;
-  --clr-light-gray: #f2f2f2;
-  --clr-dark-gray: #cccccc;
-  --clr-black: #000000;
+  --background-color: #000000;
+  --text-color: #E0E0E0;
+  --gold-accent: #FFD700;
+  --dark-gold: #DAA520;
+  --darker-gold: #B8860B;
+  --dark-gray: #121212;
+  --light-gray: #1E1E1E;
 
-  /* Font Families */
-  --ff-roboto: 'Roboto', sans-serif;
-  --ff-poppins: 'Poppins', sans-serif;
-  --ff-mont: 'Montserrat', sans-serif;
-
-  /* Font Weight */
-  --fw-700: 700;
-  --fw-500: 500;
-  --fw-400: 400;
-  --fw-300: 300;
-
-  /* Transition */
-  --transition: 0.25s ease-in-out;
+  /* Performance optimization */
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* HTML */
-html {
-  background-color: var(--clr-dark-gray);
-  scroll-behavior: smooth;
+html, body {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
 }
 
 /* CONTAINER */
@@ -45,4 +65,223 @@ html {
   width: 100%;
   position: relative;
   overflow: hidden;
+  background-color: var(--dark-gray);
+  border: 1px solid var(--light-gray);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(255, 215, 0, 0.1);
+}
+
+#root {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--gold-accent);
+  background-color: transparent;
+  border-color: var(--gold-accent);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover {
+  color: var(--dark-gold);
+  border-color: var(--dark-gold);
+  transform: scale(1.02);
+  box-shadow: 0 4px 6px rgba(255, 215, 0, 0.2);
+}
+
+/* Improve readability */
+p, span, div {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--gold-accent);
+  transition: color 0.3s ease;
+}
+
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+  color: var(--dark-gold);
+}
+
+/* Interactive elements */
+button, input, select, textarea {
+  color: var(--gold-accent);
+  background-color: transparent;
+  border-color: var(--gold-accent);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover, input:hover, select:hover, textarea:hover {
+  color: var(--dark-gold);
+  border-color: var(--dark-gold);
+  transform: scale(1.02);
+  box-shadow: 0 4px 6px rgba(255, 215, 0, 0.2);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Additional styling to match Precision Detailing brand */
+.btn-primary {
+  background-color: var(--gold-accent);
+  color: var(--background-color);
+  border: 2px solid var(--gold-accent);
+}
+
+.btn-primary:hover {
+  background-color: var(--dark-gold);
+  border-color: var(--dark-gold);
+}
+
+.btn-secondary {
+  background-color: var(--background-color);
+  color: var(--gold-accent);
+  border: 2px solid var(--gold-accent);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+  color: var(--dark-gold);
+}
+
+/* Form Elements */
+.form-control {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-color: var(--light-gray);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--gold-accent);
+  box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+}
+
+/* Responsive Design Breakpoints */
+@media screen and (max-width: 1200px) {
+  /* Styles for large tablets and small desktops */
+  html {
+    font-size: 14px;
+  }
+  body {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Styles for tablets */
+  html {
+    font-size: 12px;
+  }
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Styles for mobile devices */
+  html {
+    font-size: 10px;
+  }
+  body {
+    font-size: 12px;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  /* Responsive layout adjustments */
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Flexible Box and Grid Layouts */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Responsive Images */
+img {
+  max-width: 100%;
+  height: auto;
+  load: lazy;
+  content-visibility: auto;
+}
+
+/* Responsive Typography */
+h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
+}
+
+p {
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+}
+
+/* Lazy loading and performance hints */
+.lazy-load {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.lazy-load.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Prevent layout shifts */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Critical rendering path optimization */
+.critical-content {
+  contain: layout;
+  will-change: transform;
+}
+
+/* Reduce repaints and reflows */
+.no-layout-shift {
+  position: relative;
+  contain: layout;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }

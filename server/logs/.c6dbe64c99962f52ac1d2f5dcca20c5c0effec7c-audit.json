@@ -1,0 +1,30 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\Darius\\Documents\\precisiondetail\\precision-detailing-website\\server\\logs\\.c6dbe64c99962f52ac1d2f5dcca20c5c0effec7c-audit.json",
+    "files": [
+        {
+            "date": 1735379764944,
+            "name": "C:\\Users\\Darius\\Documents\\precisiondetail\\precision-detailing-website\\server\\logs\\error-2024-12-28.log",
+            "hash": "49eaaef81a0b5f10521c604bbb359a73c11eddcd22f949d7e325bcd3498416ad"
+        },
+        {
+            "date": 1735462114824,
+            "name": "C:\\Users\\Darius\\Documents\\precisiondetail\\precision-detailing-website\\server\\logs\\error-2024-12-29.log",
+            "hash": "66e256352a943253891f7c844ada2f3d7cd914e28141798e59d2e53faf6a1620"
+        },
+        {
+            "date": 1735545600105,
+            "name": "C:\\Users\\Darius\\Documents\\precisiondetail\\precision-detailing-website\\server\\logs\\error-2024-12-30.log",
+            "hash": "5db3ce358eab24e1339f2749003ddc4bd4d4d6a0e9f48c66b960934fad8134d1"
+        },
+        {
+            "date": 1735632295452,
+            "name": "C:\\Users\\Darius\\Documents\\precisiondetail\\precision-detailing-website\\server\\logs\\error-2024-12-31.log",
+            "hash": "befec48093fda6e55ae52fd01b779288d7af17e6d26b2d9c2478e4d63c3eb072"
+        }
+    ],
+    "hashType": "sha256"
+}

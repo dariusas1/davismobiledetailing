@@ -1,27 +1,38 @@
 .projects {
     width: 100%;
-    padding: 4rem 3rem;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
 .projects-heading {
-    text-align: center;
+    text-align: left;
 }
 
 .projects-heading p:nth-child(1) {
-    color: var(--clr-dark-theme);
+    color: #FFD700;
     font-family: var(--ff-poppins);
     font-weight: var(--fw-700);
     font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 
 .projects-heading p:nth-child(2) {
-    color: var(--clr-light-theme);
+    color: #333;
     font-family: var(--ff-poppins);
     font-weight: var(--fw-500);
-    font-size: 1.75rem;
+    font-size: 2.5rem;
 }
 
 .projects-content {
@@ -34,6 +45,11 @@
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+    text-align: center;
+    padding: 50px 0;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .projects-content-one-project {
@@ -41,6 +57,10 @@
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .projects-content-two-projects {
@@ -50,6 +70,10 @@
     margin-top: 2rem;
     gap: 3rem;
     justify-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .projects-content-three-projects {
@@ -59,14 +83,31 @@
     margin-top: 2rem;
     gap: 3rem;
     justify-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .projects-content-warning {
-    color: var(--clr-black);
+    color: #666;
     font-family: var(--ff-poppins);
     font-weight: var(--fw-300);
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     text-align: center;
+}
+
+.projects-error {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff3f3;
+    border-radius: 10px;
+}
+
+.projects-error p {
+    color: #d32f2f;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
 }
 
 .projects-content .swiper-slide,
@@ -125,5 +166,16 @@
     .projects-content-three-projects {
         max-width: 55rem;
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .projects-heading p:last-child {
+        font-size: 2rem;
     }
 }

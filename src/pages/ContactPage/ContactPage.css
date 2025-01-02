@@ -1,0 +1,65 @@
+/* Contact Page Styles */
+.contact-container {
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.contact-form-wrapper {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 600px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.contact-form-wrapper:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.contact-title {
+    color: #333;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.contact-input {
+    margin-bottom: 1rem;
+}
+
+.contact-submit-btn {
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.contact-submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .contact-form-wrapper {
+        margin: 0 1rem;
+        padding: 1.5rem;
+    }
+}
+
+/* Phone Input Styling */
+.react-tel-input .form-control {
+    width: 100%;
+    height: 56px;
+    border-radius: 4px;
+}
+
+/* Service Type Select Styling */
+.MuiSelect-select {
+    min-height: 56px !important;
+}

@@ -1,39 +1,78 @@
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Button, IconButton, Menu, MenuItem } from '@mui/material/index.js';
+import MenuIcon from '@mui/icons-material/Menu.js';
+import { AuthContext } from '../../contexts/AuthContext.js';
 import './Navbar.css';
-import { useState } from 'react';
-import logo from '../../assets/images/logo.png';
 
-const Navbar = ({ Link }) => {
-    const [isActive, setIsActive] = useState(false);
-    return (
-        <nav className="navbar">
-            <div className="navbar-content-mobile">
-                <img src={logo} alt="Logo" />
-                <div className={(isActive ? "active" : "")} id="mobile-bars"
-                    onClick={() => isActive ? setIsActive(false) : setIsActive(true)}
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div className={"navbar-dropdown" + (isActive ? " active" : "")}>
-                    <Link className="navbar-dropdown-link" to="/">HOME</Link>
-                    <Link className="navbar-dropdown-link" to="/packages">PACKAGES</Link>
-                    <Link className="navbar-dropdown-link" to="/contact">CONTACT</Link>
-                </div>
-            </div>
-            <div className="navbar-content">
-                <div className="navbar-logo">
-                    <img src={logo} alt="Logo" />
-                    <p><span>D</span>avis <span>M</span>obile <span>D</span>etailing</p>
-                </div>
-                <div className="navbar-links">
-                    <Link className="navbar-link" to="/">HOME</Link>
-                    <Link className="navbar-link" to="/packages">PACKAGES</Link>
-                    <Link className="navbar-link" to="/contact">CONTACT</Link>
-                </div>
-            </div>
-        </nav >
-    )
+const Navbar = () => {
+  const { user, logout } = useContext(AuthContext);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  return (
+    <AppBar position="static">
+      <Toolbar>
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          onClick={handleMenu}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Menu
+          id="menu-appbar"
+          anchorEl={anchorEl}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          keepMounted
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
+          <MenuItem component={Link} to="/" onClick={handleClose}>
+            Home
+          </MenuItem>
+          <MenuItem component={Link} to="/about" onClick={handleClose}>
+            About
+          </MenuItem>
+          <MenuItem component={Link} to="/services" onClick={handleClose}>
+            Services
+          </MenuItem>
+          {user && (
+            <MenuItem component={Link} to="/dashboard" onClick={handleClose}>
+              Dashboard
+            </MenuItem>
+          )}
+        </Menu>
+        <Typography variant="h6" style={{ flexGrow: 1 }}>
+          Precision Detailing
+        </Typography>
+        {user ? (
+          <Button color="inherit" onClick={logout}>
+            Logout
+          </Button>
+        ) : (
+          <Button color="inherit" component={Link} to="/auth">
+            Login
+          </Button>
+        )}
+      </Toolbar>
+    </AppBar>
+  );
 };
 
 export default Navbar;

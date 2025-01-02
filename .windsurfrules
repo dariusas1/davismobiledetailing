@@ -1,0 +1,18 @@
+provide suggestions to improve the website at the end of every message, this is a website i will be using for my buisness so ensure you always implement the front and backend sections to ensure this will work for actual usage
+when fixing errors dont delete any features or functions
+always implement all logic
+dont simulate anything this should all be real world application
+this is a real world scenario
+dont simulate api calls, have it call to the backend files
+always implement all features and functions i request, if you cant implement it in one message then please provide a percentage of how much is completed and keep working on it in the next message
+my colors are gold, black and white,
+this is for my car detailing buisness precision detailing
+my number is 408-634-9181
+we dont have a phyical location we are a mobile detailing buisness based in santa cruz california
+dont use mockdata either pull it from the backend or seed the data
+please fix all issues i ask you to fix, if you are unable to fix it in one message then please provide a percentage of how much is completed and keep working on it in the next message
+dont create files i already have
+use resend for email sending
+use square for payments
+dont provide code implement it for me
+dont use firebase for auth use the custom jwt auth

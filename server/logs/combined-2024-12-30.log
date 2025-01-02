@@ -1,0 +1,346 @@
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T08:19:58.049Z"},"timestamp":"2024-12-30 00:19:58"}
+{"date":"2024-12-30T08:19:58.049Z","error":"Booking requires minimum 24 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:19:58"}
+{"date":"2024-12-30T08:19:58.049Z","error":"Booking requires minimum 24 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:19:58"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"7ms","statusCode":400,"timestamp":"2024-12-30 00:19:58"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:19:58"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T08:19:58.049Z"},"timestamp":"2024-12-30 00:19:58"}
+{"date":"2024-12-30T08:19:58.049Z","error":"Booking requires minimum 24 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:19:58"}
+{"date":"2024-12-30T08:19:58.049Z","error":"Booking requires minimum 24 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:19:58"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"3ms","statusCode":400,"timestamp":"2024-12-30 00:19:58"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:19:58"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"166ms","statusCode":200,"timestamp":"2024-12-30 00:19:58"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:19:58"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:19:58"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"106ms","statusCode":304,"timestamp":"2024-12-30 00:19:58"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T08:21:23.659Z"},"timestamp":"2024-12-30 00:21:23"}
+{"date":"2024-12-30T08:21:23.659Z","error":"Booking requires minimum 24 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:21:23"}
+{"date":"2024-12-30T08:21:23.659Z","error":"Booking requires minimum 24 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:21:23"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"2ms","statusCode":400,"timestamp":"2024-12-30 00:21:23"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:21:23"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:21:24"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"136ms","statusCode":304,"timestamp":"2024-12-30 00:21:24"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T08:21:23.659Z"},"timestamp":"2024-12-30 00:21:24"}
+{"date":"2024-12-30T08:21:23.659Z","error":"Booking requires minimum 24 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:21:24"}
+{"date":"2024-12-30T08:21:23.659Z","error":"Booking requires minimum 24 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:21:24"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"1ms","statusCode":400,"timestamp":"2024-12-30 00:21:24"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:21:24"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:21:24"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"113ms","statusCode":304,"timestamp":"2024-12-30 00:21:24"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T08:26:35.710Z"},"timestamp":"2024-12-30 00:26:36"}
+{"date":"2024-12-30T08:26:35.710Z","error":"Booking requires minimum 24 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:26:36"}
+{"date":"2024-12-30T08:26:35.710Z","error":"Booking requires minimum 24 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:26:36"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"1ms","statusCode":400,"timestamp":"2024-12-30 00:26:36"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:26:36"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:26:36"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"146ms","statusCode":304,"timestamp":"2024-12-30 00:26:36"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T08:26:35.710Z"},"timestamp":"2024-12-30 00:26:36"}
+{"date":"2024-12-30T08:26:35.710Z","error":"Booking requires minimum 24 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:26:36"}
+{"date":"2024-12-30T08:26:35.710Z","error":"Booking requires minimum 24 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:26:36"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"2ms","statusCode":400,"timestamp":"2024-12-30 00:26:36"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:26:36"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:26:36"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"118ms","statusCode":304,"timestamp":"2024-12-30 00:26:36"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:32:54"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T08:32:54.003Z"},"timestamp":"2024-12-30 00:32:54"}
+{"date":"2024-12-30T08:32:54.003Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:32:54"}
+{"date":"2024-12-30T08:32:54.003Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:32:54"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"6ms","statusCode":400,"timestamp":"2024-12-30 00:32:54"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:32:54"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"164ms","statusCode":200,"timestamp":"2024-12-30 00:32:54"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T08:32:54.003Z"},"timestamp":"2024-12-30 00:32:54"}
+{"date":"2024-12-30T08:32:54.003Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:32:54"}
+{"date":"2024-12-30T08:32:54.003Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:32:54"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"1ms","statusCode":400,"timestamp":"2024-12-30 00:32:54"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:32:54"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:32:54"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"124ms","statusCode":304,"timestamp":"2024-12-30 00:32:54"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:32:54"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:32:55"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"123ms","statusCode":304,"timestamp":"2024-12-30 00:32:55"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:32:55"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:32:55"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"105ms","statusCode":304,"timestamp":"2024-12-30 00:32:55"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T08:32:54.003Z"},"timestamp":"2024-12-30 00:33:01"}
+{"date":"2024-12-30T08:32:54.003Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:33:01"}
+{"date":"2024-12-30T08:32:54.003Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:33:01"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"1ms","statusCode":400,"timestamp":"2024-12-30 00:33:01"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:33:01"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-31T08:00:00.000Z"},"timestamp":"2024-12-30 00:33:01"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"3ms","statusCode":200,"timestamp":"2024-12-30 00:33:01"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:33:01"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"139ms","statusCode":304,"timestamp":"2024-12-30 00:33:01"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-31T08:00:00.000Z"},"timestamp":"2024-12-30 00:33:03"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"2ms","statusCode":200,"timestamp":"2024-12-30 00:33:03"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:33:03"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-29T08:00:00.000Z"},"timestamp":"2024-12-30 00:33:03"}
+{"date":"2024-12-29T08:00:00.000Z","error":"Invalid booking date","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:33:04"}
+{"date":"2024-12-29T08:00:00.000Z","error":"Invalid booking date","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:33:04"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"2ms","statusCode":400,"timestamp":"2024-12-30 00:33:04"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:33:04"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"120ms","statusCode":304,"timestamp":"2024-12-30 00:33:04"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:35:05"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T08:35:04.968Z"},"timestamp":"2024-12-30 00:35:05"}
+{"date":"2024-12-30T08:35:04.968Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:35:05"}
+{"date":"2024-12-30T08:35:04.968Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:35:05"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"4ms","statusCode":400,"timestamp":"2024-12-30 00:35:05"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:35:05"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"153ms","statusCode":304,"timestamp":"2024-12-30 00:35:05"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T08:35:04.968Z"},"timestamp":"2024-12-30 00:35:05"}
+{"date":"2024-12-30T08:35:04.968Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:35:05"}
+{"date":"2024-12-30T08:35:04.968Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:35:05"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"2ms","statusCode":400,"timestamp":"2024-12-30 00:35:05"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:35:05"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:35:05"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"117ms","statusCode":304,"timestamp":"2024-12-30 00:35:05"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:35:05"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:35:05"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"116ms","statusCode":304,"timestamp":"2024-12-30 00:35:05"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:35:06"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:35:06"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"116ms","statusCode":304,"timestamp":"2024-12-30 00:35:06"}
+{"body":"{\"name\":\"darius\",\"email\":\"123hi12343@gmail.com\",\"phone\":\"4086349181\",\"package\":{\"id\":1,\"name\":\"Basic Wash\",\"price\":50,\"description\":\"Quick exterior wash\",\"estimatedTime\":\"1 hour\",\"recommendedFor\":\"Regular maintenance\"},\"totalPrice\":135,\"coordinates\":null,\"vehicleType\":{\"id\":2,\"name\":\"SUV\",\"multiplier\":1.2},\"additionalServices\":[{\"id\":2,\"name\":\"Headlight Restoration\",\"price\":75}],\"businessName\":\"Precision Detailing\",\"contactNumber\":\"408-634-9181\",\"serviceLocation\":\"Santa Cruz, CA\"}","level":"info","message":"Incoming Request","method":"POST","path":"/api/bookings/create","query":{},"timestamp":"2024-12-30 00:35:22"}
+{"level":"info","message":"Request Completed","method":"POST","path":"/create","responseTime":"5ms","statusCode":400,"timestamp":"2024-12-30 00:35:22"}
+{"body":"{\"username\":\"precisionadmin\",\"password\":\"admin123\"}","level":"info","message":"Incoming Request","method":"POST","path":"/api/auth/admin-login","query":{},"timestamp":"2024-12-30 00:47:30"}
+{"level":"info","message":"Request Completed","method":"POST","path":"/api/auth/admin-login","responseTime":"4ms","statusCode":404,"timestamp":"2024-12-30 00:47:30"}
+{"body":"{\"username\":\"admin\",\"password\":\"admin123\"}","level":"info","message":"Incoming Request","method":"POST","path":"/api/auth/admin-login","query":{},"timestamp":"2024-12-30 00:47:35"}
+{"level":"info","message":"Request Completed","method":"POST","path":"/api/auth/admin-login","responseTime":"1ms","statusCode":404,"timestamp":"2024-12-30 00:47:35"}
+{"body":"{\"username\":\"precisionadmin\",\"password\":\"admin123\"}","level":"info","message":"Incoming Request","method":"POST","path":"/api/auth/admin-login","query":{},"timestamp":"2024-12-30 00:47:56"}
+{"level":"info","message":"Request Completed","method":"POST","path":"/api/auth/admin-login","responseTime":"0ms","statusCode":404,"timestamp":"2024-12-30 00:47:56"}
+{"body":"{\"username\":\"precisionadmin\",\"password\":\"admin123\"}","level":"info","message":"Incoming Request","method":"POST","path":"/api/auth/admin-login","query":{},"timestamp":"2024-12-30 00:56:34"}
+{"level":"info","message":"Request Completed","method":"POST","path":"/api/auth/admin-login","responseTime":"1ms","statusCode":404,"timestamp":"2024-12-30 00:56:34"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T08:59:06.775Z"},"timestamp":"2024-12-30 00:59:06"}
+{"date":"2024-12-30T08:59:06.775Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:59:06"}
+{"date":"2024-12-30T08:59:06.775Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:59:06"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"5ms","statusCode":400,"timestamp":"2024-12-30 00:59:06"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:59:06"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:59:06"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"160ms","statusCode":304,"timestamp":"2024-12-30 00:59:06"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T08:59:06.775Z"},"timestamp":"2024-12-30 00:59:07"}
+{"date":"2024-12-30T08:59:06.775Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:59:07"}
+{"date":"2024-12-30T08:59:06.775Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 00:59:07"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"2ms","statusCode":400,"timestamp":"2024-12-30 00:59:07"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:59:07"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:59:07"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"123ms","statusCode":304,"timestamp":"2024-12-30 00:59:07"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:59:07"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:59:07"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"107ms","statusCode":304,"timestamp":"2024-12-30 00:59:07"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 00:59:07"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":69,"timestamp":"2024-12-30 00:59:08"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"118ms","statusCode":304,"timestamp":"2024-12-30 00:59:08"}
+{"body":"{\"name\":\"darius\",\"email\":\"m3rcuryventures@gmail.com\",\"phone\":\"4086349181\",\"package\":{\"id\":1,\"name\":\"Basic Wash\",\"price\":50,\"description\":\"Quick exterior wash\",\"estimatedTime\":\"1 hour\",\"recommendedFor\":\"Regular maintenance\"},\"totalPrice\":110,\"coordinates\":null,\"vehicleType\":{\"id\":2,\"name\":\"SUV\",\"multiplier\":1.2},\"additionalServices\":[{\"id\":1,\"name\":\"Engine Bay Cleaning\",\"price\":50}],\"businessName\":\"Precision Detailing\",\"contactNumber\":\"408-634-9181\",\"serviceLocation\":\"Santa Cruz, CA\"}","level":"info","message":"Incoming Request","method":"POST","path":"/api/bookings/create","query":{},"timestamp":"2024-12-30 00:59:25"}
+{"level":"info","message":"Request Completed","method":"POST","path":"/create","responseTime":"8ms","statusCode":400,"timestamp":"2024-12-30 00:59:25"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T20:10:54.607Z"},"timestamp":"2024-12-30 12:10:54"}
+{"date":"2024-12-30T20:10:54.607Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:10:54"}
+{"date":"2024-12-30T20:10:54.607Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:10:54"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"6ms","statusCode":400,"timestamp":"2024-12-30 12:10:54"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:10:54"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":94,"timestamp":"2024-12-30 12:10:55"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"160ms","statusCode":200,"timestamp":"2024-12-30 12:10:55"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T20:10:54.607Z"},"timestamp":"2024-12-30 12:10:55"}
+{"date":"2024-12-30T20:10:54.607Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:10:55"}
+{"date":"2024-12-30T20:10:54.607Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:10:55"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"2ms","statusCode":400,"timestamp":"2024-12-30 12:10:55"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:10:55"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":94,"timestamp":"2024-12-30 12:10:55"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"126ms","statusCode":304,"timestamp":"2024-12-30 12:10:55"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:10:55"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":94,"timestamp":"2024-12-30 12:10:55"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"118ms","statusCode":304,"timestamp":"2024-12-30 12:10:55"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:10:55"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":94,"timestamp":"2024-12-30 12:10:55"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"120ms","statusCode":304,"timestamp":"2024-12-30 12:10:55"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T20:10:54.607Z"},"timestamp":"2024-12-30 12:11:02"}
+{"date":"2024-12-30T20:10:54.607Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:11:02"}
+{"date":"2024-12-30T20:10:54.607Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:11:02"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"1ms","statusCode":400,"timestamp":"2024-12-30 12:11:02"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:11:03"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-31T08:00:00.000Z"},"timestamp":"2024-12-30 12:11:03"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"2ms","statusCode":200,"timestamp":"2024-12-30 12:11:03"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":94,"timestamp":"2024-12-30 12:11:03"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"126ms","statusCode":304,"timestamp":"2024-12-30 12:11:03"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-31T08:00:00.000Z"},"timestamp":"2024-12-30 12:11:04"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"1ms","statusCode":200,"timestamp":"2024-12-30 12:11:04"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:11:04"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T08:00:00.000Z"},"timestamp":"2024-12-30 12:11:04"}
+{"date":"2024-12-30T08:00:00.000Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:11:04"}
+{"date":"2024-12-30T08:00:00.000Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:11:04"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"1ms","statusCode":400,"timestamp":"2024-12-30 12:11:04"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":94,"timestamp":"2024-12-30 12:11:04"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"115ms","statusCode":304,"timestamp":"2024-12-30 12:11:04"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T20:18:32.623Z"},"timestamp":"2024-12-30 12:18:32"}
+{"date":"2024-12-30T20:18:32.623Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:18:32"}
+{"date":"2024-12-30T20:18:32.623Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:18:32"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"1ms","statusCode":400,"timestamp":"2024-12-30 12:18:32"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:18:32"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":95,"timestamp":"2024-12-30 12:18:33"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"157ms","statusCode":200,"timestamp":"2024-12-30 12:18:33"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T20:18:32.623Z"},"timestamp":"2024-12-30 12:18:33"}
+{"date":"2024-12-30T20:18:32.623Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:18:33"}
+{"date":"2024-12-30T20:18:32.623Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:18:33"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"1ms","statusCode":400,"timestamp":"2024-12-30 12:18:33"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:18:33"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":95,"timestamp":"2024-12-30 12:18:33"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"106ms","statusCode":304,"timestamp":"2024-12-30 12:18:33"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:18:33"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":95,"timestamp":"2024-12-30 12:18:33"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"116ms","statusCode":304,"timestamp":"2024-12-30 12:18:33"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:18:33"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":95,"timestamp":"2024-12-30 12:18:33"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"118ms","statusCode":304,"timestamp":"2024-12-30 12:18:33"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T20:19:25.356Z"},"timestamp":"2024-12-30 12:19:25"}
+{"date":"2024-12-30T20:19:25.356Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:19:25"}
+{"date":"2024-12-30T20:19:25.356Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:19:25"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"9ms","statusCode":400,"timestamp":"2024-12-30 12:19:25"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:19:25"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T20:19:25.356Z"},"timestamp":"2024-12-30 12:19:25"}
+{"date":"2024-12-30T20:19:25.356Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:19:25"}
+{"date":"2024-12-30T20:19:25.356Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:19:25"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"2ms","statusCode":400,"timestamp":"2024-12-30 12:19:25"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":95,"timestamp":"2024-12-30 12:19:25"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"178ms","statusCode":304,"timestamp":"2024-12-30 12:19:25"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:19:26"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":95,"timestamp":"2024-12-30 12:19:26"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"121ms","statusCode":304,"timestamp":"2024-12-30 12:19:26"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:19:26"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":95,"timestamp":"2024-12-30 12:19:26"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"116ms","statusCode":304,"timestamp":"2024-12-30 12:19:26"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:19:26"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":95,"timestamp":"2024-12-30 12:19:26"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"115ms","statusCode":304,"timestamp":"2024-12-30 12:19:26"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T20:35:13.285Z"},"timestamp":"2024-12-30 12:35:13"}
+{"date":"2024-12-30T20:35:13.285Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:35:13"}
+{"date":"2024-12-30T20:35:13.285Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:35:13"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"11ms","statusCode":400,"timestamp":"2024-12-30 12:35:13"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:35:13"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T20:35:13.285Z"},"timestamp":"2024-12-30 12:35:13"}
+{"date":"2024-12-30T20:35:13.285Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:35:13"}
+{"date":"2024-12-30T20:35:13.285Z","error":"Booking requires minimum 1 hour notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 12:35:13"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"2ms","statusCode":400,"timestamp":"2024-12-30 12:35:13"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":95,"timestamp":"2024-12-30 12:35:13"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"152ms","statusCode":200,"timestamp":"2024-12-30 12:35:13"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:35:13"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":95,"timestamp":"2024-12-30 12:35:13"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"113ms","statusCode":304,"timestamp":"2024-12-30 12:35:13"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:35:14"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":95,"timestamp":"2024-12-30 12:35:14"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"124ms","statusCode":304,"timestamp":"2024-12-30 12:35:14"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 12:35:14"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":95,"timestamp":"2024-12-30 12:35:14"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"119ms","statusCode":304,"timestamp":"2024-12-30 12:35:14"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-30T20:38:28.109Z"},"timestamp":"2024-12-30 12:38:29"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/main.d2c48bca6fcf3723ec8f.hot-update.json","query":{},"timestamp":"2024-12-30 23:38:22"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/main.d2c48bca6fcf3723ec8f.hot-update.json","responseTime":"4ms","statusCode":404,"timestamp":"2024-12-30 23:38:22"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/main.1b986f492defa4a7f285.hot-update.json","query":{},"timestamp":"2024-12-30 23:38:22"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/main.1b986f492defa4a7f285.hot-update.json","responseTime":"1ms","statusCode":404,"timestamp":"2024-12-30 23:38:22"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-31T07:38:28.658Z"},"timestamp":"2024-12-30 23:38:28"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:38:28"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:38:28"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-31T07:38:28.740Z"},"timestamp":"2024-12-30 23:38:28"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:38:28"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:38:28"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"286ms","statusCode":200,"timestamp":"2024-12-30 23:38:28"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:38:28"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"285ms","statusCode":200,"timestamp":"2024-12-30 23:38:28"}
+{"date":"2024-12-31T07:38:28.658Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:38:28"}
+{"date":"2024-12-31T07:38:28.658Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:38:28"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"302ms","statusCode":400,"timestamp":"2024-12-30 23:38:28"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:38:29"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"185ms","statusCode":200,"timestamp":"2024-12-30 23:38:29"}
+{"date":"2024-12-31T07:38:28.740Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:38:29"}
+{"date":"2024-12-31T07:38:28.740Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:38:29"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"190ms","statusCode":400,"timestamp":"2024-12-30 23:38:29"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:38:29"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-31T07:38:28.658Z"},"timestamp":"2024-12-30 23:38:29"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-31T07:38:28.740Z"},"timestamp":"2024-12-30 23:38:29"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:38:29"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:38:29"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:38:29"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"192ms","statusCode":200,"timestamp":"2024-12-30 23:38:29"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:38:29"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"219ms","statusCode":304,"timestamp":"2024-12-30 23:38:29"}
+{"date":"2024-12-31T07:38:28.740Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:38:29"}
+{"date":"2024-12-31T07:38:28.740Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:38:29"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"202ms","statusCode":400,"timestamp":"2024-12-30 23:38:29"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:38:29"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"202ms","statusCode":200,"timestamp":"2024-12-30 23:38:29"}
+{"date":"2024-12-31T07:38:28.658Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:38:29"}
+{"date":"2024-12-31T07:38:28.658Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:38:29"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"209ms","statusCode":400,"timestamp":"2024-12-30 23:38:29"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:38:29"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:38:29"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"204ms","statusCode":304,"timestamp":"2024-12-30 23:38:29"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:38:29"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:38:29"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"253ms","statusCode":304,"timestamp":"2024-12-30 23:38:29"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-31T07:38:28.658Z"},"timestamp":"2024-12-30 23:38:52"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:38:52"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:38:52"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"131ms","statusCode":200,"timestamp":"2024-12-30 23:38:52"}
+{"date":"2024-12-31T07:38:28.658Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:38:52"}
+{"date":"2024-12-31T07:38:28.658Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:38:52"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"136ms","statusCode":400,"timestamp":"2024-12-30 23:38:52"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:38:53"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-31T08:00:00.000Z"},"timestamp":"2024-12-30 23:38:53"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:38:53"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:38:53"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"127ms","statusCode":304,"timestamp":"2024-12-30 23:38:53"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:38:53"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"122ms","statusCode":200,"timestamp":"2024-12-30 23:38:53"}
+{"date":"2024-12-31T08:00:00.000Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:38:53"}
+{"date":"2024-12-31T08:00:00.000Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:38:53"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"126ms","statusCode":400,"timestamp":"2024-12-30 23:38:53"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-31T08:00:00.000Z"},"timestamp":"2024-12-30 23:38:57"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:38:57"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2025-01-01T08:00:00.000Z"},"timestamp":"2024-12-30 23:38:57"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:38:57"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:38:57"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:38:57"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"135ms","statusCode":304,"timestamp":"2024-12-30 23:38:57"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:38:57"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"133ms","statusCode":200,"timestamp":"2024-12-30 23:38:57"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:38:57"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"133ms","statusCode":200,"timestamp":"2024-12-30 23:38:57"}
+{"date":"2024-12-31T08:00:00.000Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:38:57"}
+{"date":"2024-12-31T08:00:00.000Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:38:57"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"140ms","statusCode":400,"timestamp":"2024-12-30 23:38:57"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"142ms","statusCode":200,"timestamp":"2024-12-30 23:38:57"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-31T07:42:04.920Z"},"timestamp":"2024-12-30 23:42:04"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:42:04"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:42:04"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:42:05"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"163ms","statusCode":304,"timestamp":"2024-12-30 23:42:05"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:42:05"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:42:05"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"170ms","statusCode":200,"timestamp":"2024-12-30 23:42:05"}
+{"date":"2024-12-31T07:42:04.920Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:42:05"}
+{"date":"2024-12-31T07:42:04.920Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:42:05"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"175ms","statusCode":400,"timestamp":"2024-12-30 23:42:05"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:42:05"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"130ms","statusCode":304,"timestamp":"2024-12-30 23:42:05"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-31T07:42:04.920Z"},"timestamp":"2024-12-30 23:42:05"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:42:05"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:42:05"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"107ms","statusCode":200,"timestamp":"2024-12-30 23:42:05"}
+{"date":"2024-12-31T07:42:04.920Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:42:05"}
+{"date":"2024-12-31T07:42:04.920Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:42:05"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"110ms","statusCode":400,"timestamp":"2024-12-30 23:42:05"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-31T07:42:04.920Z"},"timestamp":"2024-12-30 23:42:37"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:42:37"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/bookings/availability","query":{"date":"2024-12-31T08:00:00.000Z"},"timestamp":"2024-12-30 23:42:37"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:42:37"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/api/weather","query":{"location":"Santa Cruz"},"timestamp":"2024-12-30 23:42:37"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:42:37"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"122ms","statusCode":304,"timestamp":"2024-12-30 23:42:37"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:42:37"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"127ms","statusCode":200,"timestamp":"2024-12-30 23:42:37"}
+{"level":"info","location":"Santa Cruz de la Sierra","message":"Weather data retrieved successfully","temperature":73,"timestamp":"2024-12-30 23:42:37"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/","responseTime":"131ms","statusCode":200,"timestamp":"2024-12-30 23:42:37"}
+{"date":"2024-12-31T08:00:00.000Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:42:37"}
+{"date":"2024-12-31T08:00:00.000Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:42:37"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"135ms","statusCode":400,"timestamp":"2024-12-30 23:42:37"}
+{"date":"2024-12-31T07:42:04.920Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:42:37"}
+{"date":"2024-12-31T07:42:04.920Z","error":"Booking requires minimum 4 hours notice","level":"error","message":"Availability check failed","serviceType":"Basic Wash","timestamp":"2024-12-30 23:42:37"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/availability","responseTime":"140ms","statusCode":400,"timestamp":"2024-12-30 23:42:37"}
+{"body":"{}","level":"info","message":"Incoming Request","method":"GET","path":"/main.5d37f1f7f165ee3c7bb6.hot-update.json","query":{},"timestamp":"2024-12-30 23:44:56"}
+{"level":"info","message":"Request Completed","method":"GET","path":"/main.5d37f1f7f165ee3c7bb6.hot-update.json","responseTime":"4ms","statusCode":404,"timestamp":"2024-12-30 23:44:56"}

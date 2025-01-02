@@ -1,0 +1,30 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\Darius\\Documents\\precisiondetail\\precision-detailing-website\\server\\logs\\.257e61975accdc1f2bd990c4d3a3bc677dcbf20d-audit.json",
+    "files": [
+        {
+            "date": 1735379764946,
+            "name": "C:\\Users\\Darius\\Documents\\precisiondetail\\precision-detailing-website\\server\\logs\\combined-2024-12-28.log",
+            "hash": "1bc59efbc1556cd0851b788f99de8698bed8b0e160eee912d2d41ea5d3c309e3"
+        },
+        {
+            "date": 1735462114826,
+            "name": "C:\\Users\\Darius\\Documents\\precisiondetail\\precision-detailing-website\\server\\logs\\combined-2024-12-29.log",
+            "hash": "da4021ac1838e7b290cbfe29e7a284005c2d7ea4f12ebe6d16ce58a4b7aec368"
+        },
+        {
+            "date": 1735545600110,
+            "name": "C:\\Users\\Darius\\Documents\\precisiondetail\\precision-detailing-website\\server\\logs\\combined-2024-12-30.log",
+            "hash": "5e128e754842bf6c60dda0a0c8977fe3ac07198e31a0db6f812b9155057f38cc"
+        },
+        {
+            "date": 1735632295459,
+            "name": "C:\\Users\\Darius\\Documents\\precisiondetail\\precision-detailing-website\\server\\logs\\combined-2024-12-31.log",
+            "hash": "076a7642f019a48c3c89b51c49e3273da92462bfd2416a3df16710823d725b45"
+        }
+    ],
+    "hashType": "sha256"
+}

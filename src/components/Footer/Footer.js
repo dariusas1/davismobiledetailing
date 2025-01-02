@@ -1,7 +1,8 @@
 import './Footer.css';
 import logo from '../../assets/images/logo.png';
+import { Link } from 'react-router-dom';
 
-const Footer = ({ Link }) => {
+const Footer = () => {
     return (
         <>
             <div style={{ height: '150px', overflow: 'hidden' }}>
@@ -12,17 +13,17 @@ const Footer = ({ Link }) => {
                 </svg>
             </div>
             <footer className="footer">
-                <img className="footer-logo" src={logo} alt="Davis Mobile Detailing Logo" />
+                <img className="footer-logo" src={logo} alt="Precision Detailing Logo" />
                 <div className="footer-content">
                     <div>
                         <p className="footer-heading">Contact</p>
                         <div className="footer-contact-group">
                             <p className="footer-contact-group-heading">Text/Call at:</p>
-                            <p>(480)-285-9857</p>
+                            <p>408-634-9181</p>
                         </div>
                         <div className="footer-contact-group">
                             <p className="footer-contact-group-heading">Email at:</p>
-                            <a href="mailto:davismobiledetailingaz@gmail.com">davismobiledetailingaz@gmail.com</a>
+                            <a href="mailto:precisiondetailing@gmail.com">precisiondetailing@gmail.com</a>
                         </div>
                     </div>
                     <div>
@@ -40,11 +41,11 @@ const Footer = ({ Link }) => {
                     </div>
                     <div>
                         <p className="footer-heading">Service Locations</p>
-                        <p>Phoenix</p>
-                        <p>Chandler</p>
-                        <p>Gilbert</p>
-                        <p>Queen Creek</p>
-                        <p>South Mesa</p>
+                        <p>San Jose</p>
+                        <p>Santa Clara</p>
+                        <p>Sunnyvale</p>
+                        <p>Mountain View</p>
+                        <p>Palo Alto</p>
                     </div>
                 </div>
             </footer>

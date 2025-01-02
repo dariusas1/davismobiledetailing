@@ -1,0 +1,18 @@
+{
+    "watch": [
+        "server/"
+    ],
+    "ext": "js,json,env",
+    "ignore": [
+        "server/data/db/*",
+        "server/logs/*",
+        "node_modules/"
+    ],
+    "verbose": true,
+    "env": {
+        "NODE_ENV": "development"
+    },
+    "events": {
+        "restart": "echo Server restarting due to changes..."
+    }
+}

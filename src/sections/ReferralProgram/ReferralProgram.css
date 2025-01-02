@@ -1,0 +1,127 @@
+.referral-program {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 50px 0;
+}
+
+.referral-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 215, 0, 0.1);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.referral-program h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.referral-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.referral-rewards, .referral-code-section {
+    flex: 1;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+}
+
+.referral-rewards h3, 
+.referral-code-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.referral-rewards ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.referral-rewards li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.referral-rewards li::before {
+    content: '✓';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+.generate-code-btn, 
+.add-email-btn, 
+.submit-referrals-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.generate-code-btn:hover, 
+.add-email-btn:hover, 
+.submit-referrals-btn:hover {
+    background-color: rgba(255, 215, 0, 0.8);
+}
+
+.referral-code-display {
+    text-align: center;
+}
+
+.referral-code-display strong {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.referral-form {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.referral-email-input {
+    margin-bottom: 15px;
+}
+
+.referral-email-input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    border-radius: 5px;
+}
+
+.referral-form-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 600px) {
+    .referral-details {
+        flex-direction: column;
+    }
+
+    .referral-rewards, .referral-code-section {
+        margin-bottom: 20px;
+    }
+
+    .referral-form-actions {
+        flex-direction: column;
+    }
+
+    .add-email-btn, .submit-referrals-btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,92 @@
+.pricing-calculator {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 50px 0;
+}
+
+.calculator-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 215, 0, 0.1);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.pricing-calculator h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.calculator-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.option-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.option-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option-btn:hover {
+    background-color: rgba(255, 215, 0, 0.2);
+}
+
+.option-btn.selected {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.pricing-result {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.price-display {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.pricing-result p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@media screen and (max-width: 600px) {
+    .calculator-container {
+        padding: 20px;
+    }
+
+    .option-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .price-display {
+        font-size: 2rem;
+    }
+}

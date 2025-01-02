@@ -4,8 +4,8 @@ import React from 'react';
 const Banner = () => {
     return (
         <section className="banner">
-            <p>Local & High Quality Details</p>
-            <p>Davis Mobile Detailing</p>
+            <p>Precision Detailing</p>
+            <p>Mobile & Premium Car Detailing Services</p>
         </section>
     )
 };

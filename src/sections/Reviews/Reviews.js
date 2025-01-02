@@ -2,20 +2,23 @@ import './Reviews.css';
 import ReviewCard from '../../components/ReviewCard/ReviewCard';
 import { AppContext } from '../../App';
 import { useContext, useEffect } from 'react';
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
+import { Swiper, SwiperSlide, Pagination, Navigation } from '../../utils/swiperConfig';
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const Reviews = () => {
     const {
-        reviewsList,
+        reviewsList = [],
         getReviewsList
     } = useContext(AppContext);
 
     useEffect(() => {
-        getReviewsList();
+        try {
+            getReviewsList();
+        } catch (error) {
+            console.error('Failed to fetch reviews:', error);
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -26,7 +29,7 @@ const Reviews = () => {
                 <p>Customer Feedback</p>
             </div>
             {
-                reviewsList.length === 0
+                (!reviewsList || reviewsList.length === 0)
                 &&
                 <div className="reviews-content-no-reviews">
                     <p className="reviews-content-warning">Reviews coming soon, check back later.</p>

@@ -1,0 +1,83 @@
+.service-area {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 50px 0;
+}
+
+.service-area-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.service-area-map {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.service-locations {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    flex: 2;
+}
+
+.service-location {
+    background-color: rgba(255, 215, 0, 0.1);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-location:hover {
+    transform: scale(1.05);
+}
+
+.service-location h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.service-area-description {
+    flex: 1;
+    background-color: rgba(255, 215, 0, 0.1);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 30px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.check-coverage-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.check-coverage-btn:hover {
+    background-color: rgba(255, 215, 0, 0.8);
+}
+
+@media screen and (max-width: 768px) {
+    .service-area-map {
+        flex-direction: column;
+    }
+
+    .service-locations {
+        grid-template-columns: 1fr;
+    }
+
+    .service-area-description {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
