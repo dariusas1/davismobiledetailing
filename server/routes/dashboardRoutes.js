@@ -1,18 +1,19 @@
-const express = require('express');
+import express from 'express';
+import DashboardController from '../controllers/dashboardController.js';
+import { uploadProjectImage, uploadReviewImage, uploadPackageImage, uploadMiddleware } from '../middleware/uploadMiddleware.js';
+import { authenticateUser, authorizeRoles } from '../middleware/authMiddleware.js';
+import logger from '../config/logger.js';
+import { handleDashboardErrors } from '../middleware/errorHandler.js';
+
 const router = express.Router();
-const DashboardController = require('../controllers/dashboardController');
-const uploadMiddleware = require('../middleware/uploadMiddleware');
-const authMiddleware = require('../middleware/authMiddleware');
-const logger = require('../config/logger');
-const { handleDashboardErrors } = require('../middleware/errorHandler');
 
 // Log middleware initialization
 console.log('Initializing dashboard routes middleware...');
 logger.info('Initializing dashboard routes middleware', {
     timestamp: new Date().toISOString(),
     middlewares: {
-        auth: !!authMiddleware,
-        upload: !!uploadMiddleware,
+        auth: !!authenticateUser,
+        upload: !!uploadProjectImage,
         controller: !!DashboardController
     }
 });
@@ -23,7 +24,7 @@ try {
     router.get('/projects', 
         (req, res, next) => {
             console.log('GET /projects: Authenticating user...');
-            authMiddleware.authenticateUser(req, res, next);
+            authenticateUser(req, res, next);
         },
         async (req, res, next) => {
             try {
@@ -49,11 +50,11 @@ try {
     router.post('/projects',
         (req, res, next) => {
             console.log('POST /projects: Authenticating user...');
-            authMiddleware.authenticateUser(req, res, next);
+            authenticateUser(req, res, next);
         },
         (req, res, next) => {
             console.log('POST /projects: Processing file upload...');
-            uploadMiddleware.uploadProjectImage.single('projectImage')(req, res, (err) => {
+            uploadProjectImage.single('projectImage')(req, res, (err) => {
                 if (err) {
                     console.error('POST /projects: File upload error:', err);
                     return next(err);
@@ -548,4 +549,4 @@ router.use((err, req, res, next) => {
 
 router.use(handleDashboardErrors);
 
-module.exports = router;
+export default router;

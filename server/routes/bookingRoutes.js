@@ -1,6 +1,7 @@
-const express = require('express');
-const bookingController = require('../controllers/bookingController');
-const { validateBookingData } = require('../../src/utils/bookingValidationUtils');
+import express from 'express';
+import * as bookingController from '../controllers/bookingController.js';
+import { validateBookingData } from '../../src/utils/bookingValidationUtils.js';
+import { protect } from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -10,21 +11,26 @@ router.use((req, res, next) => {
     next();
 });
 
-router.post('/', (req, res, next) => {
-    const validation = validateBookingData(req.body);
-    if (!validation.isValid) {
-        return res.status(400).json({
-            success: false,
-            errors: validation.errors
-        });
-    }
-    next();
-}, bookingController.createBooking);
-router.get('/slots', bookingController.getAvailableSlots);
-router.get('/real-time-availability', bookingController.getRealTimeAvailability);
-router.post('/validate', bookingController.validateDateTime);
-router.post('/reserve', bookingController.reserveSlot);
-router.get('/weather', bookingController.getWeatherConditions);
-router.get('/recommendations', bookingController.getRecommendedSlots);
+router.post('/', 
+    protect,
+    (req, res, next) => {
+        const validation = validateBookingData(req.body);
+        if (!validation.isValid) {
+            return res.status(400).json({
+                success: false,
+                errors: validation.errors
+            });
+        }
+        next();
+    }, 
+    bookingController.createBooking
+);
 
-module.exports = router;
+router.get('/slots', protect, bookingController.getAvailableSlots);
+router.get('/real-time-availability', protect, bookingController.getRealTimeAvailability);
+router.post('/validate', protect, bookingController.validateDateTime);
+router.post('/reserve', protect, bookingController.reserveSlot);
+router.get('/weather', protect, bookingController.getWeatherConditions);
+router.get('/recommendations', protect, bookingController.getRecommendedSlots);
+
+export default router;

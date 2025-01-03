@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const ProjectSchema = new mongoose.Schema({
     title: {
@@ -39,4 +39,5 @@ ProjectSchema.index({ category: 1 });
 ProjectSchema.index({ createdBy: 1 });
 ProjectSchema.index({ status: 1 });
 
-module.exports = mongoose.model('Project', ProjectSchema);
+const Project = mongoose.model('Project', ProjectSchema);
+export default Project;

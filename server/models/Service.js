@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const dynamicPricingFactorsSchema = new Schema({
@@ -245,5 +245,4 @@ serviceSchema.pre('save', async function(next) {
 });
 
 const Service = mongoose.model('Service', serviceSchema);
-
-module.exports = Service; 
+export { Service as default }; 

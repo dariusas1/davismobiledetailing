@@ -1,5 +1,5 @@
-const { getAvailableSlots } = require('./bookingService');
-const socket = require('./socketService');
+import { getAvailableSlots } from './bookingService.js';
+import socket from './socketService.js';
 
 class SlotAvailabilityService {
   constructor() {
@@ -22,10 +22,6 @@ class SlotAvailabilityService {
     }
   }
 
-  subscribeToAvailabilityUpdates(callback) {
-    return this.socket.on('slotAvailability', callback);
-  }
-
   async getRealTimeAvailability() {
     try {
       const date = new Date().toISOString().split('T')[0];
@@ -37,4 +33,5 @@ class SlotAvailabilityService {
   }
 }
 
-module.exports = new SlotAvailabilityService();
+const slotAvailabilityService = new SlotAvailabilityService();
+export default slotAvailabilityService;

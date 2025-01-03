@@ -1,8 +1,12 @@
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
-const { v4: uuidv4 } = require('uuid');
-const logger = require('../config/logger');
+import multer from 'multer';
+import path from 'path';
+import fs from 'fs';
+import { v4 as uuidv4 } from 'uuid';
+import logger from '../config/logger.js';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Ensure upload directories exist
 const ensureDirectoryExists = (directory) => {
@@ -159,11 +163,10 @@ const handleUploadErrors = (err, req, res, next) => {
 
 // Export middleware functions
 console.log('Exporting upload middleware functions...');
-module.exports = {
-    uploadProjectImage: projectUpload,
-    uploadReviewImage: reviewUpload,
-    uploadPackageImage: packageUpload,
+export const uploadProjectImage = projectUpload;
+export const uploadReviewImage = reviewUpload;
+export const uploadPackageImage = packageUpload;
+export const uploadMiddleware = {
     logUploadAttempt,
     handleUploadErrors
 };
-console.log('Upload middleware setup complete');

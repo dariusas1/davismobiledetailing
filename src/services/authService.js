@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Logger from '../utils/Logger';
+import Logger from '../utils/Logger.js';
 
 const API_URL = 'http://localhost:5001/api/auth';
 
@@ -138,6 +138,10 @@ class AuthService {
     static isPasswordChangeRequired() {
         const user = JSON.parse(localStorage.getItem('user') || '{}');
         return user.mustChangePassword === true;
+    }
+
+    static getToken() {
+        return localStorage.getItem('userToken');
     }
 }
 

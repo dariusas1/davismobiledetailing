@@ -1,30 +1,206 @@
 :root {
-  --primary-gold: #D4AF37;
-  --secondary-black: #1A1A1A;
-  --pure-white: #FFFFFF;
+  --color-gold: #D4AF37;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray-100: #f7f7f7;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-800: #1f1f1f;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  background-color: var(--secondary-black);
-  color: var(--pure-white);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer components {
+  .btn-primary {
+    @apply bg-[#D4AF37] text-white px-6 py-3 rounded-md hover:bg-opacity-90 transition-all duration-300;
   }
-} 
+  
+  .btn-secondary {
+    @apply border-2 border-[#D4AF37] text-[#D4AF37] px-6 py-3 rounded-md hover:bg-[#D4AF37] hover:text-white transition-all duration-300;
+  }
+
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+  }
+
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-bold;
+  }
+
+  .heading-md {
+    @apply text-2xl md:text-3xl font-bold;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Modern Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b08f2d;
+}
+
+/* Flip Card Styles */
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.flip-card:hover {
+  transform: rotateY(180deg);
+}
+
+/* Progress Bar Animation */
+@keyframes progress {
+  from {
+    width: 0;
+  }
+}
+
+.animate-progress {
+  animation: progress 1.5s ease-out forwards;
+}
+
+/* Floating Progress Bar */
+.floating-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #B8860B, #FFD700);
+  z-index: 1000;
+  transform-origin: 0 50%;
+}
+
+/* Enhanced Button Styles */
+.btn-primary {
+  @apply bg-gold text-white px-6 py-3 rounded font-bold hover:bg-opacity-90 transition-all duration-300;
+}
+
+.btn-secondary {
+  @apply bg-white text-black px-6 py-3 rounded font-bold hover:bg-opacity-90 transition-all duration-300;
+}
+
+.btn-outline {
+  @apply border-2 border-gold text-gold px-6 py-3 rounded font-bold hover:bg-gold hover:text-white transition-all duration-300;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B8860B;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #986c08;
+}
+
+/* Focus Styles */
+:focus {
+  outline: 2px solid #B8860B;
+  outline-offset: 2px;
+}
+
+/* Keyboard Navigation Styles */
+.keyboard-focus:focus {
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.5);
+}
+
+/* Form Auto-save Animation */
+@keyframes saving {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.saving-indicator {
+  animation: saving 1.5s infinite;
+}
+
+/* Enhanced Container Styles */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.section-padding {
+  @apply py-16 sm:py-20 lg:py-24;
+}
+
+.heading-xl {
+  @apply text-4xl sm:text-5xl lg:text-6xl font-bold;
+}
+
+.heading-lg {
+  @apply text-3xl sm:text-4xl lg:text-5xl font-bold;
+}
+
+.heading-md {
+  @apply text-2xl md:text-3xl font-bold;
+}
+
+/* ... existing styles ... */ 

@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
-const express = require('express');
+import express from 'express';
+import jwt from 'jsonwebtoken';
+import { body, validationResult } from 'express-validator';
+import bcrypt from 'bcryptjs';
+import crypto from 'crypto';
+import User from '../models/User.js';
+import { sendPasswordResetEmail } from '../services/emailService.js';
+
 const router = express.Router();
-const User = require('../models/User');
-const jwt = require('jsonwebtoken');
-const { body, validationResult } = require('express-validator');
-const bcrypt = require('bcryptjs');
-const crypto = require('crypto');
-const { sendPasswordResetEmail } = require('../services/emailService');
 
 // JWT Token Generation
 const generateToken = (user) => {
@@ -222,4 +223,4 @@ router.get('/profile', authenticateToken, async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

@@ -43,14 +43,14 @@ class NotFoundError extends AppError {
 }
 
 // Async handler wrapper to eliminate try-catch blocks
-const handleAsync = (fn) => {
+export const handleAsync = (fn) => {
     return (req, res, next) => {
         Promise.resolve(fn(req, res, next)).catch(next);
     };
 };
 
 // Global error handler middleware
-const errorHandler = (err, req, res, next) => {
+export const errorHandler = (err, req, res, next) => {
     err.statusCode = err.statusCode || 500;
     err.status = err.status || 'error';
 
@@ -80,7 +80,7 @@ const errorHandler = (err, req, res, next) => {
 };
 
 // Handle specific error types
-const handleErrors = (err) => {
+export const handleErrors = (err) => {
     if (err.name === 'CastError') {
         return new AppError(`Invalid ${err.path}: ${err.value}`, 400);
     }
@@ -107,7 +107,7 @@ const handleErrors = (err) => {
 };
 
 // Rate limiting error handler
-const handleTooManyRequests = (req, res) => {
+export const handleTooManyRequests = (req, res) => {
     res.status(429).json({
         status: 'error',
         message: 'Too many requests from this IP, please try again later'
@@ -128,14 +128,10 @@ process.on('unhandledRejection', err => {
     process.exit(1);
 });
 
-module.exports = {
+export {
     AppError,
     ValidationError,
     AuthenticationError,
     AuthorizationError,
-    NotFoundError,
-    handleAsync,
-    errorHandler,
-    handleErrors,
-    handleTooManyRequests
+    NotFoundError
 }; 

@@ -1,22 +1,60 @@
 import logger from '../config/logger.js';
 
-export const globalErrorHandler = (err, req, res, next) => {
-    // Log the error
-    logger.error('Error:', {
-        message: err.message,
-        stack: err.stack,
-        path: req.path,
-        method: req.method
-    });
+class ValidationError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'ValidationError';
+    this.status = 400;
+  }
+}
 
-    // Default error status and message
-    const status = err.status || 500;
-    const message = err.message || 'Internal Server Error';
+class NotFoundError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'NotFoundError';
+    this.status = 404;
+  }
+}
 
-    // Send error response
-    res.status(status).json({
-        status: 'error',
-        message,
-        ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+class AuthenticationError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'AuthenticationError';
+    this.status = 401;
+  }
+}
+
+class ForbiddenError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'ForbiddenError';
+    this.status = 403;
+  }
+}
+
+const errorHandler = (err, req, res, next) => {
+  console.error(err);
+
+  if (err instanceof ValidationError || 
+      err instanceof NotFoundError || 
+      err instanceof AuthenticationError ||
+      err instanceof ForbiddenError) {
+    return res.status(err.status).json({
+      error: err.name,
+      message: err.message
     });
+  }
+
+  res.status(500).json({
+    error: 'InternalServerError',
+    message: 'An unexpected error occurred'
+  });
+};
+
+export {
+  ValidationError,
+  NotFoundError,
+  AuthenticationError,
+  ForbiddenError,
+  errorHandler
 };

@@ -1,4 +1,4 @@
-const Joi = require('joi');
+import Joi from 'joi';
 
 const serviceSchema = Joi.object({
     name: Joi.string()
@@ -111,7 +111,7 @@ const serviceSchema = Joi.object({
     })
 });
 
-exports.validateService = (data) => {
+export const validateService = (data) => {
     return serviceSchema.validate(data, {
         abortEarly: false,
         stripUnknown: true,
@@ -119,8 +119,7 @@ exports.validateService = (data) => {
     });
 };
 
-// Add more validation schemas as needed
-exports.validateBooking = (data) => {
+export const validateBooking = (data) => {
     const bookingSchema = Joi.object({
         service: Joi.string()
             .regex(/^[0-9a-fA-F]{24}$/)
@@ -164,7 +163,7 @@ exports.validateBooking = (data) => {
     });
 };
 
-exports.validateVehicle = (data) => {
+export const validateVehicle = (data) => {
     const vehicleSchema = Joi.object({
         make: Joi.string()
             .required()

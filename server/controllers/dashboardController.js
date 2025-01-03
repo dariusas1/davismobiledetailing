@@ -1,434 +1,299 @@
-const Project = require('../models/Project');
-const Review = require('../models/Review');
-const Package = require('../models/Package');
-const logger = require('../config/logger');
-const { ValidationError, NotFoundError } = require('../middleware/errorHandler');
+import { ValidationError, NotFoundError } from '../middleware/errorHandler.js';
+import Booking from '../models/Booking.js';
+import Service from '../models/Service.js';
+import User from '../models/User.js';
+import Review from '../models/Review.js';
+import { startOfMonth, endOfMonth, subMonths } from 'date-fns';
+import { cacheMiddleware } from '../config/redis.js';
+import { Parser } from 'json2csv';
+import PDFDocument from 'pdfkit';
 
-class DashboardController {
-    // Project Methods
-    static async getAllProjects(req, res, next) {
-        try {
-            const projects = await Project.find({}).sort({ createdAt: -1 });
-            
-            logger.info('Projects retrieved successfully', { 
-                count: projects.length,
-                userId: req.user.id 
-            });
-
-            return {
-                success: true,
-                count: projects.length,
-                data: projects
-            };
-        } catch (error) {
-            logger.error('Error retrieving projects', { 
-                error: error.message,
-                userId: req.user.id 
-            });
-            throw error;
+// Helper function to fetch dashboard data
+const fetchDashboardData = async (startDate, endDate, previousStartDate, previousEndDate) => {
+  const [
+    currentRevenue,
+    previousRevenue,
+    currentBookings,
+    previousBookings,
+    services,
+    customerRetention,
+    averageRating,
+    topCustomers
+  ] = await Promise.all([
+    // Current month revenue
+    Booking.aggregate([
+      {
+        $match: {
+          createdAt: { $gte: startDate, $lte: endDate },
+          status: 'COMPLETED'
         }
-    }
+      },
+      {
+        $group: {
+          _id: null,
+          totalAmount: { $sum: '$totalAmount' }
+        }
+      }
+    ]),
 
-    static async createProject(req, res, next) {
-        try {
-            const { title, description, category } = req.body;
-            
-            // Validate input
-            if (!title || !description) {
-                throw new ValidationError('Title and description are required');
+    // Previous month revenue
+    Booking.aggregate([
+      {
+        $match: {
+          createdAt: { $gte: previousStartDate, $lte: previousEndDate },
+          status: 'COMPLETED'
+        }
+      },
+      {
+        $group: {
+          _id: null,
+          totalAmount: { $sum: '$totalAmount' }
+        }
+      }
+    ]),
+
+    // Current month bookings
+    Booking.countDocuments({
+      createdAt: { $gte: startDate, $lte: endDate }
+    }),
+
+    // Previous month bookings
+    Booking.countDocuments({
+      createdAt: { $gte: previousStartDate, $lte: previousEndDate }
+    }),
+
+    // Services summary
+    Service.aggregate([
+      {
+        $lookup: {
+          from: 'bookings',
+          localField: '_id',
+          foreignField: 'serviceId',
+          as: 'bookings'
+        }
+      },
+      {
+        $project: {
+          name: 1,
+          bookings: {
+            $filter: {
+              input: '$bookings',
+              as: 'booking',
+              cond: {
+                $and: [
+                  { $gte: ['$$booking.createdAt', startDate] },
+                  { $lte: ['$$booking.createdAt', endDate] }
+                ]
+              }
             }
-
-            const projectData = {
-                title,
-                description,
-                category,
-                imageUrl: req.file ? req.file.path : null,
-                createdBy: req.user.id
-            };
-
-            const project = new Project(projectData);
-            await project.save();
-
-            logger.info('Project created successfully', {
-                projectId: project._id,
-                userId: req.user.id
-            });
-
-            return {
-                success: true,
-                data: project
-            };
-        } catch (error) {
-            logger.error('Error creating project', {
-                error: error.message,
-                userId: req.user.id
-            });
-            throw error;
+          }
         }
-    }
+      }
+    ]),
 
-    static async updateProject(req, res, next) {
-        try {
-            const { id } = req.params;
-            const updates = req.body;
+    // Customer retention
+    User.countDocuments({
+      'bookings.createdAt': { $gte: previousStartDate }
+    }),
 
-            if (req.file) {
-                updates.imageUrl = req.file.path;
+    // Average rating
+    Review.aggregate([
+      {
+        $group: {
+          _id: null,
+          averageRating: { $avg: '$rating' }
+        }
+      }
+    ]),
+
+    // Top customers
+    User.aggregate([
+      {
+        $lookup: {
+          from: 'bookings',
+          localField: '_id',
+          foreignField: 'userId',
+          as: 'bookings'
+        }
+      },
+      {
+        $match: {
+          'bookings.status': 'COMPLETED'
+        }
+      },
+      {
+        $project: {
+          name: 1,
+          email: 1,
+          bookings: {
+            $filter: {
+              input: '$bookings',
+              as: 'booking',
+              cond: { $eq: ['$$booking.status', 'COMPLETED'] }
             }
-
-            const project = await Project.findByIdAndUpdate(
-                id,
-                { $set: updates },
-                { new: true, runValidators: true }
-            );
-
-            if (!project) {
-                throw new NotFoundError('Project not found');
-            }
-
-            logger.info('Project updated successfully', {
-                projectId: id,
-                userId: req.user.id
-            });
-
-            return {
-                success: true,
-                data: project
-            };
-        } catch (error) {
-            logger.error('Error updating project', {
-                error: error.message,
-                projectId: req.params.id,
-                userId: req.user.id
-            });
-            throw error;
+          }
         }
+      },
+      {
+        $sort: { 'bookings': -1 }
+      },
+      {
+        $limit: 5
+      }
+    ])
+  ]);
+
+  // Calculate metrics
+  const currentRevenueAmount = currentRevenue[0]?.totalAmount || 0;
+  const previousRevenueAmount = previousRevenue[0]?.totalAmount || 0;
+
+  const revenueGrowth = previousRevenueAmount
+    ? ((currentRevenueAmount - previousRevenueAmount) / previousRevenueAmount) * 100
+    : 0;
+
+  const bookingsGrowth = previousBookings
+    ? ((currentBookings - previousBookings) / previousBookings) * 100
+    : 0;
+
+  // Format service data
+  const serviceStats = services.map(service => ({
+    name: service.name,
+    bookings: service.bookings.length,
+    revenue: service.bookings.reduce((sum, booking) => sum + booking.totalAmount, 0)
+  }));
+
+  // Format customer data
+  const customerStats = topCustomers.map(customer => ({
+    name: customer.name,
+    email: customer.email,
+    totalBookings: customer.bookings.length,
+    totalSpent: customer.bookings.reduce((sum, booking) => sum + booking.totalAmount, 0)
+  }));
+
+  return {
+    revenue: {
+      current: currentRevenueAmount,
+      previous: previousRevenueAmount,
+      growth: revenueGrowth
+    },
+    bookings: {
+      current: currentBookings,
+      previous: previousBookings,
+      growth: bookingsGrowth
+    },
+    services: serviceStats,
+    customers: {
+      retention: customerRetention,
+      topCustomers: customerStats
+    },
+    ratings: {
+      average: averageRating[0]?.averageRating || 0
     }
+  };
+};
 
-    static async deleteProject(req, res, next) {
-        try {
-            const { id } = req.params;
-            const project = await Project.findByIdAndDelete(id);
+export const getDashboardStats = async (req, res, next) => {
+  try {
+    const now = new Date();
+    const startDate = startOfMonth(now);
+    const endDate = endOfMonth(now);
+    const previousStartDate = startOfMonth(subMonths(now, 1));
+    const previousEndDate = endOfMonth(subMonths(now, 1));
 
-            if (!project) {
-                throw new NotFoundError('Project not found');
-            }
+    // Use cache middleware
+    const cacheKey = `dashboard:${startDate.toISOString()}:${endDate.toISOString()}`;
+    const data = await cacheMiddleware(
+      cacheKey,
+      () => fetchDashboardData(startDate, endDate, previousStartDate, previousEndDate),
+      300 // Cache for 5 minutes
+    );
 
-            logger.info('Project deleted successfully', {
-                projectId: id,
-                userId: req.user.id
-            });
+    res.json(data);
+  } catch (error) {
+    next(error);
+  }
+};
 
-            return {
-                success: true,
-                message: 'Project deleted successfully'
-            };
-        } catch (error) {
-            logger.error('Error deleting project', {
-                error: error.message,
-                projectId: req.params.id,
-                userId: req.user.id
-            });
-            throw error;
-        }
-    }
+// Export dashboard data as CSV
+export const exportDashboardCSV = async (req, res, next) => {
+  try {
+    const { startDate, endDate } = req.query;
+    const data = await fetchDashboardData(
+      new Date(startDate),
+      new Date(endDate),
+      new Date(startDate),
+      new Date(endDate)
+    );
 
-    // Review Methods
-    static async getAllReviews(req, res, next) {
-        try {
-            const reviews = await Review.find({}).sort({ createdAt: -1 });
+    const fields = [
+      { label: 'Current Revenue', value: 'revenue.current' },
+      { label: 'Revenue Growth', value: 'revenue.growth' },
+      { label: 'Current Bookings', value: 'bookings.current' },
+      { label: 'Bookings Growth', value: 'bookings.growth' },
+      { label: 'Customer Retention', value: 'customers.retention' },
+      { label: 'Average Rating', value: 'ratings.average' }
+    ];
 
-            logger.info('Reviews retrieved successfully', {
-                count: reviews.length,
-                userId: req.user.id
-            });
+    const json2csvParser = new Parser({ fields });
+    const csv = json2csvParser.parse(data);
 
-            return {
-                success: true,
-                count: reviews.length,
-                data: reviews
-            };
-        } catch (error) {
-            logger.error('Error retrieving reviews', {
-                error: error.message,
-                userId: req.user.id
-            });
-            throw error;
-        }
-    }
+    res.header('Content-Type', 'text/csv');
+    res.attachment(`dashboard-report-${startDate}-${endDate}.csv`);
+    res.send(csv);
+  } catch (error) {
+    next(error);
+  }
+};
 
-    static async createReview(req, res, next) {
-        try {
-            const { rating, comment, customerName } = req.body;
+// Export dashboard data as PDF
+export const exportDashboardPDF = async (req, res, next) => {
+  try {
+    const { startDate, endDate } = req.query;
+    const data = await fetchDashboardData(
+      new Date(startDate),
+      new Date(endDate),
+      new Date(startDate),
+      new Date(endDate)
+    );
 
-            if (!rating || !comment || !customerName) {
-                throw new ValidationError('Rating, comment, and customer name are required');
-            }
+    const doc = new PDFDocument();
+    res.header('Content-Type', 'application/pdf');
+    res.attachment(`dashboard-report-${startDate}-${endDate}.pdf`);
+    doc.pipe(res);
 
-            const reviewData = {
-                rating,
-                comment,
-                customerName,
-                imageUrl: req.file ? req.file.path : null,
-                createdBy: req.user.id
-            };
+    // Add content to PDF
+    doc.fontSize(20).text('Dashboard Report', { align: 'center' });
+    doc.moveDown();
+    doc.fontSize(12).text(`Period: ${startDate} to ${endDate}`);
+    doc.moveDown();
 
-            const review = new Review(reviewData);
-            await review.save();
+    // Revenue section
+    doc.fontSize(16).text('Revenue');
+    doc.fontSize(12).text(`Current Revenue: $${data.revenue.current}`);
+    doc.text(`Growth: ${data.revenue.growth.toFixed(2)}%`);
+    doc.moveDown();
 
-            logger.info('Review created successfully', {
-                reviewId: review._id,
-                userId: req.user.id
-            });
+    // Bookings section
+    doc.fontSize(16).text('Bookings');
+    doc.fontSize(12).text(`Current Bookings: ${data.bookings.current}`);
+    doc.text(`Growth: ${data.bookings.growth.toFixed(2)}%`);
+    doc.moveDown();
 
-            return {
-                success: true,
-                data: review
-            };
-        } catch (error) {
-            logger.error('Error creating review', {
-                error: error.message,
-                userId: req.user.id
-            });
-            throw error;
-        }
-    }
+    // Services section
+    doc.fontSize(16).text('Services');
+    data.services.forEach(service => {
+      doc.fontSize(12).text(`${service.name}: ${service.bookings} bookings ($${service.revenue})`);
+    });
+    doc.moveDown();
 
-    static async deleteReview(req, res, next) {
-        try {
-            const { id } = req.params;
-            const review = await Review.findByIdAndDelete(id);
+    // Customers section
+    doc.fontSize(16).text('Top Customers');
+    data.customers.topCustomers.forEach(customer => {
+      doc.fontSize(12).text(`${customer.name}: ${customer.totalBookings} bookings ($${customer.totalSpent})`);
+    });
 
-            if (!review) {
-                throw new NotFoundError('Review not found');
-            }
-
-            logger.info('Review deleted successfully', {
-                reviewId: id,
-                userId: req.user.id
-            });
-
-            return {
-                success: true,
-                message: 'Review deleted successfully'
-            };
-        } catch (error) {
-            logger.error('Error deleting review', {
-                error: error.message,
-                reviewId: req.params.id,
-                userId: req.user.id
-            });
-            throw error;
-        }
-    }
-
-    // Package Methods
-    static async getAllPackages(req, res, next) {
-        try {
-            const packages = await Package.find({}).sort({ createdAt: -1 });
-
-            logger.info('Packages retrieved successfully', {
-                count: packages.length,
-                userId: req.user.id
-            });
-
-            return {
-                success: true,
-                count: packages.length,
-                data: packages
-            };
-        } catch (error) {
-            logger.error('Error retrieving packages', {
-                error: error.message,
-                userId: req.user.id
-            });
-            throw error;
-        }
-    }
-
-    static async createPackage(req, res, next) {
-        try {
-            const { name, description, price, features } = req.body;
-
-            if (!name || !description || !price) {
-                throw new ValidationError('Name, description, and price are required');
-            }
-
-            const packageData = {
-                name,
-                description,
-                price,
-                features: features || [],
-                imageUrl: req.file ? req.file.path : null,
-                createdBy: req.user.id
-            };
-
-            const newPackage = new Package(packageData);
-            await newPackage.save();
-
-            logger.info('Package created successfully', {
-                packageId: newPackage._id,
-                userId: req.user.id
-            });
-
-            return {
-                success: true,
-                data: newPackage
-            };
-        } catch (error) {
-            logger.error('Error creating package', {
-                error: error.message,
-                userId: req.user.id
-            });
-            throw error;
-        }
-    }
-
-    static async updatePackage(req, res, next) {
-        try {
-            const { id } = req.params;
-            const updates = req.body;
-
-            if (req.file) {
-                updates.imageUrl = req.file.path;
-            }
-
-            const updatedPackage = await Package.findByIdAndUpdate(
-                id,
-                { $set: updates },
-                { new: true, runValidators: true }
-            );
-
-            if (!updatedPackage) {
-                throw new NotFoundError('Package not found');
-            }
-
-            logger.info('Package updated successfully', {
-                packageId: updatedPackage._id,
-                userId: req.user.id
-            });
-
-            return {
-                success: true,
-                data: updatedPackage
-            };
-        } catch (error) {
-            logger.error('Error updating package', {
-                error: error.message,
-                packageId: req.params.id,
-                userId: req.user.id
-            });
-            throw error;
-        }
-    }
-
-    static async deletePackage(req, res, next) {
-        try {
-            const { id } = req.params;
-
-            const deletedPackage = await Package.findByIdAndDelete(id);
-
-            if (!deletedPackage) {
-                throw new NotFoundError('Package not found');
-            }
-
-            logger.info('Package deleted successfully', {
-                packageId: id,
-                userId: req.user.id
-            });
-
-            return {
-                success: true,
-                data: deletedPackage
-            };
-        } catch (error) {
-            logger.error('Error deleting package', {
-                error: error.message,
-                packageId: req.params.id,
-                userId: req.user.id
-            });
-            throw error;
-        }
-    }
-
-    static async getDashboardAnalytics(req, res, next) {
-        try {
-            const [projects, reviews, packages] = await Promise.all([
-                Project.countDocuments(),
-                Review.countDocuments(),
-                Package.countDocuments()
-            ]);
-
-            const analytics = {
-                totalProjects: projects,
-                totalReviews: reviews,
-                totalPackages: packages
-            };
-
-            logger.info('Dashboard analytics retrieved successfully', {
-                userId: req.user.id,
-                analytics
-            });
-
-            return {
-                success: true,
-                data: analytics
-            };
-        } catch (error) {
-            logger.error('Error retrieving dashboard analytics', {
-                error: error.message,
-                userId: req.user.id
-            });
-            throw error;
-        }
-    }
-
-    static async getAdminDashboardData(req, res, next) {
-        try {
-            // Fetch key metrics for admin dashboard
-            const projectCount = await Project.countDocuments({});
-            const reviewCount = await Review.countDocuments({});
-            const packageCount = await Package.countDocuments({});
-            
-            // Get recent projects
-            const recentProjects = await Project.find({})
-                .sort({ createdAt: -1 })
-                .limit(5)
-                .select('title description createdAt');
-            
-            // Get recent reviews
-            const recentReviews = await Review.find({})
-                .sort({ createdAt: -1 })
-                .limit(5)
-                .populate('customer', 'username');
-            
-            // Compile dashboard data
-            const dashboardData = {
-                metrics: {
-                    totalProjects: projectCount,
-                    totalReviews: reviewCount,
-                    totalPackages: packageCount
-                },
-                recentProjects,
-                recentReviews
-            };
-
-            logger.info('Admin dashboard data retrieved successfully', { 
-                userId: req.user.id 
-            });
-
-            return {
-                success: true,
-                data: dashboardData
-            };
-        } catch (error) {
-            logger.error('Error retrieving admin dashboard data', { 
-                error: error.message,
-                userId: req.user.id 
-            });
-            throw error;
-        }
-    }
-}
-
-module.exports = DashboardController;
+    doc.end();
+  } catch (error) {
+    next(error);
+  }
+};

@@ -1,11 +1,12 @@
-const express = require('express');
+import express from 'express';
+import { protect } from '../middleware/auth.js';
+import logger from '../config/logger.js';
+import * as bookingAnalyticsService from '../services/bookingAnalyticsService.js';
+
 const router = express.Router();
-const bookingAnalyticsService = require('../services/bookingAnalyticsService');
-const authMiddleware = require('../middleware/authMiddleware');
-const logger = require('../utils/logger').logger;
 
 router.get('/stats', 
-    authMiddleware.authenticateUser,
+    protect,
     async (req, res, next) => {
         try {
             const stats = await bookingAnalyticsService.getBookingStats();
@@ -24,7 +25,7 @@ router.get('/stats',
 );
 
 router.get('/trends', 
-    authMiddleware.authenticateUser,
+    protect,
     async (req, res, next) => {
         try {
             const trends = await bookingAnalyticsService.getBookingTrends();
@@ -43,7 +44,7 @@ router.get('/trends',
 );
 
 router.get('/popular-services', 
-    authMiddleware.authenticateUser,
+    protect,
     async (req, res, next) => {
         try {
             const services = await bookingAnalyticsService.getPopularServices();
@@ -62,7 +63,7 @@ router.get('/popular-services',
 );
 
 router.get('/capacity', 
-    authMiddleware.authenticateUser,
+    protect,
     async (req, res, next) => {
         try {
             const capacity = await bookingAnalyticsService.getPredictiveBookingCapacity();
@@ -80,4 +81,4 @@ router.get('/capacity',
     }
 );
 
-module.exports = router;
+export default router;

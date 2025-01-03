@@ -1,253 +1,137 @@
-const Booking = require('../models/Booking');
-const { logger } = require('../utils/logger');
+import Booking from '../models/Booking.js';
+import Service from '../models/Service.js';
+import logger from '../config/logger.js';
 
-class BookingAnalyticsService {
-    // Get overall booking statistics
-    static async getBookingStats(options = {}) {
-        const { 
-            startDate, 
-            endDate, 
-            serviceType 
-        } = options;
+export async function getBookingStats() {
+    try {
+        const totalBookings = await Booking.countDocuments();
+        const completedBookings = await Booking.countDocuments({ status: 'completed' });
+        const pendingBookings = await Booking.countDocuments({ status: 'pending' });
+        const cancelledBookings = await Booking.countDocuments({ status: 'cancelled' });
 
-        try {
-            const query = {};
+        const totalRevenue = await Booking.aggregate([
+            { $match: { status: 'completed' } },
+            { $group: { _id: null, total: { $sum: '$totalAmount' } } }
+        ]);
 
-            if (startDate && endDate) {
-                query.date = {
-                    $gte: new Date(startDate),
-                    $lte: new Date(endDate)
-                };
-            }
-
-            if (serviceType) {
-                query.serviceType = serviceType;
-            }
-
-            const stats = await Booking.aggregate([
-                { $match: query },
-                {
-                    $group: {
-                        _id: null,
-                        totalBookings: { $sum: 1 },
-                        totalRevenue: { $sum: '$price' },
-                        averageBookingPrice: { $avg: '$price' },
-                        bookingsByStatus: {
-                            $push: {
-                                status: '$status',
-                                count: 1
-                            }
-                        }
-                    }
-                }
-            ]);
-
-            return stats[0] || {
-                totalBookings: 0,
-                totalRevenue: 0,
-                averageBookingPrice: 0,
-                bookingsByStatus: []
-            };
-        } catch (error) {
-            logger.error('Failed to retrieve booking statistics', {
-                error: error.message,
-                options
-            });
-            throw error;
-        }
-    }
-
-    // Get booking trends
-    static async getBookingTrends(options = {}) {
-        const { 
-            period = 'monthly', 
-            startDate, 
-            endDate 
-        } = options;
-
-        try {
-            let groupBy;
-            switch (period) {
-                case 'daily':
-                    groupBy = { 
-                        $dateToString: { 
-                            format: '%Y-%m-%d', 
-                            date: '$date' 
-                        } 
-                    };
-                    break;
-                case 'weekly':
-                    groupBy = { 
-                        $dateToString: { 
-                            format: '%Y-W%W', 
-                            date: '$date' 
-                        } 
-                    };
-                    break;
-                default:
-                    groupBy = { 
-                        $dateToString: { 
-                            format: '%Y-%m', 
-                            date: '$date' 
-                        } 
-                    };
-            }
-
-            const query = {};
-            if (startDate && endDate) {
-                query.date = {
-                    $gte: new Date(startDate),
-                    $lte: new Date(endDate)
-                };
-            }
-
-            const trends = await Booking.aggregate([
-                { $match: query },
-                {
-                    $group: {
-                        _id: groupBy,
-                        bookingCount: { $sum: 1 },
-                        totalRevenue: { $sum: '$price' },
-                        serviceTypes: {
-                            $push: '$serviceType'
-                        }
-                    }
-                },
-                { 
-                    $sort: { _id: 1 } 
-                }
-            ]);
-
-            return trends.map(trend => ({
-                period: trend._id,
-                bookingCount: trend.bookingCount,
-                totalRevenue: trend.totalRevenue,
-                popularServices: this.getMostFrequentServices(trend.serviceTypes)
-            }));
-        } catch (error) {
-            logger.error('Failed to retrieve booking trends', {
-                error: error.message,
-                options
-            });
-            throw error;
-        }
-    }
-
-    // Get most popular services
-    static async getPopularServices(options = {}) {
-        const { 
-            startDate, 
-            endDate 
-        } = options;
-
-        try {
-            const query = {};
-            if (startDate && endDate) {
-                query.date = {
-                    $gte: new Date(startDate),
-                    $lte: new Date(endDate)
-                };
-            }
-
-            const popularServices = await Booking.aggregate([
-                { $match: query },
-                {
-                    $group: {
-                        _id: '$serviceType',
-                        bookingCount: { $sum: 1 },
-                        totalRevenue: { $sum: '$price' }
-                    }
-                },
-                { 
-                    $sort: { bookingCount: -1 } 
-                }
-            ]);
-
-            return popularServices;
-        } catch (error) {
-            logger.error('Failed to retrieve popular services', {
-                error: error.message,
-                options
-            });
-            throw error;
-        }
-    }
-
-    // Helper method to find most frequent services
-    static getMostFrequentServices(services, topN = 3) {
-        const serviceCounts = services.reduce((acc, service) => {
-            acc[service] = (acc[service] || 0) + 1;
-            return acc;
-        }, {});
-
-        return Object.entries(serviceCounts)
-            .sort((a, b) => b[1] - a[1])
-            .slice(0, topN)
-            .map(([service, count]) => ({ service, count }));
-    }
-
-    // Predictive booking capacity
-    static async getPredictiveBookingCapacity(options = {}) {
-        const { 
-            startDate, 
-            endDate, 
-            serviceType 
-        } = options;
-
-        try {
-            const query = {};
-            if (startDate && endDate) {
-                query.date = {
-                    $gte: new Date(startDate),
-                    $lte: new Date(endDate)
-                };
-            }
-
-            if (serviceType) {
-                query.serviceType = serviceType;
-            }
-
-            const bookingCapacity = await Booking.aggregate([
-                { $match: query },
-                {
-                    $group: {
-                        _id: {
-                            $dateToString: { 
-                                format: '%Y-%m-%d', 
-                                date: '$date' 
-                            }
-                        },
-                        bookingCount: { $sum: 1 },
-                        maxCapacity: { $max: 10 } // Assuming max 10 bookings per day
-                    }
-                },
-                {
-                    $project: {
-                        date: '$_id',
-                        bookingCount: 1,
-                        maxCapacity: 1,
-                        capacityPercentage: {
-                            $multiply: [
-                                { $divide: ['$bookingCount', '$maxCapacity'] }, 
-                                100
-                            ]
-                        }
-                    }
-                },
-                { 
-                    $sort: { date: 1 } 
-                }
-            ]);
-
-            return bookingCapacity;
-        } catch (error) {
-            logger.error('Failed to retrieve predictive booking capacity', {
-                error: error.message,
-                options
-            });
-            throw error;
-        }
+        return {
+            totalBookings,
+            completedBookings,
+            pendingBookings,
+            cancelledBookings,
+            totalRevenue: totalRevenue[0]?.total || 0
+        };
+    } catch (error) {
+        logger.error('Error getting booking stats:', error);
+        throw error;
     }
 }
 
-module.exports = BookingAnalyticsService;
+export async function getBookingTrends() {
+    try {
+        const thirtyDaysAgo = new Date();
+        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+        const dailyBookings = await Booking.aggregate([
+            {
+                $match: {
+                    createdAt: { $gte: thirtyDaysAgo }
+                }
+            },
+            {
+                $group: {
+                    _id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } },
+                    count: { $sum: 1 },
+                    revenue: { $sum: '$totalAmount' }
+                }
+            },
+            {
+                $sort: { _id: 1 }
+            }
+        ]);
+
+        return dailyBookings;
+    } catch (error) {
+        logger.error('Error getting booking trends:', error);
+        throw error;
+    }
+}
+
+export async function getPopularServices() {
+    try {
+        const popularServices = await Booking.aggregate([
+            {
+                $match: { status: 'completed' }
+            },
+            {
+                $group: {
+                    _id: '$service',
+                    count: { $sum: 1 },
+                    revenue: { $sum: '$totalAmount' }
+                }
+            },
+            {
+                $sort: { count: -1 }
+            },
+            {
+                $limit: 5
+            },
+            {
+                $lookup: {
+                    from: 'services',
+                    localField: '_id',
+                    foreignField: '_id',
+                    as: 'serviceDetails'
+                }
+            },
+            {
+                $unwind: '$serviceDetails'
+            }
+        ]);
+
+        return popularServices;
+    } catch (error) {
+        logger.error('Error getting popular services:', error);
+        throw error;
+    }
+}
+
+export async function getPredictiveBookingCapacity() {
+    try {
+        const nextThirtyDays = new Date();
+        nextThirtyDays.setDate(nextThirtyDays.getDate() + 30);
+
+        // Get all services
+        const services = await Service.find();
+        
+        // Calculate capacity for each service
+        const capacity = await Promise.all(services.map(async (service) => {
+            const bookedSlots = await Booking.countDocuments({
+                service: service._id,
+                date: { $gte: new Date(), $lte: nextThirtyDays },
+                status: { $in: ['confirmed', 'in-progress'] }
+            });
+
+            // Calculate total available slots
+            const totalSlots = service.timeSlots.reduce((acc, slot) => {
+                return acc + (slot.maxBookings * 30); // 30 days
+            }, 0);
+
+            return {
+                service: {
+                    _id: service._id,
+                    name: service.name
+                },
+                totalCapacity: totalSlots,
+                bookedSlots,
+                availableSlots: totalSlots - bookedSlots,
+                utilizationRate: (bookedSlots / totalSlots) * 100
+            };
+        }));
+
+        return capacity;
+    } catch (error) {
+        logger.error('Error getting booking capacity:', error);
+        throw error;
+    }
+}

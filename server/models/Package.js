@@ -1,9 +1,10 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const packageSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   description: {
     type: String,
@@ -11,22 +12,43 @@ const packageSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    required: true
+    required: true,
+    min: 0
   },
-  services: [{
-    type: String
-  }],
   duration: {
     type: Number,
+    required: true,
+    min: 30 // Minimum 30 minutes
+  },
+  services: [{
+    type: String,
     required: true
-  },
-  image: {
-    type: String
-  },
-  isPopular: {
+  }],
+  vehicleTypes: [{
+    type: String,
+    required: true,
+    enum: ['Sedan', 'SUV', 'Truck', 'Van', 'Luxury Vehicle', 'Sports Car']
+  }],
+  isActive: {
     type: Boolean,
-    default: false
+    default: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now
   }
+}, {
+  timestamps: true
 });
 
-module.exports = mongoose.model('Package', packageSchema);
+// Add indexes for frequently queried fields
+packageSchema.index({ name: 1 });
+packageSchema.index({ isActive: 1 });
+packageSchema.index({ vehicleTypes: 1 });
+
+const Package = mongoose.model('Package', packageSchema);
+export default Package;

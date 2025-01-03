@@ -1,9 +1,10 @@
-const jwt = require('jsonwebtoken');
-const { AuthenticationError, AuthorizationError } = require('../utils/errorHandler');
-const User = require('../models/User');
+import jwt from 'jsonwebtoken';
+import { AuthenticationError, AuthorizationError } from '../utils/errorHandler.js';
+import User from '../models/User.js';
+import rateLimit from 'express-rate-limit';
 
 // Authenticate JWT token
-exports.authenticate = async (req, res, next) => {
+export const protect = async (req, res, next) => {
     try {
         // Get token from header
         const authHeader = req.headers.authorization;
@@ -42,7 +43,7 @@ exports.authenticate = async (req, res, next) => {
 };
 
 // Authorize roles
-exports.authorize = (roles) => {
+export const authorize = (roles) => {
     return (req, res, next) => {
         if (!roles.includes(req.user.role)) {
             return next(new AuthorizationError('Not authorized to access this route'));
@@ -52,7 +53,7 @@ exports.authorize = (roles) => {
 };
 
 // Check ownership
-exports.checkOwnership = (model) => {
+export const checkOwnership = (model) => {
     return async (req, res, next) => {
         try {
             const doc = await model.findById(req.params.id);
@@ -74,9 +75,7 @@ exports.checkOwnership = (model) => {
 };
 
 // Rate limiting
-exports.rateLimit = (limit, windowMs) => {
-    const rateLimit = require('express-rate-limit');
-    
+export const rateLimitMiddleware = (limit, windowMs) => {
     return rateLimit({
         max: limit, // Limit each IP to {limit} requests per windowMs
         windowMs, // Time window in milliseconds
@@ -91,7 +90,7 @@ exports.rateLimit = (limit, windowMs) => {
 };
 
 // API key authentication
-exports.apiKeyAuth = async (req, res, next) => {
+export const apiKeyAuth = async (req, res, next) => {
     try {
         const apiKey = req.headers['x-api-key'];
         if (!apiKey) {
@@ -112,7 +111,7 @@ exports.apiKeyAuth = async (req, res, next) => {
 };
 
 // Session authentication
-exports.sessionAuth = (req, res, next) => {
+export const sessionAuth = (req, res, next) => {
     if (!req.session || !req.session.user) {
         return next(new AuthenticationError('Please log in'));
     }
@@ -120,7 +119,7 @@ exports.sessionAuth = (req, res, next) => {
 };
 
 // Two-factor authentication
-exports.require2FA = async (req, res, next) => {
+export const require2FA = async (req, res, next) => {
     try {
         const user = await User.findById(req.user.id);
         if (user.requires2FA && !user.is2FAVerified) {
@@ -133,7 +132,7 @@ exports.require2FA = async (req, res, next) => {
 };
 
 // Refresh token
-exports.refreshToken = async (req, res, next) => {
+export const refreshToken = async (req, res, next) => {
     try {
         const { refreshToken } = req.body;
         if (!refreshToken) {
@@ -166,7 +165,7 @@ exports.refreshToken = async (req, res, next) => {
 };
 
 // Logout
-exports.logout = (req, res, next) => {
+export const logout = (req, res, next) => {
     try {
         // Clear session if using session-based auth
         if (req.session) {

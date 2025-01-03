@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\Darius\\Documents\\precisiondetail\\precision-detailing-website\\logs\\.2e2e17d20012e496b37cc5d490d33c7da199cff9-audit.json",
+    "files": [
+        {
+            "date": 1735865027540,
+            "name": "C:\\Users\\Darius\\Documents\\precisiondetail\\precision-detailing-website\\logs\\rejections-2025-01-02.log",
+            "hash": "eff03c8b0b7406021a4f4d1c49372513f81642f09c77fe42f06f1b6e06b5969c"
+        }
+    ],
+    "hashType": "sha256"
+}

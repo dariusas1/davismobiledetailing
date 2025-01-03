@@ -1,6 +1,9 @@
-/* eslint-disable no-undef */
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+import jwt from 'jsonwebtoken';
+import User from '../models/User.js';
+import bcrypt from 'bcryptjs';
+import speakeasy from 'speakeasy';
+import logger from '../config/logger.js';
+import { UnauthorizedError, ForbiddenError } from './errorHandler.js';
 
 class AuthMiddleware {
     // Token generation
@@ -176,14 +179,14 @@ class AuthMiddleware {
 const authMiddleware = new AuthMiddleware();
 
 // Export the methods
-module.exports = {
-    authenticateUser: authMiddleware.authenticateUser,
-    authorizeRoles: authMiddleware.authorizeRoles,
-    generateToken: authMiddleware.generateToken,
-    hashPassword: authMiddleware.hashPassword,
-    comparePassword: authMiddleware.comparePassword,
-    setupTwoFactorAuth: authMiddleware.setupTwoFactorAuth,
-    verifyTwoFactorToken: authMiddleware.verifyTwoFactorToken,
-    handleFailedLogin: authMiddleware.handleFailedLogin,
-    isAccountLocked: authMiddleware.isAccountLocked
-};
+export const {
+    authenticateUser,
+    authorizeRoles,
+    generateToken,
+    hashPassword,
+    comparePassword,
+    setupTwoFactorAuth,
+    verifyTwoFactorToken,
+    handleFailedLogin,
+    isAccountLocked
+} = authMiddleware;

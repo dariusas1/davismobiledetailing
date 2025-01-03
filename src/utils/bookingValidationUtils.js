@@ -1,5 +1,5 @@
-const validator = require('validator');
-const { DateTime } = require('luxon');
+import validator from 'validator';
+import { DateTime } from 'luxon';
 
 const validateBooking = {
   // Validate customer name
@@ -231,4 +231,5 @@ const validateBooking = {
   }
 };
 
-module.exports = validateBooking;
+export default validateBooking;
+export const { validateBookingData } = validateBooking;

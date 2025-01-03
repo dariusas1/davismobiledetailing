@@ -1,7 +1,7 @@
-const { Resend } = require('resend');
-const { logger } = require('../utils/logger');
+import { Resend } from 'resend';
+import logger from '../config/logger.js';
 
-async function sendEmail(options) {
+export async function sendEmail(options) {
     const resend = new Resend(process.env.REACT_APP_RESEND_API_KEY);
 
     try {
@@ -105,4 +105,17 @@ async function sendEmail(options) {
     }
 }
 
-module.exports = { sendEmail };
+export async function sendPasswordResetEmail(email, resetToken) {
+    const resetUrl = `${process.env.FRONTEND_URL}/reset-password?token=${resetToken}`;
+    
+    const options = {
+        to: email,
+        subject: 'Password Reset - Precision Detailing',
+        template: 'passwordReset',
+        data: {
+            resetUrl
+        }
+    };
+
+    await sendEmail(options);
+}

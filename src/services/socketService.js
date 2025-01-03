@@ -1,5 +1,5 @@
 import io from 'socket.io-client';
-import AuthService from './authService';
+import AuthService from './authService.js';
 
 class SocketService {
     constructor() {
